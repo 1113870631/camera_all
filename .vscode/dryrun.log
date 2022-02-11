@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ww/opencv/camera'
+make: Leaving directory '/home/ww/opencv/camera'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+ 
