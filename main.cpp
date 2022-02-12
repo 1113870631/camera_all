@@ -63,22 +63,21 @@ while(1)
         }
         // 图片分离
         picture_ex( &frame,& RIGHT,&LIFT);
-        //左右图片显示
 
         //畸变矫正
         Mat out1;
         Mat out2;
         Mat out3;
-      jibian_correct(&LIFT,&RIGHT,&out1,&out2,& mat11,&mat12,& mat21,&mat22, validPixROI1 , validPixROI2);
+
+         jibian_correct(&LIFT,&RIGHT,&out1,&out2,& mat11,&mat12,& mat21,&mat22, validPixROI1 , validPixROI2);
+
+         
         namedWindow("out1",WINDOW_FREERATIO);
         imshow("out1", out1);
         namedWindow("out2",WINDOW_FREERATIO);
         imshow("out2", out2);
-        cout<<out1.size<<"\n"<<endl;
-         cout<<out2.size<<"\n"<<endl;
-        //hconcat(out1,out2,out3);
-        //namedWindow("out3",WINDOW_FREERATIO);
-        //imshow("out3", out3);
+        //cout<<out1.size<<"\n"<<endl;
+        //cout<<out2.size<<"\n"<<endl;
         //立体匹配
 
           t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
