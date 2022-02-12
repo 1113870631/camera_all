@@ -595,6 +595,30 @@ picture_ex.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/picture_ex.cpp.s
 .PHONY : picture_ex.cpp.s
 
+sgm.o: sgm.cpp.o
+.PHONY : sgm.o
+
+# target to build an object file
+sgm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/sgm.cpp.o
+.PHONY : sgm.cpp.o
+
+sgm.i: sgm.cpp.i
+.PHONY : sgm.i
+
+# target to preprocess a source file
+sgm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/sgm.cpp.i
+.PHONY : sgm.cpp.i
+
+sgm.s: sgm.cpp.s
+.PHONY : sgm.s
+
+# target to generate assembly for a file
+sgm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/sgm.cpp.s
+.PHONY : sgm.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -644,6 +668,9 @@ help:
 	@echo "... picture_ex.o"
 	@echo "... picture_ex.i"
 	@echo "... picture_ex.s"
+	@echo "... sgm.o"
+	@echo "... sgm.i"
+	@echo "... sgm.s"
 .PHONY : help
 
 

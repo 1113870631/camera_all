@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/camera.dir/main.cpp.o.d"
   "CMakeFiles/camera.dir/picture_ex.cpp.o"
   "CMakeFiles/camera.dir/picture_ex.cpp.o.d"
+  "CMakeFiles/camera.dir/sgm.cpp.o"
+  "CMakeFiles/camera.dir/sgm.cpp.o.d"
   "camera"
   "camera.pdb"
 )

@@ -837,12 +837,12 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 CMakeFiles/camera.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=1,2,3,4 "Built target camera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target camera"
 .PHONY : CMakeFiles/camera.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/camera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ww/opencv/camera/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ww/opencv/camera/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/camera.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ww/opencv/camera/build/CMakeFiles 0
 .PHONY : CMakeFiles/camera.dir/rule
