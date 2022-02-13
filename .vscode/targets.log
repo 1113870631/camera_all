@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Feb 12 20:42:49 2022
+# Make data base, printed on Sun Feb 13 11:47:53 2022
 
 # Variables
 
@@ -28,6 +28,8 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 2
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -41,11 +43,9 @@ CURDIR := /home/ww/opencv/camera
 # makefile
 SHELL = /bin/sh
 # environment
-VTE_VERSION = 5202
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"bcb43daf7fc7aee39837fa8516ffebcd.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/f80445acd5a3dadef24aa209168452a3d97cc326","_corruptedFile":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn/899d46d82c4c95423fb7e10e68eba52050e30ba3","_corruptedFile":"/home/ww/.config/Code/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn/corrupted.info","_languagePackSupport":true}
-# environment
-_ = /usr/bin/code
+_ = /usr/share/code/code
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -53,7 +53,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 2
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
 USERNAME = ww
 # environment
@@ -71,9 +71,9 @@ ROS_PACKAGE_PATH = /opt/ros/melodic/share
 # environment
 ROS_PYTHON_VERSION = 2
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a6c5c959-664c-4f75-9051-1e8a645709a3.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d3ec8785-de09-43af-a8e7-bf7c27ef1c59.sock
 # environment
-VSCODE_CWD = /home/ww/opencv/camera
+VSCODE_CWD = /home/ww
 # environment
 CLUTTER_IM_MODULE = xim
 # default
@@ -87,7 +87,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = exfxcxdxbxbxbxbxbxbxbx
 # environment
-SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/2423,unix/ww:/tmp/.ICE-unix/2423
+SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/2400,unix/ww:/tmp/.ICE-unix/2400
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -103,8 +103,6 @@ VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
 CMAKE_PREFIX_PATH = /opt/ros/melodic
 # environment
 LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31;40:sg=31;40:tw=31;40:ow=31;40:
@@ -112,6 +110,8 @@ LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31
 ROS_DISTRO = melodic
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2979
 # automatic
 %F = $(notdir $%)
 # environment
@@ -125,7 +125,7 @@ PWD = /home/ww/opencv/camera
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 2500
+SSH_AGENT_PID = 2477
 # environment
 PKG_CONFIG_PATH = /opt/ros/melodic/lib/pkgconfig
 # environment
@@ -139,13 +139,11 @@ HOME = /home/ww
 # environment
 LD_LIBRARY_PATH = /opt/ros/melodic/lib
 # environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /home/ww/.config/Code/CachedData/899d46d82c4c95423fb7e10e68eba52050e30ba3
+VSCODE_CODE_CACHE_PATH = /home/ww/.config/Code/CachedData/f80445acd5a3dadef24aa209168452a3d97cc326
 # environment
 LOGNAME = ww
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 ZSH = /home/ww/.oh-my-zsh
 # environment
@@ -160,8 +158,6 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 XDG_VTNR = 2
 # environment
 MAKELEVEL := 0
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -169,7 +165,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 1
+SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -187,7 +183,7 @@ LESS = -R
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/ww/opencv
+OLDPWD = /home/ww
 # default
 .VARIABLES := 
 # automatic
@@ -195,7 +191,7 @@ OLDPWD = /home/ww/opencv
 # environment
 LANGUAGE = zh_CN:zh
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-42d72193-1.63.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-42d72193-1.64.2-main.sock
 # environment
 PYTHONPATH = /opt/ros/melodic/lib/python2.7/dist-packages
 # makefile
@@ -233,11 +229,9 @@ LC_ALL = C
 # environment
 QT4_IM_MODULE = xim
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/0326cfcf_8b6a_465f_a056_51d901e4b8f0
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.71
 # default
 SUFFIXES := 
 # environment
@@ -248,6 +242,8 @@ WINDOWPATH = 2
 ROSLISP_PACKAGE_DIRECTORIES = 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
@@ -255,11 +251,9 @@ AUTOJUMP_ERROR_PATH = /home/ww/.local/share/autojump/errors.log
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 3274
+VSCODE_PID = 2979
 # variable set hash-table stats:
-# Load=123/1024=12%, Rehash=0, Collisions=19/145=13%
+# Load=120/1024=12%, Rehash=0, Collisions=17/142=12%
 
 # Pattern-specific Variable Values
 
@@ -267,9 +261,9 @@ VSCODE_PID = 3274
 
 # Directories
 
-# . (device 66310, inode 1560964): 12 files, no impossibilities.
+# . (device 66310, inode 1560964): 14 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -280,13 +274,13 @@ VSCODE_PID = 3274
 # Not a target:
 all:
 #  Command line target.
- 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
 
 # Not a target:
 Makefile:
+ 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -320,12 +314,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 191 B / avg = 9 B
-# current buf: size = 8162 B / used = 191 B / count = 20 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 205 B / avg = 9 B
+# current buf: size = 8162 B / used = 205 B / count = 22 / avg = 9 B
 
-# strcache performance: lookups = 23 / hit rate = 13%
+# strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
-# Finished Make data base on Sat Feb 12 20:42:49 2022
+# Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
+# Finished Make data base on Sun Feb 13 11:47:53 2022
 
  
