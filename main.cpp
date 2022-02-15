@@ -23,9 +23,10 @@ using namespace std;
     int setSpeckleWindowSize=100;
     int setSpeckleRange=32;
     int setDisp12MaxDiff=1;
-    int setMinDisparity=0;
+    int setMinDisparity=-50;
     int p1=8;
     int p2=32;
+    int MD=1;
     cv::Ptr<cv::StereoSGBM> sgbm= cv::StereoSGBM::create(0,9, setblock);
 
     //立体匹配参数回调函数
@@ -33,6 +34,9 @@ using namespace std;
             {  
                         if(setblock%2==0)
                         {setblock=setblock+1;}
+                         if(MD%2==0)
+                        {MD=MD+1;}
+
                         sgbm->setBlockSize(setblock);
                         sgbm->setNumDisparities(setNumDisparities);
                         sgbm->setP1(p1 * 1*setblock*setblock);
@@ -95,7 +99,8 @@ int main()
     createTrackbar("setDisp12MaxDiff","out4",&setDisp12MaxDiff,100,other_Callback);   
     createTrackbar("p1","out4",&p1,21,other_Callback);   
     createTrackbar("p2","out4",&p2,21,other_Callback); 
-    createTrackbar("setMinDisparity","out4",&setMinDisparity,100,other_Callback);           
+    createTrackbar("setMinDisparity","out4",&setMinDisparity,100,other_Callback);
+    createTrackbar("MD","out4",&MD,100,other_Callback);                  
         if(setblock%2==0)
             {setblock=setblock+1;}
             sgbm->setBlockSize(setblock);
@@ -130,6 +135,7 @@ while(1)
         //立体匹配
         Mat out4;
          sgm(out1,out2,&out4,setNumDisparities,sgbm) ;
+         medianBlur(out4, out4, MD);
          
          imshow("out4",out4);
 

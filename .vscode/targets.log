@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
- 
 # GNU Make 4.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2014 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Feb 13 11:47:53 2022
+# Make data base, printed on Tue Feb 15 21:07:00 2022
 
 # Variables
 
@@ -28,8 +26,6 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 2
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -43,9 +39,11 @@ CURDIR := /home/ww/opencv/camera
 # makefile
 SHELL = /bin/sh
 # environment
+VTE_VERSION = 5202
+# environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"bcb43daf7fc7aee39837fa8516ffebcd.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/f80445acd5a3dadef24aa209168452a3d97cc326","_corruptedFile":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /usr/share/code/code
+_ = /usr/bin/code
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -53,9 +51,11 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+IM_CONFIG_PHASE = 2
 # environment
 USERNAME = ww
+# environment
+MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
@@ -71,9 +71,9 @@ ROS_PACKAGE_PATH = /opt/ros/melodic/share
 # environment
 ROS_PYTHON_VERSION = 2
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d3ec8785-de09-43af-a8e7-bf7c27ef1c59.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8e54d85f-2b26-46ca-8def-00e3cc33a884.sock
 # environment
-VSCODE_CWD = /home/ww
+VSCODE_CWD = /home/ww/opencv/camera
 # environment
 CLUTTER_IM_MODULE = xim
 # default
@@ -87,7 +87,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = exfxcxdxbxbxbxbxbxbxbx
 # environment
-SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/2400,unix/ww:/tmp/.ICE-unix/2400
+SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/2600,unix/ww:/tmp/.ICE-unix/2600
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -103,6 +103,8 @@ VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
 CMAKE_PREFIX_PATH = /opt/ros/melodic
 # environment
 LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31;40:sg=31;40:tw=31;40:ow=31;40:
@@ -110,8 +112,6 @@ LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31
 ROS_DISTRO = melodic
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2979
 # automatic
 %F = $(notdir $%)
 # environment
@@ -125,7 +125,7 @@ PWD = /home/ww/opencv/camera
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 2477
+SSH_AGENT_PID = 2678
 # environment
 PKG_CONFIG_PATH = /opt/ros/melodic/lib/pkgconfig
 # environment
@@ -138,6 +138,8 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProce
 HOME = /home/ww
 # environment
 LD_LIBRARY_PATH = /opt/ros/melodic/lib
+# environment
+VSCODE_CLI = 1
 # environment
 VSCODE_CODE_CACHE_PATH = /home/ww/.config/Code/CachedData/f80445acd5a3dadef24aa209168452a3d97cc326
 # environment
@@ -158,6 +160,8 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 XDG_VTNR = 2
 # environment
 MAKELEVEL := 0
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -165,7 +169,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 0
+SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -183,7 +187,7 @@ LESS = -R
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/ww
+OLDPWD = /home/ww/opencv/test/SGM2
 # default
 .VARIABLES := 
 # automatic
@@ -211,7 +215,11 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
+NO_AT_BRIDGE = 1
+# environment
 QT_ACCESSIBILITY = 1
+# environment
+DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
 TEXTDOMAINDIR = /usr/share/locale/
 # default
@@ -229,9 +237,11 @@ LC_ALL = C
 # environment
 QT4_IM_MODULE = xim
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d6f00605_75b3_4b1e_bef8_aba8fe05a00a
 # automatic
 ^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.318
 # default
 SUFFIXES := 
 # environment
@@ -242,8 +252,6 @@ WINDOWPATH = 2
 ROSLISP_PACKAGE_DIRECTORIES = 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
@@ -251,9 +259,11 @@ AUTOJUMP_ERROR_PATH = /home/ww/.local/share/autojump/errors.log
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2979
+TERM = xterm-256color
+# environment
+VSCODE_PID = 21121
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=17/142=12%
+# Load=126/1024=12%, Rehash=0, Collisions=19/148=13%
 
 # Pattern-specific Variable Values
 
@@ -280,7 +290,6 @@ all:
 
 # Not a target:
 Makefile:
- 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -319,7 +328,10 @@ GNUmakefile:
 
 # strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
 # Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Sun Feb 13 11:47:53 2022
+# Finished Make data base on Tue Feb 15 21:07:00 2022
 
  
