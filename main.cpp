@@ -134,10 +134,12 @@ while(1)
          imshow("LIFT",LIFT);
         //立体匹配
         Mat out4;
+        Mat im_color;
          sgm(out1,out2,&out4,setNumDisparities,sgbm) ;
          medianBlur(out4, out4, MD);
-         
-         imshow("out4",out4);
+         //生成伪彩图
+         applyColorMap(out4, im_color, COLORMAP_JET);
+         imshow("out4",im_color);
 
           t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
             fps = 1.0 / t;
