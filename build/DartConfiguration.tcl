@@ -27,7 +27,7 @@ NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
 ConfigureCommand: "/usr/share/cmake-3.22.1-linux-x86_64/bin/cmake" "/home/ww/opencv/camera"
-MakeCommand: /usr/share/cmake-3.22.1-linux-x86_64/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
+MakeCommand: /usr/share/cmake-3.22.1-linux-x86_64/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control

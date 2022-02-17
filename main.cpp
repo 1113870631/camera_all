@@ -20,12 +20,12 @@ using namespace std;
     int setblock=1;
     int setNumDisparities=10;
     int setUniquenessRatio=10;
-    int setSpeckleWindowSize=100;
-    int setSpeckleRange=32;
+    int setSpeckleWindowSize=0;
+    int setSpeckleRange=1;
     int setDisp12MaxDiff=1;
-    int setMinDisparity=-50;
+    int setMinDisparity=0;
     int p1=8;
-    int p2=32;
+    int p2=8;
     int MD=1;
     cv::Ptr<cv::StereoSGBM> sgbm= cv::StereoSGBM::create(0,9, setblock);
 
@@ -62,9 +62,9 @@ int main()
     Mat  mat21;
     Mat  mat22;
 
-     //得到重映射矩阵  和有效区域
-     jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,Size(640,480),&validPixROI1,&validPixROI2);
-
+     
+   //得到重映射矩阵  和有效区域
+    jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,Size(640,480),&validPixROI1,&validPixROI2);
     //--- INITIALIZE VIDEOCAPTURE
     VideoCapture cap;
     // open the default camera using default API
@@ -94,9 +94,9 @@ int main()
     createTrackbar("setNumDisparities","out4",&setNumDisparities,512,other_Callback);
     createTrackbar("setblock","out4",&setblock,21,other_Callback);
     createTrackbar("setUniquenessRatio","out4",&setUniquenessRatio,500,other_Callback);
-    createTrackbar("setSpeckleWindowSize","out4",&setSpeckleWindowSize,500,other_Callback);
-    createTrackbar("setSpeckleRange","out4",&setSpeckleRange,200,other_Callback);    
-    createTrackbar("setDisp12MaxDiff","out4",&setDisp12MaxDiff,100,other_Callback);   
+    createTrackbar("setSpeckleWindowSize","out4",&setSpeckleWindowSize,200,other_Callback);
+    createTrackbar("setSpeckleRange","out4",&setSpeckleRange,6,other_Callback);    
+    createTrackbar("setDisp12MaxDiff","out4",&setDisp12MaxDiff,200,other_Callback);   
     createTrackbar("p1","out4",&p1,21,other_Callback);   
     createTrackbar("p2","out4",&p2,21,other_Callback); 
     createTrackbar("setMinDisparity","out4",&setMinDisparity,100,other_Callback);
@@ -112,6 +112,7 @@ int main()
             sgbm->setSpeckleRange(setSpeckleRange);
             sgbm->setDisp12MaxDiff(setDisp12MaxDiff);
             sgbm->setMinDisparity(setMinDisparity);
+            int i=1;
 while(1)
     {
          t = (double)cv::getTickCount();
@@ -129,32 +130,51 @@ while(1)
         Mat out1;
         Mat out2;
         Mat out3;
-         jibian_correct(&LIFT,&RIGHT,&out1,&out2,& mat11,&mat12,& mat21,&mat22, validPixROI1 , validPixROI2);
-         namedWindow("LIFT",WINDOW_FREERATIO);
-         imshow("LIFT",LIFT);
+        //注意顺序
+         jibian_correct(&RIGHT,&LIFT,&out1,&out2,& mat11,&mat12,& mat21,&mat22, validPixROI1 , validPixROI2);
+         if(i==1)
+         {
+              imwrite("./out1.jpg",out1);
+              imwrite("./out2.jpg",out2);
+         }
+         //
+         int p=0;
+         for(int p=0;p<20;p++)
+         {
+            if(40+p*40>out1.cols)
+            break;
+             line(out1,Point(0,40+p*40),Point(out1.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
+             line(out2,Point(0,40+p*40),Point(out2.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
+         }
+       
+         namedWindow("out1",WINDOW_FREERATIO);
+         imshow("out1",out1);
+         namedWindow("out2",WINDOW_FREERATIO);
+         imshow("out2",out2);
+
         //立体匹配
         Mat out4;
         Mat im_color;
-         sgm(out1,out2,&out4,setNumDisparities,sgbm) ;
-         medianBlur(out4, out4, MD);
+         sgm(out2,out1,&out4,setNumDisparities,sgbm) ;
+         //滤波处理
+          imshow("out4",out4);
+         
          //生成伪彩图
          applyColorMap(out4, im_color, COLORMAP_JET);
-         imshow("out4",im_color);
+          imshow("out5",im_color);
+
 
           t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
             fps = 1.0 / t;
 
             cout<<fps<<endl;
             cout<<"\n"<<endl;
-        if (waitKey(5) >= 0)
-            break;
+            if (waitKey(5) >= 0)
+           break;
+
+
     }
     // the camera will be deinitialized automatically in VideoCapture destructor
     return 0;
-
-
 }
-
-
-
 

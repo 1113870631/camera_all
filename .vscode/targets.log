@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Feb 15 21:07:00 2022
+# Make data base, printed on Thu Feb 17 16:10:50 2022
 
 # Variables
 
@@ -26,6 +26,8 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 2
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -41,7 +43,7 @@ SHELL = /bin/sh
 # environment
 VTE_VERSION = 5202
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"bcb43daf7fc7aee39837fa8516ffebcd.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/f80445acd5a3dadef24aa209168452a3d97cc326","_corruptedFile":"/home/ww/.config/Code/clp/bcb43daf7fc7aee39837fa8516ffebcd.zh-cn/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn/f80445acd5a3dadef24aa209168452a3d97cc326","_corruptedFile":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/code
 # environment
@@ -51,7 +53,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 2
+GIO_LAUNCHED_DESKTOP_FILE = /etc/xdg/autostart/org.gnome.SettingsDaemon.MediaKeys.desktop
 # environment
 USERNAME = ww
 # environment
@@ -69,9 +71,11 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 ROS_PACKAGE_PATH = /opt/ros/melodic/share
 # environment
+TERMINATOR_UUID = urn:uuid:e735fa6a-8e1d-4895-a50c-04d1652bd198
+# environment
 ROS_PYTHON_VERSION = 2
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8e54d85f-2b26-46ca-8def-00e3cc33a884.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7b2f99be-2fc5-4eb7-b77b-066724d8b4bc.sock
 # environment
 VSCODE_CWD = /home/ww/opencv/camera
 # environment
@@ -87,7 +91,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = exfxcxdxbxbxbxbxbxbxbx
 # environment
-SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/2600,unix/ww:/tmp/.ICE-unix/2600
+SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/2688,unix/ww:/tmp/.ICE-unix/2688
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -112,6 +116,8 @@ LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31
 ROS_DISTRO = melodic
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3105
 # automatic
 %F = $(notdir $%)
 # environment
@@ -125,7 +131,7 @@ PWD = /home/ww/opencv/camera
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 2678
+SSH_AGENT_PID = 2766
 # environment
 PKG_CONFIG_PATH = /opt/ros/melodic/lib/pkgconfig
 # environment
@@ -188,6 +194,8 @@ LESS = -R
 MAKE_COMMAND := make
 # environment
 OLDPWD = /home/ww/opencv/test/SGM2
+# environment
+TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
 .VARIABLES := 
 # automatic
@@ -215,9 +223,9 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
-NO_AT_BRIDGE = 1
-# environment
 QT_ACCESSIBILITY = 1
+# environment
+DESKTOP_AUTOSTART_ID = 109ad0f91f7fa3f09164506663339561900000026880007
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
@@ -236,12 +244,8 @@ PAGER = less
 LC_ALL = C
 # environment
 QT4_IM_MODULE = xim
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d6f00605_75b3_4b1e_bef8_aba8fe05a00a
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.318
 # default
 SUFFIXES := 
 # environment
@@ -261,9 +265,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 21121
+TERMINATOR_DBUS_NAME = net.tenshu.Terminator20x1a6021154d881d
+# environment
+VSCODE_PID = 9965
 # variable set hash-table stats:
-# Load=126/1024=12%, Rehash=0, Collisions=19/148=13%
+# Load=129/1024=13%, Rehash=0, Collisions=21/151=14%
 
 # Pattern-specific Variable Values
 
@@ -272,6 +278,9 @@ VSCODE_PID = 21121
 # Directories
 
 # . (device 66310, inode 1560964): 14 files, no impossibilities.
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
 
 # 14 files, no impossibilities in 1 directories.
 
@@ -328,10 +337,7 @@ GNUmakefile:
 
 # strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 # Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Tue Feb 15 21:07:00 2022
+# Finished Make data base on Thu Feb 17 16:10:51 2022
 
  

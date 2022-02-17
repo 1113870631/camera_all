@@ -25,9 +25,7 @@ using namespace std;
 void sgm(Mat lift,Mat rigit,Mat *out,int setNumDisparities,cv::Ptr<cv::StereoSGBM> sgbm)  {
 
             Mat grayLeft,grayRight,grayLeft_h,grayRight_h, im3;
-            int p1=8,p2=32;
 
-   
             cvtColor(lift,grayLeft,COLOR_BGR2GRAY);
             cvtColor(rigit,grayRight,COLOR_BGR2GRAY);
             grayLeft_h=grayLeft;

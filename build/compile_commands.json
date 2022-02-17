@@ -1,22 +1,22 @@
 [
 {
   "directory": "/home/ww/opencv/camera/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7  -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/opencv/camera/main.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/opencv/camera/main.cpp",
   "file": "/home/ww/opencv/camera/main.cpp"
 },
 {
   "directory": "/home/ww/opencv/camera/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7  -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/opencv/camera/picture_ex.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/opencv/camera/picture_ex.cpp",
   "file": "/home/ww/opencv/camera/picture_ex.cpp"
 },
 {
   "directory": "/home/ww/opencv/camera/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7  -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/opencv/camera/jibian.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/opencv/camera/jibian.cpp",
   "file": "/home/ww/opencv/camera/jibian.cpp"
 },
 {
   "directory": "/home/ww/opencv/camera/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7  -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/opencv/camera/sgm.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -isystem /usr/local/include/opencv4 -g -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/opencv/camera/sgm.cpp",
   "file": "/home/ww/opencv/camera/sgm.cpp"
 }
 ]

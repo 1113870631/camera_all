@@ -143,7 +143,8 @@ void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Size size,Re
     }
     else{
 
-          //相机一 内参
+    
+      //相机一 内参    640  x  480
     cameraMatrix1.at<double>(0, 0) = 901.2256;
     cameraMatrix1.at<double>(0, 1) = 0;
     cameraMatrix1.at<double>(0, 2) = 313.5635;
@@ -206,7 +207,7 @@ void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Size size,Re
                                   R1,  R2,
                                   P1,  P2,
                                   Q,  CALIB_ZERO_DISPARITY,
-                                  0,  size,validPixROI1,validPixROI2);// -1  为重要参数
+                                  0,  size,validPixROI1,validPixROI2);//  0 为重要参数
 
       initUndistortRectifyMap( cameraMatrix1,  distCoeffs1,R1,P1,size, CV_32FC1,  *mat11, * mat12 ); 
       initUndistortRectifyMap( cameraMatrix2,  distCoeffs2,R2,P2,size, CV_32FC1,  *mat21, * mat22 ); 
@@ -216,8 +217,10 @@ void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Size size,Re
  * @brief 
  * 畸变矫正 重映射
  * 
- * @param mat_l  输入输出左图像
- * @param mat_r  输入输出右图像
+ * @param mat_l  输入左图像
+ * @param mat_r  输入右图像
+ *  @param mat_l_o  输出左图像
+ * @param  mat_r_o   输出右图像 
  * @param mat11 重映射矩阵11
  * @param mat12  重映射矩阵12
  * @param mat21  重映射矩阵21
@@ -227,13 +230,15 @@ void jibian_correct(Mat * mat_l,Mat *mat_r,Mat * mat_l_o,Mat *mat_r_o,Mat * mat1
 
      remap(*mat_l,*mat_l_o,*mat11,*mat12,INTER_LINEAR,BORDER_TRANSPARENT,0);
      remap(*mat_r,*mat_r_o,*mat21,*mat22,INTER_LINEAR,BORDER_TRANSPARENT,0);
-     /*
-      *mat_l_o=(*mat_l_o).colRange(validPixROI1.x,validPixROI1.width+validPixROI1.x);
+
+     *mat_l_o=(*mat_l_o).colRange(validPixROI1.x,validPixROI1.width+validPixROI1.x);
      *mat_l_o=(*mat_l_o).rowRange(validPixROI1.y,validPixROI1.y+validPixROI1.height);
      *mat_r_o=(*mat_r_o).colRange(validPixROI2.x,validPixROI2.width+validPixROI2.x);
      *mat_r_o=(*mat_r_o).rowRange(validPixROI2.y,validPixROI2.y+validPixROI2.height); 
-     */
+     
     
+     
+     
 };
 
 
