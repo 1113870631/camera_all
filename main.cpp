@@ -65,7 +65,7 @@ int main()
     Mat  mat22;
    
    //得到重映射矩阵  和有效区域
-    jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,Size(1280,720),&validPixROI1,&validPixROI2);
+    jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,Size(640,480),&validPixROI1,&validPixROI2);
     //--- INITIALIZE VIDEOCAPTURE
     VideoCapture cap;
     // open the default camera using default API
@@ -75,8 +75,8 @@ int main()
     int apiID = cv::CAP_ANY;      // 0 = autodetect default API
     // open selected camera using selected API
     cap.open(deviceID, apiID);
-    cap.set(CAP_PROP_FRAME_WIDTH,2560);
-    cap.set(CAP_PROP_FRAME_HEIGHT,720);
+    cap.set(CAP_PROP_FRAME_WIDTH,1280);
+    cap.set(CAP_PROP_FRAME_HEIGHT,480);
 
     // check if we succeeded
     if (!cap.isOpened()) {
@@ -156,12 +156,13 @@ while(1)
         //立体匹配  注意顺序
          Mat out4;
           sgm(out2,out1,&out4,setNumDisparities,sgbm) ;
-          Mat disp=out4.colRange(setNumDisparities,out4.cols);
-         //填补空洞
+          Mat disp=out4.colRange(setNumDisparities,out4.cols); 
          Mat disp_row=disp.clone();
+         imshow("row_disp",disp_row);
+         //填补空洞
          full_hole(&disp);
          imshow("disp",disp);
-         imshow("row_disp",disp_row);
+        
 
          //生成伪彩图
           Mat im_color;

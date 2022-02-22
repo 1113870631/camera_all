@@ -33,7 +33,7 @@ void full_hole(cv::Mat * disp)
         {//遍历图像
            if( (*disp).at<uchar>(i,j) ==0)
            {
-             
+
              int tmp_weight=1;
               int tmp_hight=1;
                  //获得空洞宽度
@@ -62,8 +62,24 @@ void full_hole(cv::Mat * disp)
                  }
                   i=i-tmp_hight;  
 
-                  (*disp).at<uchar>(i,j) =255;
-                
+                              xo=j;
+                              yo=i;
+          //积分图计算感性区域 像素总和
+                int roi_weight=xo + tmp_weight+20;
+                int  roi_hight=yo +tmp_hight+20;
+                 if(roi_weight>(*disp).cols)
+                  {
+                      roi_weight=(*disp).cols;
+                  }
+                    if(roi_hight>(*disp).rows)
+                  {
+                      roi_hight=(*disp).rows;
+                  }  
+                int integral_value = sum_img.at<int>(yo + tmp_hight, xo + tmp_weight) - sum_img.at<int>(yo + tmp_hight, xo)
+                - sum_img.at<int>(yo, xo + tmp_weight)
+                + sum_img.at<int>(yo, xo);
+
+                 (*disp).at<uchar>(i,j) =integral_value/((roi_hight)*(roi_weight)-tmp_hight*tmp_weight);
                 //cout<<"high"<<tmp_hight<<"\n";
                 //cout<<"weight"<<tmp_weight<<"\n";
 
