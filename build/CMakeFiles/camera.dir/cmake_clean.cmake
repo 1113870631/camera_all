@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/camera.dir/hole.cpp.o"
+  "CMakeFiles/camera.dir/hole.cpp.o.d"
   "CMakeFiles/camera.dir/jibian.cpp.o"
   "CMakeFiles/camera.dir/jibian.cpp.o.d"
   "CMakeFiles/camera.dir/main.cpp.o"

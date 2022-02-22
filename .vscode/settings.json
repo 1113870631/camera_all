@@ -1,6 +1,7 @@
 {
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
-        "videoio_c.h": "c"
+        "videoio_c.h": "c",
+        "iostream": "cpp"
     }
 }

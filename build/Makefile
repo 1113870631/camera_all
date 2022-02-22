@@ -523,6 +523,30 @@ camera/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/build
 .PHONY : camera/fast
 
+hole.o: hole.cpp.o
+.PHONY : hole.o
+
+# target to build an object file
+hole.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/hole.cpp.o
+.PHONY : hole.cpp.o
+
+hole.i: hole.cpp.i
+.PHONY : hole.i
+
+# target to preprocess a source file
+hole.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/hole.cpp.i
+.PHONY : hole.cpp.i
+
+hole.s: hole.cpp.s
+.PHONY : hole.s
+
+# target to generate assembly for a file
+hole.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/hole.cpp.s
+.PHONY : hole.cpp.s
+
 jibian.o: jibian.cpp.o
 .PHONY : jibian.o
 
@@ -659,6 +683,9 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... camera"
+	@echo "... hole.o"
+	@echo "... hole.i"
+	@echo "... hole.s"
 	@echo "... jibian.o"
 	@echo "... jibian.i"
 	@echo "... jibian.s"

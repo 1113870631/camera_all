@@ -11,21 +11,21 @@
 #include "picture_ex.h"
 #include "jibian.h"
 #include "sgm.h"
+#include "hole.h"
 
 using namespace cv;
 using namespace std;
 
-
   //立体匹配参数
-    int setblock=1;
-    int setNumDisparities=10;
-    int setUniquenessRatio=10;
+    int setblock=0;
+    int setNumDisparities=143;
+    int setUniquenessRatio=0;
     int setSpeckleWindowSize=0;
     int setSpeckleRange=1;
-    int setDisp12MaxDiff=1;
+    int setDisp12MaxDiff=500;
     int setMinDisparity=0;
-    int p1=8;
-    int p2=8;
+    int p1=0;
+    int p2=192;
     int MD=1;
     cv::Ptr<cv::StereoSGBM> sgbm= cv::StereoSGBM::create(0,9, setblock);
 
@@ -46,10 +46,12 @@ using namespace std;
                         sgbm->setSpeckleRange(setSpeckleRange);
                         sgbm->setDisp12MaxDiff(setDisp12MaxDiff);
                          sgbm->setMinDisparity(setMinDisparity);
+           };
 
-            };
+void my_ButtonCallback (int , void* ){
 
 
+};
 int main()
 {
     Rect validPixROI1;
@@ -61,10 +63,9 @@ int main()
     Mat  mat12;
     Mat  mat21;
     Mat  mat22;
-
-     
+   
    //得到重映射矩阵  和有效区域
-    jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,Size(640,480),&validPixROI1,&validPixROI2);
+    jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,Size(1280,720),&validPixROI1,&validPixROI2);
     //--- INITIALIZE VIDEOCAPTURE
     VideoCapture cap;
     // open the default camera using default API
@@ -74,8 +75,8 @@ int main()
     int apiID = cv::CAP_ANY;      // 0 = autodetect default API
     // open selected camera using selected API
     cap.open(deviceID, apiID);
-    cap.set(CAP_PROP_FRAME_WIDTH,1280);
-    cap.set(CAP_PROP_FRAME_HEIGHT,480);
+    cap.set(CAP_PROP_FRAME_WIDTH,2560);
+    cap.set(CAP_PROP_FRAME_HEIGHT,720);
 
     // check if we succeeded
     if (!cap.isOpened()) {
@@ -89,18 +90,19 @@ int main()
         double fps=0;
 
 
-    //设置参数调整bar
+        //设置参数调整bar
     namedWindow("out4",WINDOW_FREERATIO);
     createTrackbar("setNumDisparities","out4",&setNumDisparities,512,other_Callback);
     createTrackbar("setblock","out4",&setblock,21,other_Callback);
-    createTrackbar("setUniquenessRatio","out4",&setUniquenessRatio,500,other_Callback);
+    createTrackbar("setUniquenessRatio","out4",&setUniquenessRatio,10,other_Callback);
     createTrackbar("setSpeckleWindowSize","out4",&setSpeckleWindowSize,200,other_Callback);
     createTrackbar("setSpeckleRange","out4",&setSpeckleRange,6,other_Callback);    
-    createTrackbar("setDisp12MaxDiff","out4",&setDisp12MaxDiff,200,other_Callback);   
-    createTrackbar("p1","out4",&p1,21,other_Callback);   
-    createTrackbar("p2","out4",&p2,21,other_Callback); 
+    createTrackbar("setDisp12MaxDiff","out4",&setDisp12MaxDiff,500,other_Callback);   
+    createTrackbar("p1","out4",&p1,500,other_Callback);   
+    createTrackbar("p2","out4",&p2,500,other_Callback); 
     createTrackbar("setMinDisparity","out4",&setMinDisparity,100,other_Callback);
-    createTrackbar("MD","out4",&MD,100,other_Callback);                  
+    createTrackbar("MD","out4",&MD,100,other_Callback);     
+
         if(setblock%2==0)
             {setblock=setblock+1;}
             sgbm->setBlockSize(setblock);
@@ -112,9 +114,11 @@ int main()
             sgbm->setSpeckleRange(setSpeckleRange);
             sgbm->setDisp12MaxDiff(setDisp12MaxDiff);
             sgbm->setMinDisparity(setMinDisparity);
-            int i=1;
+
+
 while(1)
-    {
+    { 
+
          t = (double)cv::getTickCount();
         // wait for a new frame from camera and store it into 'frame'
         cap.read(frame);
@@ -125,18 +129,12 @@ while(1)
         }
         // 图片分离
         picture_ex( &frame,& RIGHT,&LIFT);
+        
 
-        //畸变矫正
+        //注意顺序   畸变矫正
         Mat out1;
         Mat out2;
-        Mat out3;
-        //注意顺序
          jibian_correct(&RIGHT,&LIFT,&out1,&out2,& mat11,&mat12,& mat21,&mat22, validPixROI1 , validPixROI2);
-         if(i==1)
-         {
-              imwrite("./out1.jpg",out1);
-              imwrite("./out2.jpg",out2);
-         }
          //
          int p=0;
          for(int p=0;p<20;p++)
@@ -146,21 +144,29 @@ while(1)
              line(out1,Point(0,40+p*40),Point(out1.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
              line(out2,Point(0,40+p*40),Point(out2.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
          }
-       
+  
+
+
+        
          namedWindow("out1",WINDOW_FREERATIO);
          imshow("out1",out1);
          namedWindow("out2",WINDOW_FREERATIO);
          imshow("out2",out2);
 
-        //立体匹配
-        Mat out4;
-        Mat im_color;
-         sgm(out2,out1,&out4,setNumDisparities,sgbm) ;
-         //滤波处理
-          imshow("out4",out4);
-         
+        //立体匹配  注意顺序
+         Mat out4;
+          sgm(out2,out1,&out4,setNumDisparities,sgbm) ;
+          Mat disp=out4.colRange(setNumDisparities,out4.cols);
+         //填补空洞
+         Mat disp_row=disp.clone();
+         full_hole(&disp);
+         imshow("disp",disp);
+         imshow("row_disp",disp_row);
+
          //生成伪彩图
-         applyColorMap(out4, im_color, COLORMAP_JET);
+          Mat im_color;
+          applyColorMap(disp, im_color, COLORMAP_JET);
+         namedWindow("out5",WINDOW_FREERATIO);
           imshow("out5",im_color);
 
 

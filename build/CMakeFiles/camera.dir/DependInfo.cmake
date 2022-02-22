@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/ww/opencv/camera/hole.cpp" "CMakeFiles/camera.dir/hole.cpp.o" "gcc" "CMakeFiles/camera.dir/hole.cpp.o.d"
   "/home/ww/opencv/camera/jibian.cpp" "CMakeFiles/camera.dir/jibian.cpp.o" "gcc" "CMakeFiles/camera.dir/jibian.cpp.o.d"
   "/home/ww/opencv/camera/main.cpp" "CMakeFiles/camera.dir/main.cpp.o" "gcc" "CMakeFiles/camera.dir/main.cpp.o.d"
   "/home/ww/opencv/camera/picture_ex.cpp" "CMakeFiles/camera.dir/picture_ex.cpp.o" "gcc" "CMakeFiles/camera.dir/picture_ex.cpp.o.d"

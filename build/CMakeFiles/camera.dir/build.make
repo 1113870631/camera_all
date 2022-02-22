@@ -73,64 +73,79 @@ CMakeFiles/camera.dir/main.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/main.cpp.o: ../main.cpp
 CMakeFiles/camera.dir/main.cpp.o: CMakeFiles/camera.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/camera.dir/main.cpp.o"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/main.cpp.o -MF CMakeFiles/camera.dir/main.cpp.o.d -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/opencv/camera/main.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/main.cpp.o -MF CMakeFiles/camera.dir/main.cpp.o.d -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/opencv/camera/main.cpp
 
 CMakeFiles/camera.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/main.cpp.i"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/main.cpp > CMakeFiles/camera.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/main.cpp > CMakeFiles/camera.dir/main.cpp.i
 
 CMakeFiles/camera.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/main.cpp.s"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/main.cpp -o CMakeFiles/camera.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/main.cpp -o CMakeFiles/camera.dir/main.cpp.s
 
 CMakeFiles/camera.dir/picture_ex.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/picture_ex.cpp.o: ../picture_ex.cpp
 CMakeFiles/camera.dir/picture_ex.cpp.o: CMakeFiles/camera.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/camera.dir/picture_ex.cpp.o"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/picture_ex.cpp.o -MF CMakeFiles/camera.dir/picture_ex.cpp.o.d -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/opencv/camera/picture_ex.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/picture_ex.cpp.o -MF CMakeFiles/camera.dir/picture_ex.cpp.o.d -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/opencv/camera/picture_ex.cpp
 
 CMakeFiles/camera.dir/picture_ex.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/picture_ex.cpp.i"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/picture_ex.cpp > CMakeFiles/camera.dir/picture_ex.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/picture_ex.cpp > CMakeFiles/camera.dir/picture_ex.cpp.i
 
 CMakeFiles/camera.dir/picture_ex.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/picture_ex.cpp.s"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/picture_ex.cpp -o CMakeFiles/camera.dir/picture_ex.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/picture_ex.cpp -o CMakeFiles/camera.dir/picture_ex.cpp.s
 
 CMakeFiles/camera.dir/jibian.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/jibian.cpp.o: ../jibian.cpp
 CMakeFiles/camera.dir/jibian.cpp.o: CMakeFiles/camera.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/camera.dir/jibian.cpp.o"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/jibian.cpp.o -MF CMakeFiles/camera.dir/jibian.cpp.o.d -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/opencv/camera/jibian.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/jibian.cpp.o -MF CMakeFiles/camera.dir/jibian.cpp.o.d -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/opencv/camera/jibian.cpp
 
 CMakeFiles/camera.dir/jibian.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/jibian.cpp.i"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/jibian.cpp > CMakeFiles/camera.dir/jibian.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/jibian.cpp > CMakeFiles/camera.dir/jibian.cpp.i
 
 CMakeFiles/camera.dir/jibian.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/jibian.cpp.s"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/jibian.cpp -o CMakeFiles/camera.dir/jibian.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/jibian.cpp -o CMakeFiles/camera.dir/jibian.cpp.s
 
 CMakeFiles/camera.dir/sgm.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/sgm.cpp.o: ../sgm.cpp
 CMakeFiles/camera.dir/sgm.cpp.o: CMakeFiles/camera.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/camera.dir/sgm.cpp.o"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/sgm.cpp.o -MF CMakeFiles/camera.dir/sgm.cpp.o.d -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/opencv/camera/sgm.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/sgm.cpp.o -MF CMakeFiles/camera.dir/sgm.cpp.o.d -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/opencv/camera/sgm.cpp
 
 CMakeFiles/camera.dir/sgm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/sgm.cpp.i"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/sgm.cpp > CMakeFiles/camera.dir/sgm.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/sgm.cpp > CMakeFiles/camera.dir/sgm.cpp.i
 
 CMakeFiles/camera.dir/sgm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/sgm.cpp.s"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/sgm.cpp -o CMakeFiles/camera.dir/sgm.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/sgm.cpp -o CMakeFiles/camera.dir/sgm.cpp.s
+
+CMakeFiles/camera.dir/hole.cpp.o: CMakeFiles/camera.dir/flags.make
+CMakeFiles/camera.dir/hole.cpp.o: ../hole.cpp
+CMakeFiles/camera.dir/hole.cpp.o: CMakeFiles/camera.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/camera.dir/hole.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/camera.dir/hole.cpp.o -MF CMakeFiles/camera.dir/hole.cpp.o.d -o CMakeFiles/camera.dir/hole.cpp.o -c /home/ww/opencv/camera/hole.cpp
+
+CMakeFiles/camera.dir/hole.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/hole.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/opencv/camera/hole.cpp > CMakeFiles/camera.dir/hole.cpp.i
+
+CMakeFiles/camera.dir/hole.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/hole.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/opencv/camera/hole.cpp -o CMakeFiles/camera.dir/hole.cpp.s
 
 # Object files for target camera
 camera_OBJECTS = \
 "CMakeFiles/camera.dir/main.cpp.o" \
 "CMakeFiles/camera.dir/picture_ex.cpp.o" \
 "CMakeFiles/camera.dir/jibian.cpp.o" \
-"CMakeFiles/camera.dir/sgm.cpp.o"
+"CMakeFiles/camera.dir/sgm.cpp.o" \
+"CMakeFiles/camera.dir/hole.cpp.o"
 
 # External object files for target camera
 camera_EXTERNAL_OBJECTS =
@@ -139,6 +154,7 @@ camera: CMakeFiles/camera.dir/main.cpp.o
 camera: CMakeFiles/camera.dir/picture_ex.cpp.o
 camera: CMakeFiles/camera.dir/jibian.cpp.o
 camera: CMakeFiles/camera.dir/sgm.cpp.o
+camera: CMakeFiles/camera.dir/hole.cpp.o
 camera: CMakeFiles/camera.dir/build.make
 camera: /usr/local/lib/libopencv_gapi.so.4.5.5
 camera: /usr/local/lib/libopencv_highgui.so.4.5.5
@@ -156,7 +172,7 @@ camera: /usr/local/lib/libopencv_flann.so.4.5.5
 camera: /usr/local/lib/libopencv_imgproc.so.4.5.5
 camera: /usr/local/lib/libopencv_core.so.4.5.5
 camera: CMakeFiles/camera.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable camera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ww/opencv/camera/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable camera"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/camera.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
