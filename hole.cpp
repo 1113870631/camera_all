@@ -2,88 +2,140 @@
 #include <opencv2/imgproc.hpp>
 using namespace std;
 using namespace cv;
-#define  size_full  10
+#define  MAX_POINT  5
 
 void full_hole(cv::Mat * disp)
 {   //生成积分图
-     int xo,yo,height,width;
-    Mat sum_img = Mat::zeros((*disp).rows + 1, (*disp).cols + 1, CV_32FC1);
-	Mat sqsum_img = Mat::zeros((*disp).rows + 1, (*disp).cols + 1, CV_64FC1);
-	integral(*disp, sum_img, sqsum_img);
+     int xo,yo,num=0;
+     int weight=(*disp).rows;
+     int hight=(*disp).cols;
 
     //遍历图像寻找感性区域
-    /**
-     * @brief 
-     * black point
-     * ********************************
-     * XO,YO               weight   tmp_x      *
-     *                                                                *
-     *                                                                *
-     *                                                                *
-     *                                                                *
-     * hight   tmp_y                                    *  
-     *                                                                *
-     * *******************************
-     * 
-     */
 
+     //cout<<(*disp).size<<"\n";
     for(int i=0;i<(*disp).rows;i++)
     {
         for(int j=0;j<(*disp).cols;j++)
-        {//遍历图像
+        {//遍历图像  i   x    row      j   y    col 
            if( (*disp).at<uchar>(i,j) ==0)
-           {
+           { 
+               int tmpi=i,tmpj=j;
+               double total_x1=0,total_x2=0, total_y1=0,total_y2=0;
+                 while(1)
+                 {         
+                          if(j==hight){
+                              total_y1=0;
+                              break;
+                          }
+                          if( (*disp).at<uchar>(i,j++) !=0)
+                          {
+                              num++;                           
+                              total_y1+=(*disp).at<uchar>(i,j) ;
+                              //达到最大所需点数   num =0  跳出循环
+                              if(num==MAX_POINT||j==hight)
+                             {
+                                break;
+                              }
 
-             int tmp_weight=1;
-              int tmp_hight=1;
-                 //获得空洞宽度
-                 while((*disp).at<uchar>(i,j++) ==0)
-                 {
-                      tmp_weight++;
-                     //判断是否达到边界
-                     if(j==(*disp).cols)
-                     {
-                         j++;
-                         break;
-                     }   
+                          }
                  }
-                 j=j-tmp_weight;
-                     //获得空洞长度
-                 while((*disp).at<uchar>(i++,j) ==0)
-                 {
-                    tmp_hight++;
-                     //判断是否达到边界
-                     if(i==(*disp).rows)
-                     {
-                         i++;
-                         break;
-                     }
-                     
+                 i=tmpi;
+                 j=tmpj;      
+                 if(num!=0)        
+                 total_y1/=num;
+                 else
+                 total_y1=0;
+
+                num=0;
+
+                  while(1)
+                 {         
+                          if(j==0){
+                              total_y2=0;
+                              break;
+                          }
+                          if( (*disp).at<uchar>(i,j--) !=0)
+                          {
+                              num++;                           
+                              total_y2+=(*disp).at<uchar>(i,j) ;
+                              //达到最大所需点数   num =0  跳出循环
+                              if(num==MAX_POINT||j==0)
+                             {
+                                break;
+                              }
+
+                          }
+                 }    
+                 i=tmpi;
+                 j=tmpj;     
+                 if(num!=0)        
+                 total_y2/=num;
+                 else
+                 total_y2=0;
+                 
+                num=0;
+              //   x1 x2  
+
+
+              while(1)
+                 {         
+                          if(i==weight){
+                              total_x1=0;
+                              break;
+                          }
+                          if( (*disp).at<uchar>(i++,j) !=0)
+                          {
+                              num++;                           
+                              total_x1+=(*disp).at<uchar>(i,j) ;
+                              //达到最大所需点数   num =0  跳出循环
+                              if(num==MAX_POINT||i==weight)
+                             {
+                                break;
+                              }
+
+                          }
                  }
-                  i=i-tmp_hight;  
+                 i=tmpi;
+                 j=tmpj;      
+                 if(num!=0)        
+                 total_x1/=num;
+                 else
+                 total_x1=0;
 
-                              xo=j;
-                              yo=i;
-          //积分图计算感性区域 像素总和
-                int roi_weight=xo + tmp_weight+20;
-                int  roi_hight=yo +tmp_hight+20;
-                 if(roi_weight>(*disp).cols)
-                  {
-                      roi_weight=(*disp).cols;
-                  }
-                    if(roi_hight>(*disp).rows)
-                  {
-                      roi_hight=(*disp).rows;
-                  }  
-                int integral_value = sum_img.at<int>(yo + tmp_hight, xo + tmp_weight) - sum_img.at<int>(yo + tmp_hight, xo)
-                - sum_img.at<int>(yo, xo + tmp_weight)
-                + sum_img.at<int>(yo, xo);
+                num=0;
 
-                 (*disp).at<uchar>(i,j) =integral_value/((roi_hight)*(roi_weight)-tmp_hight*tmp_weight);
-                //cout<<"high"<<tmp_hight<<"\n";
-                //cout<<"weight"<<tmp_weight<<"\n";
+                  while(1)
+                 {         
+                          if(i==0){
+                              total_x2=0;
+                              break;
+                          }
+                          if( (*disp).at<uchar>(i--,j) !=0)
+                          {
+                              num++;                           
+                              total_x2+=(*disp).at<uchar>(i--,j) ;
+                              //达到最大所需点数   num =0  跳出循环
+                              if(num==MAX_POINT||i==0)
+                             {
+                                break;
+                              }
 
-                //cout<<"with:"<<tmp_with<<"\n"<<endl;
+                          }
+                 }    
+                 i=tmpi;
+                 j=tmpj;     
+                 if(num!=0)        
+                 total_x2/=num;
+                 else
+                 total_x2=0;
+                 
+                num=0;
+
+
+
+                (*disp).at<uchar>(i,j)=(total_y2+total_y1+total_x2+total_x1)/4;
+
+            
            }
                        
         }

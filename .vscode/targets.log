@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Feb 22 11:33:35 2022
+# Make data base, printed on Thu Mar 17 19:40:57 2022
 
 # Variables
 
@@ -37,13 +37,15 @@ GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/ww/opencv/camera
+CURDIR := /home/ww/smart/camera_all
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn/f80445acd5a3dadef24aa209168452a3d97cc326","_corruptedFile":"/home/ww/.config/Code/clp/5b383b9d184f7cbe3cfd7572cd7df52b.zh-cn/corrupted.info","_languagePackSupport":true}
+VTE_VERSION = 5202
 # environment
-_ = /usr/share/code/code
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"2d459c3c1e4312b6770e21efe80cc342.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1","_corruptedFile":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/code
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -51,7 +53,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/terminator.desktop
 # environment
 USERNAME = ww
 # environment
@@ -59,87 +61,75 @@ MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-AUTOJUMP_SOURCED = 1
-# environment
-ROS_ETC_DIR = /opt/ros/melodic/etc/ros
-# environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-ROS_PACKAGE_PATH = /opt/ros/melodic/share
-# environment
-ROS_PYTHON_VERSION = 2
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-70ccaba3-222b-44a4-bddd-00c7d7cb9c0e.sock
-# environment
-VSCODE_CWD = /home/ww
+TERMINATOR_UUID = urn:uuid:1228eca9-1769-4177-a62a-5d80b720782d
 # environment
 CLUTTER_IM_MODULE = xim
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-60b45d6d-ef93-491a-ab7f-69bb2e4455d1.sock
+# environment
+VSCODE_CWD = /home/ww/smart/camera_all
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /opt/ros/melodic/bin:/home/ww/.autojump/bin:/usr/share/cmake-3.22.1-linux-x86_64/bin:/home/ww/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-# environment
-XDG_SESSION_DESKTOP = ubuntu
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = exfxcxdxbxbxbxbxbxbxbx
 # environment
-SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/2615,unix/ww:/tmp/.ICE-unix/2615
+SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/1243,unix/ww:/tmp/.ICE-unix/1243
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 TEXTDOMAIN = im-config
 # environment
-ROS_ROOT = /opt/ros/melodic/share/ros
-# environment
 XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=fa9b9d5d-428b-478c-b3c7-b87fa117a08c&iid=fa9b9d5d-428b-478c-b3c7-b87fa117a08c&sid=fa9b9d5d-428b-478c-b3c7-b87fa117a08c","uploadToServer":true}
+ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-CMAKE_PREFIX_PATH = /opt/ros/melodic
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31;40:sg=31;40:tw=31;40:ow=31;40:
 # environment
-ROS_DISTRO = melodic
+XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3257
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4339
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = :1
+DISPLAY = :0
 # environment
 GTK_IM_MODULE = ibus
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /home/ww/opencv/camera
+PWD = /home/ww/smart/camera_all
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 2693
-# environment
-PKG_CONFIG_PATH = /opt/ros/melodic/lib/pkgconfig
+SSH_AGENT_PID = 1352
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/ww
 # environment
-LD_LIBRARY_PATH = /opt/ros/melodic/lib
+VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/ww/.config/Code/CachedData/f80445acd5a3dadef24aa209168452a3d97cc326
+VSCODE_CODE_CACHE_PATH = /home/ww/.config/Code/CachedData/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1
 # environment
 LOGNAME = ww
 # environment
@@ -155,9 +145,11 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-XDG_VTNR = 2
+XDG_VTNR = 1
 # environment
 MAKELEVEL := 0
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -165,11 +157,11 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 0
+SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-XDG_SESSION_ID = 3
+XDG_SESSION_ID = 1
 # environment
 USER = ww
 # makefile
@@ -183,7 +175,9 @@ LESS = -R
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/ww
+OLDPWD = /home/ww/smart/camera_all/build
+# environment
+TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
 .VARIABLES := 
 # automatic
@@ -191,19 +185,13 @@ OLDPWD = /home/ww
 # environment
 LANGUAGE = zh_CN:zh
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-42d72193-1.64.2-main.sock
-# environment
-PYTHONPATH = /opt/ros/melodic/lib/python2.7/dist-packages
+VSCODE_IPC_HOOK = /run/user/1000/vscode-42d72193-1.65.2-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# environment
-BREAKPAD_DUMP_LOCATION = /home/ww/.config/Code/exthost Crash Reports
-# environment
-ROS_VERSION = 1
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -221,10 +209,6 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
-ROS_MASTER_URI = http://localhost:11311
-# environment
 PAGER = less
 # environment
 LC_ALL = C
@@ -239,9 +223,7 @@ SUFFIXES :=
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-WINDOWPATH = 2
-# environment
-ROSLISP_PACKAGE_DIRECTORIES = 
+WINDOWPATH = 1
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
@@ -249,13 +231,15 @@ GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
-AUTOJUMP_ERROR_PATH = /home/ww/.local/share/autojump/errors.log
-# environment
 LANG = C
 # environment
-VSCODE_PID = 3257
+TERM = xterm-256color
+# environment
+TERMINATOR_DBUS_NAME = net.tenshu.Terminator20x1a6021154d881c
+# environment
+VSCODE_PID = 5332
 # variable set hash-table stats:
-# Load=122/1024=12%, Rehash=0, Collisions=17/144=12%
+# Load=114/1024=11%, Rehash=0, Collisions=17/136=12%
 
 # Pattern-specific Variable Values
 
@@ -263,9 +247,9 @@ VSCODE_PID = 3257
 
 # Directories
 
-# . (device 66310, inode 1560964): 18 files, no impossibilities.
+# . (device 66310, inode 2523425): 20 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 20 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -278,9 +262,6 @@ all:
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -304,6 +285,9 @@ makefile:
 #  File has not been updated.
 
 # Not a target:
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
 GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -318,12 +302,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 237 B / avg = 9 B
-# current buf: size = 8162 B / used = 237 B / count = 26 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 255 B / avg = 9 B
+# current buf: size = 8162 B / used = 255 B / count = 28 / avg = 9 B
 
-# strcache performance: lookups = 29 / hit rate = 10%
+# strcache performance: lookups = 31 / hit rate = 9%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Tue Feb 22 11:33:35 2022
+# Load=28/8192=0%, Rehash=0, Collisions=1/31=3%
+# Finished Make data base on Thu Mar 17 19:40:57 2022
 
  

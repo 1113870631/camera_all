@@ -12,10 +12,13 @@
 #include "jibian.h"
 #include "sgm.h"
 #include "hole.h"
+#include "distance.h"
 
 using namespace cv;
 using namespace std;
 
+
+//#define SGM 
   //立体匹配参数
     int setblock=0;
     int setNumDisparities=143;
@@ -24,8 +27,8 @@ using namespace std;
     int setSpeckleRange=1;
     int setDisp12MaxDiff=500;
     int setMinDisparity=0;
-    int p1=0;
-    int p2=192;
+    int p1=60;
+    int p2=300;
     int MD=1;
     cv::Ptr<cv::StereoSGBM> sgbm= cv::StereoSGBM::create(0,9, setblock);
 
@@ -63,11 +66,13 @@ int main()
     Mat  mat12;
     Mat  mat21;
     Mat  mat22;
-   
+    Mat Q_my;
    //得到重映射矩阵  和有效区域
-    jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,Size(640,480),&validPixROI1,&validPixROI2);
+    jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,&Q_my,Size(640,480),&validPixROI1,&validPixROI2);
     //--- INITIALIZE VIDEOCAPTURE
-    VideoCapture cap;
+
+
+   VideoCapture cap;
     // open the default camera using default API
     // cap.open(0);
     // OR advance usage: select any API backend
@@ -77,6 +82,8 @@ int main()
     cap.open(deviceID, apiID);
     cap.set(CAP_PROP_FRAME_WIDTH,1280);
     cap.set(CAP_PROP_FRAME_HEIGHT,480);
+    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式
+ 
 
     // check if we succeeded
     if (!cap.isOpened()) {
@@ -128,7 +135,7 @@ while(1)
             break;
         }
         // 图片分离
-        picture_ex( &frame,& RIGHT,&LIFT);
+        picture_ex( &frame,& LIFT,&RIGHT);
         
 
         //注意顺序   畸变矫正
@@ -144,38 +151,54 @@ while(1)
              line(out1,Point(0,40+p*40),Point(out1.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
              line(out2,Point(0,40+p*40),Point(out2.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
          }
-  
-
-
-        
          namedWindow("out1",WINDOW_FREERATIO);
          imshow("out1",out1);
          namedWindow("out2",WINDOW_FREERATIO);
          imshow("out2",out2);
 
-        //立体匹配  注意顺序
-         Mat out4;
-          sgm(out2,out1,&out4,setNumDisparities,sgbm) ;
-          Mat disp=out4.colRange(setNumDisparities,out4.cols); 
+#define      SGM   
+#ifdef SGM    //视差图 为彩图 深度图
+         //归一化视差图   原始视差图
+         Mat out4,row; 
+         //立体匹配  注意顺序
+         sgm(out1,out2,&out4,&row,setNumDisparities,sgbm) ;
+         Mat disp=out4.colRange(setNumDisparities,out4.cols); 
          Mat disp_row=disp.clone();
          imshow("row_disp",disp_row);
+         //cout<<disp_row<<"\n";
+        //cout<<Q_my<<"\n";
+         //生成深度图 
+        #define DEPTH
+         #ifdef DEPTH
+        Mat depth;
+         reprojectImageTo3D(row,depth,Q_my);
+         Mat tmp = depth.colRange(0,1);
+         //cout<<tmp<<"\n";
+        Mat channels[3];
+        split(depth,channels);
+        imshow("depth3",channels[2]);
+       cout<<channels[2].at<float>(depth.rows/2,depth.cols/2)+16<<"\n";
+         #endif // DEPTH
+
+
          //填补空洞
          full_hole(&disp);
+         //blur(disp,disp,Size(7,7));
          imshow("disp",disp);
-        
-
          //生成伪彩图
           Mat im_color;
           applyColorMap(disp, im_color, COLORMAP_JET);
-         namedWindow("out5",WINDOW_FREERATIO);
-          imshow("out5",im_color);
-
+          line(im_color, Point(im_color.cols/2, 0), Point(im_color.cols/2, im_color.rows), Scalar(89, 90, 90), 3);
+          line(im_color, Point(0, im_color.rows/2), Point(im_color.cols, im_color.rows/2), Scalar(89, 90, 90), 3);
+          namedWindow("out5",WINDOW_FREERATIO);
+          imshow("out5",im_color); 
+#endif
 
           t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
             fps = 1.0 / t;
 
-            cout<<fps<<endl;
-            cout<<"\n"<<endl;
+           // cout<<fps<<endl;
+           // cout<<"\n"<<endl;
             if (waitKey(5) >= 0)
            break;
 

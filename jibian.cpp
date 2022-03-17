@@ -14,7 +14,7 @@
  * @param mat21   重映射矩阵21
  * @param mat22   重映射矩阵22
  */
-void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Size size,Rect *validPixROI1 ,Rect* validPixROI2 )
+void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Mat* Q_my,Size size,Rect *validPixROI1 ,Rect* validPixROI2 )
 {
     Mat cameraMatrix1 = Mat::zeros(3, 3, CV_64F);
     Mat cameraMatrix2 = Mat::zeros(3, 3, CV_64F);
@@ -26,7 +26,6 @@ void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Size size,Re
     Mat P2 = Mat::zeros(3, 4, CV_64F);
     Mat R1 = Mat::zeros(3, 3, CV_64F);
     Mat R2 = Mat::zeros(3, 3, CV_64F);
-    Mat Q;
     Mat RR=Mat::zeros(3, 3, CV_64F);
      
  if(size==Size(1280,720))
@@ -142,61 +141,59 @@ void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Size size,Re
     T.at<double>(2, 0) = 0.5076;
     }
     else{
-
-    
       //相机一 内参    640  x  480
-    cameraMatrix1.at<double>(0, 0) = 901.2256;
+    cameraMatrix1.at<double>(0, 0) = 886.5284;
     cameraMatrix1.at<double>(0, 1) = 0;
-    cameraMatrix1.at<double>(0, 2) = 313.5635;
+    cameraMatrix1.at<double>(0, 2) = 350.6125;
 
     cameraMatrix1.at<double>(1, 0) = 0;
-    cameraMatrix1.at<double>(1, 1) = 901.4860;
-    cameraMatrix1.at<double>(1, 2) = 256.2747;
+    cameraMatrix1.at<double>(1, 1) = 886.7157;
+    cameraMatrix1.at<double>(1, 2) = 281.2215;
 
     cameraMatrix1.at<double>(2, 0) = 0;
     cameraMatrix1.at<double>(2, 1) = 0;
     cameraMatrix1.at<double>(2, 2) = 1;
     //相机二 内参
-    cameraMatrix2.at<double>(0, 0) = 903.8482;
+    cameraMatrix2.at<double>(0, 0) = 882.0832;
     cameraMatrix2.at<double>(0, 1) = 0;
-    cameraMatrix2.at<double>(0, 2) = 349.9874;
+    cameraMatrix2.at<double>(0, 2) = 319.8014;
 
     cameraMatrix2.at<double>(1, 0) = 0;
-    cameraMatrix2.at<double>(1, 1) = 903.5536;
-    cameraMatrix2.at<double>(1, 2) = 275.5857;
+    cameraMatrix2.at<double>(1, 1) = 882.2978;
+    cameraMatrix2.at<double>(1, 2) = 268.7401;
 
     cameraMatrix2.at<double>(2, 0) = 0;
     cameraMatrix2.at<double>(2, 1) = 0;
     cameraMatrix2.at<double>(2, 2) = 1;
     //相机一   畸变参数
-     distCoeffs1.at<double>(0, 0) = -0.4207; // k1
-    distCoeffs1.at<double>(1, 0) = 0.2110;  // k2
+     distCoeffs1.at<double>(0, 0) = -0.4249; // k1
+    distCoeffs1.at<double>(1, 0) = 0.2372;  // k2
     distCoeffs1.at<double>(2, 0) = 0; //p1
     distCoeffs1.at<double>(3, 0) = 0; //p2
     distCoeffs1.at<double>(4, 0) = 0; //k3
     //相机二  畸变参数 
-     distCoeffs2.at<double>(0, 0) = -0.4357; // k1
-    distCoeffs2.at<double>(1, 0) = 0.2674;  // k2
+     distCoeffs2.at<double>(0, 0) = -0.4077; // k1
+    distCoeffs2.at<double>(1, 0) = 0.1523;  // k2
     distCoeffs2.at<double>(2, 0) = 0; //p1
     distCoeffs2.at<double>(3, 0) = 0; //p2
     distCoeffs2.at<double>(4, 0) = 0; //k3
 
     //旋转转换矩阵
     R.at<double>(0, 0) = 1;
-    R.at<double>(0, 1) = 2.3909e-05;
-    R.at<double>(0, 2) = -0.00118;
+    R.at<double>(0, 1) = -6.0607e-04;
+    R.at<double>(0, 2) = -4.9718e-04;
 
-    R.at<double>(1, 0) = -1.6736e-04;
+    R.at<double>(1, 0) = 6.0131e-04;
     R.at<double>(1, 1) = 1;
-    R.at<double>(1, 2) = -0.0122;
+    R.at<double>(1, 2) = -0.0095;
 
-    R.at<double>(2, 0) = 0.0118;
-    R.at<double>(2, 1) = 0.0122;
+    R.at<double>(2, 0) = 5.0293e-04;
+    R.at<double>(2, 1) = 0.0095;
     R.at<double>(2, 2) = 1;
     //平移
-    T.at<double>(0, 0) = 61.2179;
-    T.at<double>(1, 0) = 1.4210;
-    T.at<double>(2, 0) = -0.0466;
+    T.at<double>(0, 0) = -60.6222;
+    T.at<double>(1, 0) = -0.1378;
+    T.at<double>(2, 0) = -0.5822;
 
     }
     
@@ -206,7 +203,7 @@ void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Size size,Re
                                  size,  R,  T,
                                   R1,  R2,
                                   P1,  P2,
-                                  Q,  CALIB_ZERO_DISPARITY,
+                                  *Q_my,  CALIB_ZERO_DISPARITY,
                                   0,  size,validPixROI1,validPixROI2);//  0 为重要参数
 
       initUndistortRectifyMap( cameraMatrix1,  distCoeffs1,R1,P1,size, CV_32FC1,  *mat11, * mat12 ); 
@@ -230,12 +227,12 @@ void jibian_correct(Mat * mat_l,Mat *mat_r,Mat * mat_l_o,Mat *mat_r_o,Mat * mat1
 
      remap(*mat_l,*mat_l_o,*mat11,*mat12,INTER_LINEAR,BORDER_TRANSPARENT,0);
      remap(*mat_r,*mat_r_o,*mat21,*mat22,INTER_LINEAR,BORDER_TRANSPARENT,0);
-    /*
+    
       *mat_l_o=(*mat_l_o).colRange(validPixROI1.x,validPixROI1.width+validPixROI1.x);
      *mat_l_o=(*mat_l_o).rowRange(validPixROI1.y,validPixROI1.y+validPixROI1.height);
      *mat_r_o=(*mat_r_o).colRange(validPixROI2.x,validPixROI2.width+validPixROI2.x);
      *mat_r_o=(*mat_r_o).rowRange(validPixROI2.y,validPixROI2.y+validPixROI2.height); 
-    */
+    
    
      
     
