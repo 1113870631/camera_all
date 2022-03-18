@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar 17 19:48:26 2022
+# Make data base, printed on Fri Mar 18 11:10:58 2022
 
 # Variables
 
@@ -28,8 +28,6 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 2
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -49,13 +47,17 @@ VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_langu
 # environment
 _ = /usr/bin/code
 # environment
+ftp_proxy = http://127.0.0.1:8888/
+# environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
 MAKEFILE_LIST := 
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/terminator.desktop
+IM_CONFIG_PHASE = 2
+# environment
+QT_IM_MODULE = ibus
 # environment
 USERNAME = ww
 # environment
@@ -67,23 +69,23 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-TERMINATOR_UUID = urn:uuid:1228eca9-1769-4177-a62a-5d80b720782d
+DISPLAY = :0
 # environment
 CLUTTER_IM_MODULE = xim
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-46400ba0-8845-4710-95c6-cdfb857658f5.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5cf61c0e-c354-4ab4-91dd-2445deb95607.sock
 # environment
 VSCODE_CWD = /home/ww/smart/camera_all
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+NO_PROXY = localhost,127.0.0.0/8,::1
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = exfxcxdxbxbxbxbxbxbxbx
 # environment
-SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/1243,unix/ww:/tmp/.ICE-unix/1243
+SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/1342,unix/ww:/tmp/.ICE-unix/1342
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -93,7 +95,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
 # environment
-ELECTRON_RUN_AS_NODE = 1
+all_proxy = socks://127.0.0.1:1088/
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -104,22 +106,24 @@ LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4339
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = :0
+HTTPS_PROXY = http://127.0.0.1:8888/
+# environment
+no_proxy = localhost,127.0.0.0/8,::1
 # environment
 GTK_IM_MODULE = ibus
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
+FTP_PROXY = http://127.0.0.1:8888/
+# environment
 PWD = /home/ww/smart/camera_all
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1352
+SSH_AGENT_PID = 1445
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -157,7 +161,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-QT_IM_MODULE = ibus
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 SHLVL = 1
 # environment
@@ -177,9 +181,7 @@ LESS = -R
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/ww/smart
-# environment
-TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
+OLDPWD = /home/ww/smart/camera_all/build
 # default
 .VARIABLES := 
 # automatic
@@ -201,6 +203,8 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
+HTTP_PROXY = http://127.0.0.1:8888/
+# environment
 QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
@@ -211,6 +215,10 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
+https_proxy = http://127.0.0.1:8888/
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
 PAGER = less
 # environment
 LC_ALL = C
@@ -218,8 +226,12 @@ LC_ALL = C
 QT4_IM_MODULE = xim
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6ac26fa8_36c6_4d3e_8626_618567e71041
 # automatic
 ^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.72
 # default
 SUFFIXES := 
 # environment
@@ -230,18 +242,20 @@ WINDOWPATH = 1
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 GJS_DEBUG_OUTPUT = stderr
+# environment
+ALL_PROXY = socks://127.0.0.1:1088/
 # default
 .RECIPEPREFIX := 
+# environment
+http_proxy = http://127.0.0.1:8888/
 # environment
 LANG = C
 # environment
 TERM = xterm-256color
 # environment
-TERMINATOR_DBUS_NAME = net.tenshu.Terminator20x1a6021154d881c
-# environment
-VSCODE_PID = 31103
+VSCODE_PID = 3227
 # variable set hash-table stats:
-# Load=114/1024=11%, Rehash=0, Collisions=17/136=12%
+# Load=121/1024=12%, Rehash=0, Collisions=22/143=15%
 
 # Pattern-specific Variable Values
 
@@ -270,6 +284,7 @@ all:
 Makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
+ 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -284,7 +299,6 @@ makefile:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -308,6 +322,6 @@ GNUmakefile:
 # strcache performance: lookups = 32 / hit rate = 9%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/32=3%
-# Finished Make data base on Thu Mar 17 19:48:26 2022
+# Finished Make data base on Fri Mar 18 11:10:58 2022
 
  

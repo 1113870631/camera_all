@@ -2,10 +2,10 @@
 #include <opencv2/imgproc.hpp>
 using namespace std;
 using namespace cv;
-#define  MAX_POINT  5
+#define  MAX_POINT  10
 
 void full_hole(cv::Mat * disp)
-{   //生成积分图
+{ 
      int xo,yo,num=0;
      int weight=(*disp).rows;
      int hight=(*disp).cols;
