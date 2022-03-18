@@ -1,4 +1,4 @@
-#ifndef __SGM_H__
+#ifndef  __SGM_H__
 #define __SGM_H__
 #include <iostream>
 #include <opencv2/opencv.hpp>

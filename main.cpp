@@ -176,7 +176,7 @@ while(1)
          //cout<<tmp<<"\n";
         Mat channels[3];
         split(depth,channels);
-        imshow("depth3",channels[2]);
+        //imshow("depth3",channels[2]);
        cout<<channels[2].at<float>(depth.rows/2,depth.cols/2)+16<<"\n";
          #endif // DEPTH
 
@@ -198,7 +198,7 @@ while(1)
             fps = 1.0 / t;
 
            // cout<<fps<<endl;
-           // cout<<"\n"<<endl;
+            //cout<<"\n"<<endl;
             if (waitKey(5) >= 0)
            break;
 

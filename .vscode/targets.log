@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2014 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar 17 19:40:57 2022
+# Make data base, printed on Thu Mar 17 19:48:26 2022
 
 # Variables
 
@@ -69,7 +71,7 @@ TERMINATOR_UUID = urn:uuid:1228eca9-1769-4177-a62a-5d80b720782d
 # environment
 CLUTTER_IM_MODULE = xim
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-60b45d6d-ef93-491a-ab7f-69bb2e4455d1.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-46400ba0-8845-4710-95c6-cdfb857658f5.sock
 # environment
 VSCODE_CWD = /home/ww/smart/camera_all
 # default
@@ -175,7 +177,7 @@ LESS = -R
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/ww/smart/camera_all/build
+OLDPWD = /home/ww/smart
 # environment
 TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
@@ -237,7 +239,7 @@ TERM = xterm-256color
 # environment
 TERMINATOR_DBUS_NAME = net.tenshu.Terminator20x1a6021154d881c
 # environment
-VSCODE_PID = 5332
+VSCODE_PID = 31103
 # variable set hash-table stats:
 # Load=114/1024=11%, Rehash=0, Collisions=17/136=12%
 
@@ -247,9 +249,9 @@ VSCODE_PID = 5332
 
 # Directories
 
-# . (device 66310, inode 2523425): 20 files, no impossibilities.
+# . (device 66310, inode 2523140): 21 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 21 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -282,12 +284,10 @@ makefile:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -302,12 +302,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 28 / storage = 255 B / avg = 9 B
-# current buf: size = 8162 B / used = 255 B / count = 28 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 29 / storage = 266 B / avg = 9 B
+# current buf: size = 8162 B / used = 266 B / count = 29 / avg = 9 B
 
-# strcache performance: lookups = 31 / hit rate = 9%
+# strcache performance: lookups = 32 / hit rate = 9%
 # hash-table stats:
-# Load=28/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Thu Mar 17 19:40:57 2022
+# Load=29/8192=0%, Rehash=0, Collisions=1/32=3%
+# Finished Make data base on Thu Mar 17 19:48:26 2022
 
  
