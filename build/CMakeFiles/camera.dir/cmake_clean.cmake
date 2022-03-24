@@ -4,6 +4,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/camera.dir/jibian.cpp.o"
   "CMakeFiles/camera.dir/sgm.cpp.o"
   "CMakeFiles/camera.dir/hole.cpp.o"
+  "CMakeFiles/camera.dir/ground_ex.cpp.o"
+  "CMakeFiles/camera.dir/line_zoom.cpp.o"
+  "CMakeFiles/camera.dir/U_V.cpp.o"
+  "CMakeFiles/camera.dir/ground_all.cpp.o"
   "camera.pdb"
   "camera"
 )

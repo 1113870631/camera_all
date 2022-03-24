@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar 24 15:56:10 2022
+# Make data base, printed on Thu Mar 24 16:24:27 2022
 
 # Variables
 
@@ -73,7 +73,7 @@ DISPLAY = :0
 # environment
 CLUTTER_IM_MODULE = xim
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-e2be8cfa-d6fa-411e-937d-3a78430d9761.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d95f1434-f7ff-4f4d-ac88-c4c4d109b126.sock
 # environment
 VSCODE_CWD = /home/ww/smart/camera_all
 # default
@@ -181,7 +181,7 @@ LESS = -R
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/ww/smart
+OLDPWD = /home/ww/smart/test
 # default
 .VARIABLES := 
 # automatic
@@ -225,9 +225,7 @@ LC_ALL = C
 # environment
 QT4_IM_MODULE = xim
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/3279693a_8b3b_4417_a4f9_93c6b8ca561f
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/849ae07a_963c_431c_bbdc_48dbb6ab8704
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -241,8 +239,6 @@ WINDOWPATH = 1
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# environment
 ALL_PROXY = socks://127.0.0.1:1088/
 # default
 .RECIPEPREFIX := 
@@ -253,9 +249,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 6498
+VSCODE_PID = 16161
 # variable set hash-table stats:
-# Load=121/1024=12%, Rehash=0, Collisions=22/143=15%
+# Load=119/1024=12%, Rehash=0, Collisions=22/141=16%
 
 # Pattern-specific Variable Values
 
@@ -263,7 +259,7 @@ VSCODE_PID = 6498
 
 # Directories
 
-# . (device 66310, inode 2523140): 21 files, no impossibilities.
+# . (device 66310, inode 2441467): 21 files, no impossibilities.
 
 # 21 files, no impossibilities in 1 directories.
 
@@ -280,7 +276,6 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
- 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
@@ -296,6 +291,7 @@ makefile:
 #  Failed to be updated.
 
 # Not a target:
+ 
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -322,6 +318,6 @@ GNUmakefile:
 # strcache performance: lookups = 32 / hit rate = 9%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/32=3%
-# Finished Make data base on Thu Mar 24 15:56:11 2022
+# Finished Make data base on Thu Mar 24 16:24:27 2022
 
  

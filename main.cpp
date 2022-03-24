@@ -13,6 +13,7 @@
 #include "sgm.h"
 #include "hole.h"
 #include "distance.h"
+#include "ground_all.h"
 
 using namespace cv;
 using namespace std;
@@ -183,12 +184,12 @@ while(1)
       imshow("depth", channels[2]);
 
          #endif // DEPTH
-
-
          //填补空洞
          full_hole(&disp);
          //blur(disp,disp,Size(7,7));
          imshow("disp_full_hole",disp);
+         //地面分离
+          ground_all(disp);
          //生成伪彩图
           Mat im_color;
           applyColorMap(disp, im_color, COLORMAP_JET);

@@ -520,6 +520,87 @@ ExperimentalBuild/fast:
 	$(MAKE) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
 .PHONY : ExperimentalBuild/fast
 
+U_V.o: U_V.cpp.o
+
+.PHONY : U_V.o
+
+# target to build an object file
+U_V.cpp.o:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/U_V.cpp.o
+.PHONY : U_V.cpp.o
+
+U_V.i: U_V.cpp.i
+
+.PHONY : U_V.i
+
+# target to preprocess a source file
+U_V.cpp.i:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/U_V.cpp.i
+.PHONY : U_V.cpp.i
+
+U_V.s: U_V.cpp.s
+
+.PHONY : U_V.s
+
+# target to generate assembly for a file
+U_V.cpp.s:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/U_V.cpp.s
+.PHONY : U_V.cpp.s
+
+ground_all.o: ground_all.cpp.o
+
+.PHONY : ground_all.o
+
+# target to build an object file
+ground_all.cpp.o:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/ground_all.cpp.o
+.PHONY : ground_all.cpp.o
+
+ground_all.i: ground_all.cpp.i
+
+.PHONY : ground_all.i
+
+# target to preprocess a source file
+ground_all.cpp.i:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/ground_all.cpp.i
+.PHONY : ground_all.cpp.i
+
+ground_all.s: ground_all.cpp.s
+
+.PHONY : ground_all.s
+
+# target to generate assembly for a file
+ground_all.cpp.s:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/ground_all.cpp.s
+.PHONY : ground_all.cpp.s
+
+ground_ex.o: ground_ex.cpp.o
+
+.PHONY : ground_ex.o
+
+# target to build an object file
+ground_ex.cpp.o:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/ground_ex.cpp.o
+.PHONY : ground_ex.cpp.o
+
+ground_ex.i: ground_ex.cpp.i
+
+.PHONY : ground_ex.i
+
+# target to preprocess a source file
+ground_ex.cpp.i:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/ground_ex.cpp.i
+.PHONY : ground_ex.cpp.i
+
+ground_ex.s: ground_ex.cpp.s
+
+.PHONY : ground_ex.s
+
+# target to generate assembly for a file
+ground_ex.cpp.s:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/ground_ex.cpp.s
+.PHONY : ground_ex.cpp.s
+
 hole.o: hole.cpp.o
 
 .PHONY : hole.o
@@ -573,6 +654,33 @@ jibian.s: jibian.cpp.s
 jibian.cpp.s:
 	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/jibian.cpp.s
 .PHONY : jibian.cpp.s
+
+line_zoom.o: line_zoom.cpp.o
+
+.PHONY : line_zoom.o
+
+# target to build an object file
+line_zoom.cpp.o:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/line_zoom.cpp.o
+.PHONY : line_zoom.cpp.o
+
+line_zoom.i: line_zoom.cpp.i
+
+.PHONY : line_zoom.i
+
+# target to preprocess a source file
+line_zoom.cpp.i:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/line_zoom.cpp.i
+.PHONY : line_zoom.cpp.i
+
+line_zoom.s: line_zoom.cpp.s
+
+.PHONY : line_zoom.s
+
+# target to generate assembly for a file
+line_zoom.cpp.s:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/line_zoom.cpp.s
+.PHONY : line_zoom.cpp.s
 
 main.o: main.cpp.o
 
@@ -695,12 +803,24 @@ help:
 	@echo "... ContinuousTest"
 	@echo "... ContinuousUpdate"
 	@echo "... ExperimentalBuild"
+	@echo "... U_V.o"
+	@echo "... U_V.i"
+	@echo "... U_V.s"
+	@echo "... ground_all.o"
+	@echo "... ground_all.i"
+	@echo "... ground_all.s"
+	@echo "... ground_ex.o"
+	@echo "... ground_ex.i"
+	@echo "... ground_ex.s"
 	@echo "... hole.o"
 	@echo "... hole.i"
 	@echo "... hole.s"
 	@echo "... jibian.o"
 	@echo "... jibian.i"
 	@echo "... jibian.s"
+	@echo "... line_zoom.o"
+	@echo "... line_zoom.i"
+	@echo "... line_zoom.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
