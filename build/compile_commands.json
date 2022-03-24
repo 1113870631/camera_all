@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/ww/smart/camera_all/build",
+  "command": "/usr/bin/c++   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/smart/camera_all/main.cpp",
+  "file": "/home/ww/smart/camera_all/main.cpp"
+},
+{
+  "directory": "/home/ww/smart/camera_all/build",
+  "command": "/usr/bin/c++   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/smart/camera_all/picture_ex.cpp",
+  "file": "/home/ww/smart/camera_all/picture_ex.cpp"
+},
+{
+  "directory": "/home/ww/smart/camera_all/build",
+  "command": "/usr/bin/c++   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/smart/camera_all/jibian.cpp",
+  "file": "/home/ww/smart/camera_all/jibian.cpp"
+},
+{
+  "directory": "/home/ww/smart/camera_all/build",
+  "command": "/usr/bin/c++   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/smart/camera_all/sgm.cpp",
+  "file": "/home/ww/smart/camera_all/sgm.cpp"
+},
+{
+  "directory": "/home/ww/smart/camera_all/build",
+  "command": "/usr/bin/c++   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/hole.cpp.o -c /home/ww/smart/camera_all/hole.cpp",
+  "file": "/home/ww/smart/camera_all/hole.cpp"
+}
+]
