@@ -3,8 +3,8 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <string.h>
+ void   mouce_distance(cv::Mat  &disp);
 
 
-double distance(double dis);
 
 #endif

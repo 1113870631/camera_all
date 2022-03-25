@@ -43,5 +43,10 @@
   "directory": "/home/ww/smart/camera_all/build",
   "command": "/usr/bin/c++   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/ground_all.cpp.o -c /home/ww/smart/camera_all/ground_all.cpp",
   "file": "/home/ww/smart/camera_all/ground_all.cpp"
+},
+{
+  "directory": "/home/ww/smart/camera_all/build",
+  "command": "/usr/bin/c++   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/distance.cpp.o -c /home/ww/smart/camera_all/distance.cpp",
+  "file": "/home/ww/smart/camera_all/distance.cpp"
 }
 ]

@@ -246,7 +246,7 @@ lines_zoom *  MethodOne(Mat img)//输入v 视图
     Mat dst3(dst2.rows,dst2.cols,CV_8UC1,255);
     cvtColor(dst3,dst3,COLOR_GRAY2BGR);
     //直线聚合
-   lines_zoom* zoom=  line_zoom( plines2 ,4, 10);
+   lines_zoom* zoom=  line_zoom( plines2 ,6, 20);
    //画聚合后的线
   vector<one_k_clss_line>::iterator it;
   for(it=zoom->k_class.begin();it!=zoom->k_class.end();it++)
@@ -258,7 +258,7 @@ lines_zoom *  MethodOne(Mat img)//输入v 视图
           cv::Vec4i line_point = *it2;
           //cout<<"k:"<<(*it).k_present<<endl;
           //cout<<"d:"<<(*it).dis_preset<<endl;
-          cout<<cv::Point(line_point[0],line_point[1])<<cv::Point(line_point[2],line_point[3])<<endl;
+          //cout<<cv::Point(line_point[0],line_point[1])<<cv::Point(line_point[2],line_point[3])<<endl;
           line(dst3,cv::Point(line_point[0],line_point[1]),cv::Point(line_point[2],line_point[3]), cv::Scalar(255, 0, 0), 2);
       }
   }

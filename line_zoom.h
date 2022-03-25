@@ -22,9 +22,11 @@ class    lines_zoom
 {
     public:
     vector<one_k_clss_line>k_class;
-};
+}; 
 
- lines_zoom *  line_zoom(vector<Vec4f>plines,double k_dis,double d_dis);
+//直线检测
  lines_zoom *  MethodOne(Mat img);
-
+//直线聚合
+ lines_zoom *  line_zoom(vector<Vec4f>plines,double k_dis,double d_dis);
+ 
 #endif // !_LINE_ZOOM_H_

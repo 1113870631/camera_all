@@ -547,6 +547,33 @@ U_V.cpp.s:
 	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/U_V.cpp.s
 .PHONY : U_V.cpp.s
 
+distance.o: distance.cpp.o
+
+.PHONY : distance.o
+
+# target to build an object file
+distance.cpp.o:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/distance.cpp.o
+.PHONY : distance.cpp.o
+
+distance.i: distance.cpp.i
+
+.PHONY : distance.i
+
+# target to preprocess a source file
+distance.cpp.i:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/distance.cpp.i
+.PHONY : distance.cpp.i
+
+distance.s: distance.cpp.s
+
+.PHONY : distance.s
+
+# target to generate assembly for a file
+distance.cpp.s:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/distance.cpp.s
+.PHONY : distance.cpp.s
+
 ground_all.o: ground_all.cpp.o
 
 .PHONY : ground_all.o
@@ -806,6 +833,9 @@ help:
 	@echo "... U_V.o"
 	@echo "... U_V.i"
 	@echo "... U_V.s"
+	@echo "... distance.o"
+	@echo "... distance.i"
+	@echo "... distance.s"
 	@echo "... ground_all.o"
 	@echo "... ground_all.i"
 	@echo "... ground_all.s"

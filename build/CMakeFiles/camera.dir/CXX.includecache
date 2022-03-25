@@ -22,6 +22,14 @@ iostream
 opencv2/opencv.hpp
 -
 
+/home/ww/smart/camera_all/distance.cpp
+opencv2/opencv.hpp
+-
+iostream
+-
+distance.h
+/home/ww/smart/camera_all/distance.h
+
 /home/ww/smart/camera_all/distance.h
 opencv2/opencv.hpp
 -
@@ -35,6 +43,8 @@ ground_all.h
 /home/ww/smart/camera_all/ground_all.h
 U_V.h
 /home/ww/smart/camera_all/U_V.h
+line_zoom.h
+/home/ww/smart/camera_all/line_zoom.h
 opencv2/opencv.hpp
 -
 

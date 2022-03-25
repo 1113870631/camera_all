@@ -166,11 +166,9 @@ while(1)
          Mat disp=out4.colRange(setNumDisparities,out4.cols); 
          Mat disp_row=disp.clone();
          imshow("row_disp",disp_row);
-         //cout<<disp_row<<"\n";
-        //cout<<Q_my<<"\n";
          //生成深度图 
-        #define DEPTH
-         #ifdef DEPTH
+    #define DEPTH
+    #ifdef DEPTH
         Mat depth;
          reprojectImageTo3D(row,depth,Q_my);
          Mat tmp = depth.colRange(0,1);
@@ -178,15 +176,12 @@ while(1)
         Mat channels[3];
         split(depth,channels);
         //imshow("depth3",channels[2]);
-       cout<<channels[2].at<float>(depth.rows/2,(depth.cols-setNumDisparities)/2)<<"\n";
+       //cout<<channels[2].at<float>(depth.rows/2,(depth.cols-setNumDisparities)/2)<<"\n";
        channels[2]=channels[2].colRange(setNumDisparities,channels[2].cols);
-      channels[2].convertTo( channels[2],CV_8UC1);
-      imshow("depth", channels[2]);
-
-         #endif // DEPTH
+       mouce_distance(channels[2]); 
+     #endif // DEPTH
          //填补空洞
          full_hole(&disp);
-         //blur(disp,disp,Size(7,7));
          imshow("disp_full_hole",disp);
          //地面分离
           ground_all(disp);
@@ -197,13 +192,13 @@ while(1)
           line(im_color, Point(0, im_color.rows/2), Point(im_color.cols, im_color.rows/2), Scalar(89, 90, 90), 3);
           namedWindow("out5",WINDOW_FREERATIO);
           imshow("out5",im_color); 
-#endif
+#endif//SGM
 
           t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
             fps = 1.0 / t;
 
-           // cout<<fps<<endl;
-            //cout<<"\n"<<endl;
+           //cout<<fps<<endl;
+           //cout<<"\n"<<endl;
             if (waitKey(5) >= 0)
            break;
 

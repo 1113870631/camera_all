@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ww/smart/camera_all/U_V.cpp" "/home/ww/smart/camera_all/build/CMakeFiles/camera.dir/U_V.cpp.o"
+  "/home/ww/smart/camera_all/distance.cpp" "/home/ww/smart/camera_all/build/CMakeFiles/camera.dir/distance.cpp.o"
   "/home/ww/smart/camera_all/ground_all.cpp" "/home/ww/smart/camera_all/build/CMakeFiles/camera.dir/ground_all.cpp.o"
   "/home/ww/smart/camera_all/ground_ex.cpp" "/home/ww/smart/camera_all/build/CMakeFiles/camera.dir/ground_ex.cpp.o"
   "/home/ww/smart/camera_all/hole.cpp" "/home/ww/smart/camera_all/build/CMakeFiles/camera.dir/hole.cpp.o"
