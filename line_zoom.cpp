@@ -262,8 +262,8 @@ lines_zoom *  MethodOne(Mat img)//输入v 视图
           line(dst3,cv::Point(line_point[0],line_point[1]),cv::Point(line_point[2],line_point[3]), cv::Scalar(255, 0, 0), 2);
       }
   }
-	namedWindow("1",WINDOW_FREERATIO);
+	namedWindow("zoom_second",WINDOW_FREERATIO);
     //显示聚合后的结果
-	imshow("1", dst3);
+	imshow("zoom_second", dst3);
     return zoom;
 }
