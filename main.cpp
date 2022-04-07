@@ -197,7 +197,7 @@ while(1)
           t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
             fps = 1.0 / t;
 
-           //cout<<fps<<endl;
+          // cout<<fps<<endl;
            //cout<<"\n"<<endl;
             if (waitKey(5) >= 0)
            break;

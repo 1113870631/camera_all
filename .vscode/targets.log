@@ -1,6 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
- 
+
 # GNU Make 4.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2014 Free Software Foundation, Inc.
@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar 24 16:24:27 2022
+# Make data base, printed on Thu Apr  7 19:59:11 2022
 
 # Variables
 
@@ -19,6 +19,8 @@ GNUMAKEFLAGS :=
 # automatic
 ?F = $(notdir $?)
 # environment
+AMDAPPSDKROOT = /opt/AMDAPPSDK-3.0
+# environment
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
@@ -28,6 +30,8 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 2
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -43,11 +47,9 @@ SHELL = /bin/sh
 # environment
 VTE_VERSION = 5202
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"2d459c3c1e4312b6770e21efe80cc342.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1","_corruptedFile":"/home/ww/.config/Code/clp/2d459c3c1e4312b6770e21efe80cc342.zh-cn/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"8aee2a6259b28036085891d63c7b68d2.zh-cn","_translationsConfigFile":"/home/ww/.config/Code/clp/8aee2a6259b28036085891d63c7b68d2.zh-cn/tcf.json","_cacheRoot":"/home/ww/.config/Code/clp/8aee2a6259b28036085891d63c7b68d2.zh-cn","_resolvedLanguagePackCoreLocation":"/home/ww/.config/Code/clp/8aee2a6259b28036085891d63c7b68d2.zh-cn/e18005f0f1b33c29e81d732535d8c0e47cafb0b5","_corruptedFile":"/home/ww/.config/Code/clp/8aee2a6259b28036085891d63c7b68d2.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/code
-# environment
-ftp_proxy = http://127.0.0.1:8888/
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -55,9 +57,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 2
-# environment
-QT_IM_MODULE = ibus
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/terminator.desktop
 # environment
 USERNAME = ww
 # environment
@@ -69,23 +69,23 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-DISPLAY = :0
+TERMINATOR_UUID = urn:uuid:d80c99dd-a953-4a47-b9f8-f73b7f58752c
 # environment
 CLUTTER_IM_MODULE = xim
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d95f1434-f7ff-4f4d-ac88-c4c4d109b126.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1e7f5731-a237-47f5-aa92-1accb627712c.sock
 # environment
 VSCODE_CWD = /home/ww/smart/camera_all
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-NO_PROXY = localhost,127.0.0.0/8,::1
+PATH = /home/ww/.local/bin:/home/ww/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = exfxcxdxbxbxbxbxbxbxbx
 # environment
-SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/1560,unix/ww:/tmp/.ICE-unix/1560
+SESSION_MANAGER = local/ww:@/tmp/.ICE-unix/1595,unix/ww:/tmp/.ICE-unix/1595
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -95,7 +95,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
 # environment
-all_proxy = socks://127.0.0.1:1088/
+ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -106,24 +106,22 @@ LS_COLORS = di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 9876
 # automatic
 %F = $(notdir $%)
 # environment
-HTTPS_PROXY = http://127.0.0.1:8888/
-# environment
-no_proxy = localhost,127.0.0.0/8,::1
+DISPLAY = :0
 # environment
 GTK_IM_MODULE = ibus
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-FTP_PROXY = http://127.0.0.1:8888/
-# environment
 PWD = /home/ww/smart/camera_all
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1741
+SSH_AGENT_PID = 1697
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -135,7 +133,7 @@ HOME = /home/ww
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/ww/.config/Code/CachedData/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1
+VSCODE_CODE_CACHE_PATH = /home/ww/.config/Code/CachedData/e18005f0f1b33c29e81d732535d8c0e47cafb0b5
 # environment
 LOGNAME = ww
 # environment
@@ -161,7 +159,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+QT_IM_MODULE = ibus
 # environment
 SHLVL = 1
 # environment
@@ -181,7 +179,9 @@ LESS = -R
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/ww/smart/test
+OLDPWD = /home/ww/smart
+# environment
+TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
 .VARIABLES := 
 # automatic
@@ -189,7 +189,7 @@ OLDPWD = /home/ww/smart/test
 # environment
 LANGUAGE = zh_CN:zh
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-42d72193-1.65.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-42d72193-1.66.0-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -203,8 +203,6 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
-HTTP_PROXY = http://127.0.0.1:8888/
-# environment
 QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
@@ -215,21 +213,15 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
-https_proxy = http://127.0.0.1:8888/
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
 PAGER = less
 # environment
 LC_ALL = C
 # environment
 QT4_IM_MODULE = xim
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/849ae07a_963c_431c_bbdc_48dbb6ab8704
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.81
 # default
 SUFFIXES := 
 # environment
@@ -239,19 +231,19 @@ WINDOWPATH = 1
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-ALL_PROXY = socks://127.0.0.1:1088/
+GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
-# environment
-http_proxy = http://127.0.0.1:8888/
 # environment
 LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 16161
+TERMINATOR_DBUS_NAME = net.tenshu.Terminator20x1a6021154d881c
+# environment
+VSCODE_PID = 23028
 # variable set hash-table stats:
-# Load=119/1024=12%, Rehash=0, Collisions=22/141=16%
+# Load=115/1024=11%, Rehash=0, Collisions=17/137=12%
 
 # Pattern-specific Variable Values
 
@@ -259,9 +251,9 @@ VSCODE_PID = 16161
 
 # Directories
 
-# . (device 66310, inode 2441467): 21 files, no impossibilities.
+# . (device 66310, inode 2417647): 29 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 29 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -289,9 +281,9 @@ makefile:
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
+ 
 
 # Not a target:
- 
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -312,12 +304,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 266 B / avg = 9 B
-# current buf: size = 8162 B / used = 266 B / count = 29 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 37 / storage = 360 B / avg = 9 B
+# current buf: size = 8162 B / used = 360 B / count = 37 / avg = 9 B
 
-# strcache performance: lookups = 32 / hit rate = 9%
+# strcache performance: lookups = 40 / hit rate = 7%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=1/32=3%
-# Finished Make data base on Thu Mar 24 16:24:27 2022
+# Load=37/8192=0%, Rehash=0, Collisions=1/40=2%
+# Finished Make data base on Thu Apr  7 19:59:11 2022
 
  

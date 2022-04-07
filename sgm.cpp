@@ -2,6 +2,7 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include "omp.h"
+#include <CL/cl.h>
 using namespace cv;
 using namespace std;
   
@@ -22,14 +23,14 @@ using namespace std;
     @cv::Ptr<cv::StereoSGBM> sgbm
  */
 
-#define thead_num 16
+#define thead_num 200
 void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<cv::StereoSGBM> sgbm)  {
 
-            Mat grayLeft,grayRight;
+            UMat grayLeft,grayRight;
             //分成16分 分别进行立体匹配
-            Mat per_left[16];
-             Mat per_right[16];
-             Mat im3[16];
+            UMat per_left[thead_num];
+             UMat per_right[thead_num];
+             UMat im3[thead_num];
              //转化为灰度图
             cvtColor(lift,grayLeft,COLOR_BGR2GRAY);
             cvtColor(rigit,grayRight,COLOR_BGR2GRAY);
@@ -43,7 +44,7 @@ void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<
                 tmp++;
             }    
            int per_row=row/thead_num;//每份图片的行数
-           Mat tmp_r,tmp_l;
+           UMat tmp_r,tmp_l;
             tmp_l = grayLeft.rowRange(tmp,grayLeft.rows);//得到裁减后的图片
             tmp_r =  grayRight.rowRange(tmp,grayLeft.rows);//得到裁减后的图片
             //复制给图片数组
@@ -63,9 +64,9 @@ void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<
                 }
         }
         double t = (double)cv::getTickCount();
-      #pragma omp parallel
+   // #pragma omp parallel
         {
-           #pragma omp for
+           //#pragma omp for
 
                     for(int i=0;i<thead_num;i++) //立体匹配
                     {
@@ -80,8 +81,12 @@ void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<
         //cout<<t<<"\n";
             
             Mat out1;
+              Mat im3_mat[thead_num];
+            for(int i=0;i<thead_num;i++){
+                im3_mat[i]=im3[i].getMat(ACCESS_FAST);
+            }
             //拼合图像
-            vconcat(im3,thead_num,out1);
+            vconcat(im3_mat,thead_num,out1);
             //输出原视差图
             *row_pic=out1;
             //输出归一化视差图
@@ -91,18 +96,3 @@ void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<
 };
 
 
-
-
-
-
-/* 
-#pragma omp parallel
-    {
-        #pragma omp for
-         for(int i=0;i<10;++i)
-        {
-            sgbm->compute(im2,im6,out);
-            cout<<i<<"\n";
-        }
-    }      
-   */

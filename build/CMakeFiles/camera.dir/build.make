@@ -60,15 +60,15 @@ include CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/main.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/camera.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/smart/camera_all/main.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/smart/camera_all/main.cpp
 
 CMakeFiles/camera.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/main.cpp > CMakeFiles/camera.dir/main.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/main.cpp > CMakeFiles/camera.dir/main.cpp.i
 
 CMakeFiles/camera.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/main.cpp -o CMakeFiles/camera.dir/main.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/main.cpp -o CMakeFiles/camera.dir/main.cpp.s
 
 CMakeFiles/camera.dir/main.cpp.o.requires:
 
@@ -84,15 +84,15 @@ CMakeFiles/camera.dir/main.cpp.o.provides.build: CMakeFiles/camera.dir/main.cpp.
 CMakeFiles/camera.dir/picture_ex.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/picture_ex.cpp.o: ../picture_ex.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/camera.dir/picture_ex.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/smart/camera_all/picture_ex.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/smart/camera_all/picture_ex.cpp
 
 CMakeFiles/camera.dir/picture_ex.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/picture_ex.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/picture_ex.cpp > CMakeFiles/camera.dir/picture_ex.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/picture_ex.cpp > CMakeFiles/camera.dir/picture_ex.cpp.i
 
 CMakeFiles/camera.dir/picture_ex.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/picture_ex.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/picture_ex.cpp -o CMakeFiles/camera.dir/picture_ex.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/picture_ex.cpp -o CMakeFiles/camera.dir/picture_ex.cpp.s
 
 CMakeFiles/camera.dir/picture_ex.cpp.o.requires:
 
@@ -108,15 +108,15 @@ CMakeFiles/camera.dir/picture_ex.cpp.o.provides.build: CMakeFiles/camera.dir/pic
 CMakeFiles/camera.dir/jibian.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/jibian.cpp.o: ../jibian.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/camera.dir/jibian.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/smart/camera_all/jibian.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/smart/camera_all/jibian.cpp
 
 CMakeFiles/camera.dir/jibian.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/jibian.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/jibian.cpp > CMakeFiles/camera.dir/jibian.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/jibian.cpp > CMakeFiles/camera.dir/jibian.cpp.i
 
 CMakeFiles/camera.dir/jibian.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/jibian.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/jibian.cpp -o CMakeFiles/camera.dir/jibian.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/jibian.cpp -o CMakeFiles/camera.dir/jibian.cpp.s
 
 CMakeFiles/camera.dir/jibian.cpp.o.requires:
 
@@ -132,15 +132,15 @@ CMakeFiles/camera.dir/jibian.cpp.o.provides.build: CMakeFiles/camera.dir/jibian.
 CMakeFiles/camera.dir/sgm.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/sgm.cpp.o: ../sgm.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/camera.dir/sgm.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/smart/camera_all/sgm.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/smart/camera_all/sgm.cpp
 
 CMakeFiles/camera.dir/sgm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/sgm.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/sgm.cpp > CMakeFiles/camera.dir/sgm.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/sgm.cpp > CMakeFiles/camera.dir/sgm.cpp.i
 
 CMakeFiles/camera.dir/sgm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/sgm.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/sgm.cpp -o CMakeFiles/camera.dir/sgm.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/sgm.cpp -o CMakeFiles/camera.dir/sgm.cpp.s
 
 CMakeFiles/camera.dir/sgm.cpp.o.requires:
 
@@ -156,15 +156,15 @@ CMakeFiles/camera.dir/sgm.cpp.o.provides.build: CMakeFiles/camera.dir/sgm.cpp.o
 CMakeFiles/camera.dir/hole.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/hole.cpp.o: ../hole.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/camera.dir/hole.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/hole.cpp.o -c /home/ww/smart/camera_all/hole.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/hole.cpp.o -c /home/ww/smart/camera_all/hole.cpp
 
 CMakeFiles/camera.dir/hole.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/hole.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/hole.cpp > CMakeFiles/camera.dir/hole.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/hole.cpp > CMakeFiles/camera.dir/hole.cpp.i
 
 CMakeFiles/camera.dir/hole.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/hole.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/hole.cpp -o CMakeFiles/camera.dir/hole.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/hole.cpp -o CMakeFiles/camera.dir/hole.cpp.s
 
 CMakeFiles/camera.dir/hole.cpp.o.requires:
 
@@ -180,15 +180,15 @@ CMakeFiles/camera.dir/hole.cpp.o.provides.build: CMakeFiles/camera.dir/hole.cpp.
 CMakeFiles/camera.dir/ground_ex.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/ground_ex.cpp.o: ../ground_ex.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/camera.dir/ground_ex.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/ground_ex.cpp.o -c /home/ww/smart/camera_all/ground_ex.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/ground_ex.cpp.o -c /home/ww/smart/camera_all/ground_ex.cpp
 
 CMakeFiles/camera.dir/ground_ex.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/ground_ex.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/ground_ex.cpp > CMakeFiles/camera.dir/ground_ex.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/ground_ex.cpp > CMakeFiles/camera.dir/ground_ex.cpp.i
 
 CMakeFiles/camera.dir/ground_ex.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/ground_ex.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/ground_ex.cpp -o CMakeFiles/camera.dir/ground_ex.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/ground_ex.cpp -o CMakeFiles/camera.dir/ground_ex.cpp.s
 
 CMakeFiles/camera.dir/ground_ex.cpp.o.requires:
 
@@ -204,15 +204,15 @@ CMakeFiles/camera.dir/ground_ex.cpp.o.provides.build: CMakeFiles/camera.dir/grou
 CMakeFiles/camera.dir/line_zoom.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/line_zoom.cpp.o: ../line_zoom.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/camera.dir/line_zoom.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/line_zoom.cpp.o -c /home/ww/smart/camera_all/line_zoom.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/line_zoom.cpp.o -c /home/ww/smart/camera_all/line_zoom.cpp
 
 CMakeFiles/camera.dir/line_zoom.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/line_zoom.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/line_zoom.cpp > CMakeFiles/camera.dir/line_zoom.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/line_zoom.cpp > CMakeFiles/camera.dir/line_zoom.cpp.i
 
 CMakeFiles/camera.dir/line_zoom.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/line_zoom.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/line_zoom.cpp -o CMakeFiles/camera.dir/line_zoom.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/line_zoom.cpp -o CMakeFiles/camera.dir/line_zoom.cpp.s
 
 CMakeFiles/camera.dir/line_zoom.cpp.o.requires:
 
@@ -228,15 +228,15 @@ CMakeFiles/camera.dir/line_zoom.cpp.o.provides.build: CMakeFiles/camera.dir/line
 CMakeFiles/camera.dir/U_V.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/U_V.cpp.o: ../U_V.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/camera.dir/U_V.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/U_V.cpp.o -c /home/ww/smart/camera_all/U_V.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/U_V.cpp.o -c /home/ww/smart/camera_all/U_V.cpp
 
 CMakeFiles/camera.dir/U_V.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/U_V.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/U_V.cpp > CMakeFiles/camera.dir/U_V.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/U_V.cpp > CMakeFiles/camera.dir/U_V.cpp.i
 
 CMakeFiles/camera.dir/U_V.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/U_V.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/U_V.cpp -o CMakeFiles/camera.dir/U_V.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/U_V.cpp -o CMakeFiles/camera.dir/U_V.cpp.s
 
 CMakeFiles/camera.dir/U_V.cpp.o.requires:
 
@@ -252,15 +252,15 @@ CMakeFiles/camera.dir/U_V.cpp.o.provides.build: CMakeFiles/camera.dir/U_V.cpp.o
 CMakeFiles/camera.dir/ground_all.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/ground_all.cpp.o: ../ground_all.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/camera.dir/ground_all.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/ground_all.cpp.o -c /home/ww/smart/camera_all/ground_all.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/ground_all.cpp.o -c /home/ww/smart/camera_all/ground_all.cpp
 
 CMakeFiles/camera.dir/ground_all.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/ground_all.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/ground_all.cpp > CMakeFiles/camera.dir/ground_all.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/ground_all.cpp > CMakeFiles/camera.dir/ground_all.cpp.i
 
 CMakeFiles/camera.dir/ground_all.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/ground_all.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/ground_all.cpp -o CMakeFiles/camera.dir/ground_all.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/ground_all.cpp -o CMakeFiles/camera.dir/ground_all.cpp.s
 
 CMakeFiles/camera.dir/ground_all.cpp.o.requires:
 
@@ -276,15 +276,15 @@ CMakeFiles/camera.dir/ground_all.cpp.o.provides.build: CMakeFiles/camera.dir/gro
 CMakeFiles/camera.dir/distance.cpp.o: CMakeFiles/camera.dir/flags.make
 CMakeFiles/camera.dir/distance.cpp.o: ../distance.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/camera.dir/distance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/distance.cpp.o -c /home/ww/smart/camera_all/distance.cpp
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/camera.dir/distance.cpp.o -c /home/ww/smart/camera_all/distance.cpp
 
 CMakeFiles/camera.dir/distance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/camera.dir/distance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/distance.cpp > CMakeFiles/camera.dir/distance.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ww/smart/camera_all/distance.cpp > CMakeFiles/camera.dir/distance.cpp.i
 
 CMakeFiles/camera.dir/distance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/camera.dir/distance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/distance.cpp -o CMakeFiles/camera.dir/distance.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ww/smart/camera_all/distance.cpp -o CMakeFiles/camera.dir/distance.cpp.s
 
 CMakeFiles/camera.dir/distance.cpp.o.requires:
 

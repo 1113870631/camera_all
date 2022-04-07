@@ -201,6 +201,8 @@ opencv2/opencv.hpp
 -
 omp.h
 /home/ww/smart/camera_all/omp.h
+CL/cl.h
+-
 
 /home/ww/smart/camera_all/sgm.h
 iostream
