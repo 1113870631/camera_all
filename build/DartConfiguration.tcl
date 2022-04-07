@@ -14,7 +14,7 @@ CostDataFile:
 Site: ww
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Linux-c++
+BuildName: Linux-x86_64-linux-gnu-g++-7
 
 # Subprojects
 LabelsForSubprojects: 
@@ -72,7 +72,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: /usr/bin/c++
+Compiler: /usr/bin/x86_64-linux-gnu-g++-7
 CompilerVersion: 7.5.0
 
 # Dynamic analysis (MemCheck)

@@ -22,14 +22,14 @@ using namespace std;
     @cv::Ptr<cv::StereoSGBM> sgbm
  */
 
-#define thead_num 4
+#define thead_num 16
 void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<cv::StereoSGBM> sgbm)  {
 
             Mat grayLeft,grayRight;
             //分成16分 分别进行立体匹配
-            Mat per_left[16];
-             Mat per_right[16];
-             Mat im3[16];
+            Mat per_left[thead_num];
+             Mat per_right[thead_num];
+             Mat im3[thead_num];
              //转化为灰度图
             cvtColor(lift,grayLeft,COLOR_BGR2GRAY);
             cvtColor(rigit,grayRight,COLOR_BGR2GRAY);
