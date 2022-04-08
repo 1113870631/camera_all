@@ -22,7 +22,7 @@ using namespace std;
     @cv::Ptr<cv::StereoSGBM> sgbm
  */
 
-#define thead_num 16
+#define thead_num 180
 void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<cv::StereoSGBM> sgbm)  {
 
             Mat grayLeft,grayRight;
@@ -53,7 +53,7 @@ void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<
              * 10        19
              * 20        29     
              */
-       // #pragma omp parallel
+      // #pragma omp parallel
         {
           // #pragma omp for
             for(int p=0;p<thead_num;p++)//分份
@@ -63,18 +63,13 @@ void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<
                 }
         }
         double t = (double)cv::getTickCount();
-      #pragma omp parallel
+    //  #pragma omp parallel
         {
-           #pragma omp for
-
+          // #pragma omp for
                     for(int i=0;i<thead_num;i++) //立体匹配
                     {
                                 sgbm->compute(per_left[i], per_right[i], im3[i]);
-                                // im3[i].convertTo(im3[i], CV_16S); 
-                                //im3[i].convertTo(im3[i],CV_8UC1,255 / (setNumDisparities*16.0));//归一化  十分重要
-                               // cout<<i<<"\n";
                     }
-
         }
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
         //cout<<t<<"\n";
@@ -90,19 +85,3 @@ void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<
             *out=out1;
 };
 
-
-
-
-
-
-/* 
-#pragma omp parallel
-    {
-        #pragma omp for
-         for(int i=0;i<10;++i)
-        {
-            sgbm->compute(im2,im6,out);
-            cout<<i<<"\n";
-        }
-    }      
-   */
