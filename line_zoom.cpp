@@ -206,47 +206,35 @@ lines_zoom *  MethodOne(Mat img)//输入v 视图
     Vec4f end_point=0;
 	// 第一步：转化为灰度图像
 	Mat grayImg=img;
-	//cvtColor(img, grayImg, COLOR_BGR2GRAY);
-
-	// 第二步：二值化。
-	//threshold(grayImg, grayImg, 0, 255, THRESH_OTSU | THRESH_BINARY);
 
 	// 第三步：边缘检测
 	Canny(grayImg, grayImg, 100, 200, 3, false);
 
 	// 第四步：第一次霍夫直线检测
    vector<Vec4f>plines;
-	HoughLinesP(grayImg, plines, 1, CV_PI/180 , 30,1, 100);
-	Mat dst = img.clone();
-    Mat dst2(dst.rows,dst.cols,CV_8UC1,255);
-   cvtColor(dst2,dst2,COLOR_GRAY2BGR);
-   //line_zoom( plines , 4, 0);
+	HoughLinesP(grayImg, plines, 1, CV_PI/180 , 30,50, 100);
+    Mat huofu1(img.rows,img.cols,CV_8UC1,255);
+   cvtColor(huofu1,huofu1,COLOR_GRAY2BGR);
    //画第一次线
-   int q=0;
    for (size_t p = 0; p < plines.size(); p++)
     {
         cv::Vec4i linex = plines[p];
-        line(dst2, cv::Point(linex[0], linex[1]), cv::Point(linex[2], linex[3]), cv::Scalar(0, 0, 255), 1);
-        q++;
-    
+        line(huofu1, cv::Point(linex[0], linex[1]), cv::Point(linex[2], linex[3]), cv::Scalar(0, 0, 255), 1);
     }
-       imshow("first line ",dst2);
+       imshow("first line ",huofu1);
 
-     //在空白图纸画第一次检测到的直线
      // 第二次检测直线
-     cvtColor(dst2,dst2,COLOR_BGR2GRAY);
+     cvtColor(huofu1,huofu1,COLOR_BGR2GRAY);
      //边缘检测
-     Canny(dst2, dst2, 100, 200, 3, false);
-     imshow("dst2",dst2);
+     Canny(huofu1, huofu1, 100, 200, 3, false);
      vector<Vec4f>plines2;
      //第二次直线检测
-	HoughLinesP(dst2, plines2, 1, CV_PI/180 , 30,100, 100);
-
-    //最终结果 第二次检测 聚合 dst3
-    Mat dst3(dst2.rows,dst2.cols,CV_8UC1,255);
-    cvtColor(dst3,dst3,COLOR_GRAY2BGR);
+	HoughLinesP(huofu1, plines2, 1, CV_PI/180 , 30,100, 100);
+    //第二次检测 聚合 
+    Mat end(img.rows,img.cols,CV_8UC1,255);
+    cvtColor(end,end,COLOR_GRAY2BGR);
     //直线聚合
-   lines_zoom* zoom=  line_zoom( plines2 ,6, 20);
+   lines_zoom* zoom=  line_zoom( plines2 ,4, 50);
    //画聚合后的线
   vector<one_k_clss_line>::iterator it;
   for(it=zoom->k_class.begin();it!=zoom->k_class.end();it++)
@@ -259,11 +247,11 @@ lines_zoom *  MethodOne(Mat img)//输入v 视图
           //cout<<"k:"<<(*it).k_present<<endl;
           //cout<<"d:"<<(*it).dis_preset<<endl;
           //cout<<cv::Point(line_point[0],line_point[1])<<cv::Point(line_point[2],line_point[3])<<endl;
-          line(dst3,cv::Point(line_point[0],line_point[1]),cv::Point(line_point[2],line_point[3]), cv::Scalar(255, 0, 0), 2);
+          line(end,cv::Point(line_point[0],line_point[1]),cv::Point(line_point[2],line_point[3]), cv::Scalar(255, 0, 0), 1);
       }
   }
-	namedWindow("zoom_second",WINDOW_FREERATIO);
+	namedWindow("end",WINDOW_FREERATIO);
     //显示聚合后的结果
-	imshow("zoom_second", dst3);
+	imshow("end", end);
     return zoom;
 }

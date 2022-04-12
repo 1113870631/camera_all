@@ -17,8 +17,8 @@ void ground_all(Mat disp){
       UdispMap.convertTo(UdispMap,CV_8UC1);
       VdispMap.convertTo(VdispMap,CV_8UC1); 
       //阈值化
-     threshold(VdispMap,VdispMap,30,255,THRESH_BINARY);
-     threshold(UdispMap,UdispMap,20,255,THRESH_BINARY);
+     threshold(VdispMap,VdispMap,150,255,THRESH_BINARY);
+     threshold(UdispMap,UdispMap,150,255,THRESH_BINARY);
      namedWindow("V",WINDOW_FREERATIO);
      namedWindow("U",WINDOW_FREERATIO);
      imshow("V",VdispMap);

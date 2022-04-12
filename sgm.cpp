@@ -23,7 +23,7 @@ using namespace std;
     @cv::Ptr<cv::StereoSGBM> sgbm
  */
 
-#define thead_num 200
+#define thead_num 16
 void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<cv::StereoSGBM> sgbm)  {
 
             UMat grayLeft,grayRight;
