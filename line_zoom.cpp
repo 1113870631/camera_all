@@ -212,14 +212,14 @@ lines_zoom *  MethodOne(Mat img)//输入v 视图
 
 	// 第四步：第一次霍夫直线检测
    vector<Vec4f>plines;
-	HoughLinesP(grayImg, plines, 1, CV_PI/180 , 30,50, 100);
+	HoughLinesP(grayImg, plines, 1, CV_PI/180 , 30,20, 30);
     Mat huofu1(img.rows,img.cols,CV_8UC1,255);
    cvtColor(huofu1,huofu1,COLOR_GRAY2BGR);
    //画第一次线
    for (size_t p = 0; p < plines.size(); p++)
     {
         cv::Vec4i linex = plines[p];
-        line(huofu1, cv::Point(linex[0], linex[1]), cv::Point(linex[2], linex[3]), cv::Scalar(0, 0, 255), 1);
+        line(huofu1, cv::Point(linex[0], linex[1]), cv::Point(linex[2], linex[3]), cv::Scalar(0, 0, 255), 2);
     }
        imshow("first line ",huofu1);
 
@@ -229,12 +229,12 @@ lines_zoom *  MethodOne(Mat img)//输入v 视图
      Canny(huofu1, huofu1, 100, 200, 3, false);
      vector<Vec4f>plines2;
      //第二次直线检测
-	HoughLinesP(huofu1, plines2, 1, CV_PI/180 , 30,100, 100);
+	HoughLinesP(huofu1, plines2, 1, CV_PI/180 , 30,20, 30);
     //第二次检测 聚合 
     Mat end(img.rows,img.cols,CV_8UC1,255);
     cvtColor(end,end,COLOR_GRAY2BGR);
     //直线聚合
-   lines_zoom* zoom=  line_zoom( plines2 ,4, 50);
+   lines_zoom* zoom=  line_zoom( plines2 ,6, 50);
    //画聚合后的线
   vector<one_k_clss_line>::iterator it;
   for(it=zoom->k_class.begin();it!=zoom->k_class.end();it++)

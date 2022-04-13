@@ -47,6 +47,10 @@ line_zoom.h
 /home/ww/smart/camera_all/line_zoom.h
 opencv2/opencv.hpp
 -
+opencv2/imgproc.hpp
+-
+string.h
+-
 
 /home/ww/smart/camera_all/ground_all.h
 opencv2/opencv.hpp

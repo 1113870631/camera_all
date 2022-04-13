@@ -19,7 +19,6 @@ using namespace cv;
 using namespace std;
 
 
-//#define SGM 
   //立体匹配参数
     int setblock=0;
     int setNumDisparities=143;
@@ -52,10 +51,7 @@ using namespace std;
                          sgbm->setMinDisparity(setMinDisparity);
            };
 
-void my_ButtonCallback (int , void* ){
 
-
-};
 int main()
 {
     Rect validPixROI1;
@@ -157,27 +153,24 @@ while(1)
          namedWindow("out2",WINDOW_FREERATIO);
          imshow("out2",out2);
 
-#define      SGM   
-#ifdef SGM    //视差图 为彩图 深度图
-         //归一化视差图   原始视差图
-         Mat out4,row; 
+#define      SGBM   
+#ifdef SGBM    //视差图 为彩图 深度图
+
+         Mat sgm_guiyi,row; 
          //立体匹配  注意顺序
-         sgm(out1,out2,&out4,&row,setNumDisparities,sgbm) ;
-         Mat disp=out4.colRange(setNumDisparities,out4.cols); 
-         Mat disp_row=disp.clone();
-         imshow("row_disp",disp_row);
+         sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities,sgbm) ;
+         Mat disp=sgm_guiyi.colRange(setNumDisparities,sgm_guiyi.cols); 
+         imshow("sgm_guiyi_disp",disp);
          //生成深度图 
     #define DEPTH
     #ifdef DEPTH
         Mat depth;
          reprojectImageTo3D(row,depth,Q_my);
-         Mat tmp = depth.colRange(0,1);
-         //cout<<tmp<<"\n";
+         //分离深度信息
         Mat channels[3];
         split(depth,channels);
-        //imshow("depth3",channels[2]);
-       //cout<<channels[2].at<float>(depth.rows/2,(depth.cols-setNumDisparities)/2)<<"\n";
-       channels[2]=channels[2].colRange(setNumDisparities,channels[2].cols);
+        channels[2]=channels[2].colRange(setNumDisparities,channels[2].cols);
+        //交互深度图生成
        mouce_distance(channels[2]); 
      #endif // DEPTH
          //填补空洞
