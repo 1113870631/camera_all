@@ -56,6 +56,9 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 	// render result
 	Mat dst = Mat::zeros(image.size(), image.type());
     cvtColor(dst,dst,COLOR_GRAY2BGR);
+	Mat test = Mat::zeros(image.size(), image.type());
+    cvtColor(test,test,COLOR_GRAY2BGR);
+
 	int w = image.cols;
 	int h = image.rows;
 	for (int row = 0; row < h; row++) {
@@ -79,7 +82,15 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
              if(height>10){
                 circle(dst, Point(pt[0], pt[1]), 2, Scalar(0, 0, 255), -1, 8, 0);
                 rectangle(dst, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
+				if((double)height/width<5&&(double)height/width>0.5){
+					rectangle(test, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
+				}
+				if((double)height/width>5){
+					rectangle(test, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
+				}
+				imshow("test",test);
               }
+	  
         }
          if(win_name=="u_lian"){
              if(width>10){
@@ -90,63 +101,4 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 	}
     namedWindow(win_name,WINDOW_FREERATIO);
 	imshow(win_name, dst);
-};
-/**
- * @brief 
- * 
- * 连通区域矩形处理 得到地面矩形  障碍物矩形
- * 
- * @param status
- * @param lables_num
- */
-void rectangle_deal(Mat & status,int &lables_num){
-
-    Vec4i Rec_Ground [10];
-	Vec4i Rec_Obs[10];
-	int obs=0,ground=0;
-
-	for (int i = 1; i < lables_num; i++) {
-		int x = status.at<int>(i, CC_STAT_LEFT);
-		int y = status.at<int>(i, CC_STAT_TOP);
-		int width = status.at<int>(i, CC_STAT_WIDTH);
-		int height = status.at<int>(i, CC_STAT_HEIGHT);
-		int area = status.at<int>(i, CC_STAT_AREA);
-
-		if(area<20)//过滤小块
-		continue;
-		else{
-
-				if	((float)height/width>=5){//障碍物矩形
-				    if(obs>=10){}
-					else{
-					Rec_Obs[obs]=Vec4i(x,y,width,height);
-					obs++;
-					} 
-	
-		        }
-				else if((float)height/width>=0.3&&(float)height/width<5){//地面矩形
-					if(ground>=10){}
-					else{
-					Rec_Ground [ground]=Vec4i(x,y,width,height);
-					ground++;
-					}
-				} 
-		}
-
-		
-	}
-	//画出矩形
-	Mat test = Mat::zeros(Size(400,800), CV_8UC1);
-	for(int tmp=0;tmp<ground;tmp++)
-	{
-		 rectangle(test, Rect(Rec_Ground[tmp][0], Rec_Ground[tmp][1], Rec_Ground[tmp][2], Rec_Ground[tmp][3]), Scalar(255, 0, 255), 1, 8, 0);
-
-	} 
-    	for(int tmp=0;tmp<obs;tmp++)
-	{
-		rectangle(test, Rect(Rec_Obs[tmp][0], Rec_Obs[tmp][1], Rec_Obs[tmp][2], Rec_Obs[tmp][3]), Scalar(255, 0, 255), 1, 8, 0);
-	} 
-	imshow("rec_test",test); 
-
-
 };

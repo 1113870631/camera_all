@@ -45,15 +45,15 @@ void ground_all(Mat disp){
         //连通区域 矩形框选
 	    int lables_num_u,lables_num_v;	
        
-        Mat labels_v = Mat::zeros(VdispMap.size(), CV_32S);
+        Mat labels_v  = Mat::zeros(VdispMap.size(), CV_32S);
 	 	Mat labels_u = Mat::zeros(UdispMap.size(), CV_32S);
 	
-		Mat status_u,status_v;
+		Mat status_u = Mat::zeros(UdispMap.size(), CV_32S);
+        Mat status_v = Mat::zeros(VdispMap.size(), CV_32S);
 
      connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u);
-     connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v);
-     //矩形处理
-    rectangle_deal(status_v,lables_num_v);
+     //connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v);
+
 
 
           //直线检测
