@@ -763,6 +763,33 @@ picture_ex.cpp.s:
 	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/picture_ex.cpp.s
 .PHONY : picture_ex.cpp.s
 
+rectangle_uv.o: rectangle_uv.cpp.o
+
+.PHONY : rectangle_uv.o
+
+# target to build an object file
+rectangle_uv.cpp.o:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/rectangle_uv.cpp.o
+.PHONY : rectangle_uv.cpp.o
+
+rectangle_uv.i: rectangle_uv.cpp.i
+
+.PHONY : rectangle_uv.i
+
+# target to preprocess a source file
+rectangle_uv.cpp.i:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/rectangle_uv.cpp.i
+.PHONY : rectangle_uv.cpp.i
+
+rectangle_uv.s: rectangle_uv.cpp.s
+
+.PHONY : rectangle_uv.s
+
+# target to generate assembly for a file
+rectangle_uv.cpp.s:
+	$(MAKE) -f CMakeFiles/camera.dir/build.make CMakeFiles/camera.dir/rectangle_uv.cpp.s
+.PHONY : rectangle_uv.cpp.s
+
 sgm.o: sgm.cpp.o
 
 .PHONY : sgm.o
@@ -857,6 +884,9 @@ help:
 	@echo "... picture_ex.o"
 	@echo "... picture_ex.i"
 	@echo "... picture_ex.s"
+	@echo "... rectangle_uv.o"
+	@echo "... rectangle_uv.i"
+	@echo "... rectangle_uv.s"
 	@echo "... sgm.o"
 	@echo "... sgm.i"
 	@echo "... sgm.s"

@@ -1,52 +1,57 @@
 [
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/smart/camera_all/main.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/main.cpp.o -c /home/ww/smart/camera_all/main.cpp",
   "file": "/home/ww/smart/camera_all/main.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/smart/camera_all/picture_ex.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/picture_ex.cpp.o -c /home/ww/smart/camera_all/picture_ex.cpp",
   "file": "/home/ww/smart/camera_all/picture_ex.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/smart/camera_all/jibian.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/jibian.cpp.o -c /home/ww/smart/camera_all/jibian.cpp",
   "file": "/home/ww/smart/camera_all/jibian.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/smart/camera_all/sgm.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/sgm.cpp.o -c /home/ww/smart/camera_all/sgm.cpp",
   "file": "/home/ww/smart/camera_all/sgm.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/hole.cpp.o -c /home/ww/smart/camera_all/hole.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/hole.cpp.o -c /home/ww/smart/camera_all/hole.cpp",
   "file": "/home/ww/smart/camera_all/hole.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/ground_ex.cpp.o -c /home/ww/smart/camera_all/ground_ex.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/ground_ex.cpp.o -c /home/ww/smart/camera_all/ground_ex.cpp",
   "file": "/home/ww/smart/camera_all/ground_ex.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/line_zoom.cpp.o -c /home/ww/smart/camera_all/line_zoom.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/line_zoom.cpp.o -c /home/ww/smart/camera_all/line_zoom.cpp",
   "file": "/home/ww/smart/camera_all/line_zoom.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/U_V.cpp.o -c /home/ww/smart/camera_all/U_V.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/U_V.cpp.o -c /home/ww/smart/camera_all/U_V.cpp",
   "file": "/home/ww/smart/camera_all/U_V.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/ground_all.cpp.o -c /home/ww/smart/camera_all/ground_all.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/ground_all.cpp.o -c /home/ww/smart/camera_all/ground_all.cpp",
   "file": "/home/ww/smart/camera_all/ground_all.cpp"
 },
 {
   "directory": "/home/ww/smart/camera_all/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/distance.cpp.o -c /home/ww/smart/camera_all/distance.cpp",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/distance.cpp.o -c /home/ww/smart/camera_all/distance.cpp",
   "file": "/home/ww/smart/camera_all/distance.cpp"
+},
+{
+  "directory": "/home/ww/smart/camera_all/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4  -g   -fopenmp -std=gnu++11 -o CMakeFiles/camera.dir/rectangle_uv.cpp.o -c /home/ww/smart/camera_all/rectangle_uv.cpp",
+  "file": "/home/ww/smart/camera_all/rectangle_uv.cpp"
 }
 ]

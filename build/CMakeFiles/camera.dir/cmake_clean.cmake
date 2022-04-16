@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/camera.dir/U_V.cpp.o"
   "CMakeFiles/camera.dir/ground_all.cpp.o"
   "CMakeFiles/camera.dir/distance.cpp.o"
+  "CMakeFiles/camera.dir/rectangle_uv.cpp.o"
   "camera.pdb"
   "camera"
 )

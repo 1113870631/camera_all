@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -fopenmp -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /usr/local/include/opencv4 
+CXX_INCLUDES = -I/home/ww/smart/camera_all/. -isystem /usr/local/include/opencv4 
 
