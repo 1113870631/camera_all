@@ -26,67 +26,30 @@ using namespace std;
 #define thead_num 16
 void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<cv::StereoSGBM> sgbm)  {
 
-            UMat grayLeft,grayRight;
+           Mat grayLeft,grayRight;
             //分成16分 分别进行立体匹配
-            UMat per_left[thead_num];
-             UMat per_right[thead_num];
-             UMat im3[thead_num];
+           Mat per_left[thead_num];
+           Mat per_right[thead_num];
+            Mat im3[thead_num];
              //转化为灰度图
             cvtColor(lift,grayLeft,COLOR_BGR2GRAY);
             cvtColor(rigit,grayRight,COLOR_BGR2GRAY);
             //分份
-            int row=grayLeft.rows;
-            int col=grayLeft.cols;
-            int tmp=0;
-            while(row%thead_num!=0)
-            {  //不是16的整数倍  舍弃一行
-                row--;
-                tmp++;
-            }    
-           int per_row=row/thead_num;//每份图片的行数
-           UMat tmp_r,tmp_l;
-            tmp_l = grayLeft.rowRange(tmp,grayLeft.rows);//得到裁减后的图片
-            tmp_r =  grayRight.rowRange(tmp,grayLeft.rows);//得到裁减后的图片
-            //复制给图片数组
-            /**
-             * @brief 
-             * 0            9
-             * 10        19
-             * 20        29     
-             */
-       // #pragma omp parallel
-        {
-          // #pragma omp for
-            for(int p=0;p<thead_num;p++)//分份
-                {
-                    per_left[p]=tmp_l.rowRange(0+p*per_row,(per_row-1)+p*per_row);
-                    per_right[p]=tmp_r.rowRange(0+p*per_row,(per_row-1)+p*per_row);
-                }
-        }
-        double t = (double)cv::getTickCount();
-   // #pragma omp parallel
-        {
-           //#pragma omp for
-
+            int del=(lift.rows)%thead_num;
+            int per=(lift.rows-del)/thead_num;
+            Mat pic_del_l=grayLeft.rowRange(del,lift.rows);
+            Mat pic_del_r=grayRight.rowRange(del,lift.rows);
+            for(int tmp=0;tmp<thead_num;tmp++){
+                per_right[tmp]=pic_del_r.rowRange(tmp*per,per*(1+tmp));
+                per_left[tmp]=pic_del_l.rowRange(tmp*per,per*(1+tmp));
+            }      
                     for(int i=0;i<thead_num;i++) //立体匹配
                     {
                                 sgbm->compute(per_left[i], per_right[i], im3[i]);
-                                // im3[i].convertTo(im3[i], CV_16S); 
-                                //im3[i].convertTo(im3[i],CV_8UC1,255 / (setNumDisparities*16.0));//归一化  十分重要
-                               // cout<<i<<"\n";
                     }
-
-        }
-        t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
-        //cout<<t<<"\n";
-            
-            Mat out1;
-              Mat im3_mat[thead_num];
-            for(int i=0;i<thead_num;i++){
-                im3_mat[i]=im3[i].getMat(ACCESS_FAST);
-            }
+              Mat out1;
             //拼合图像
-            vconcat(im3_mat,thead_num,out1);
+            vconcat(im3,thead_num,out1);
             //输出原视差图
             *row_pic=out1;
             //输出归一化视差图
