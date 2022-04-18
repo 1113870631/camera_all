@@ -20,7 +20,7 @@ using namespace std;
 
 
   //立体匹配参数
-    int setblock=0;
+    int setblock=1;
     int setNumDisparities=143;
     int setUniquenessRatio=0;
     int setSpeckleWindowSize=0;
@@ -29,26 +29,14 @@ using namespace std;
     int setMinDisparity=0;
     int p1=60;
     int p2=300;
-    int MD=1;
-    cv::Ptr<cv::StereoSGBM> sgbm= cv::StereoSGBM::create(0,9, setblock);
+
 
     //立体匹配参数回调函数
         void other_Callback(int , void* )
             {  
                         if(setblock%2==0)
                         {setblock=setblock+1;}
-                         if(MD%2==0)
-                        {MD=MD+1;}
-
-                        sgbm->setBlockSize(setblock);
-                        sgbm->setNumDisparities(setNumDisparities);
-                        sgbm->setP1(p1 * 1*setblock*setblock);
-                        sgbm->setP2(p2 * 1*setblock*setblock);  
-                        sgbm->setUniquenessRatio(setUniquenessRatio);
-                        sgbm->setSpeckleWindowSize(setSpeckleWindowSize);
-                        sgbm->setSpeckleRange(setSpeckleRange);
-                        sgbm->setDisp12MaxDiff(setDisp12MaxDiff);
-                         sgbm->setMinDisparity(setMinDisparity);
+                        Set_Sgbm();                                   
            };
 
 
@@ -92,9 +80,7 @@ int main()
         << "Press any key to terminate" << endl;
         double t=0;
         double fps=0;
-
-
-        //设置参数调整bar
+                   //设置参数调整bar
     namedWindow("out4",WINDOW_FREERATIO);
     createTrackbar("setNumDisparities","out4",&setNumDisparities,512,other_Callback);
     createTrackbar("setblock","out4",&setblock,21,other_Callback);
@@ -105,23 +91,13 @@ int main()
     createTrackbar("p1","out4",&p1,500,other_Callback);   
     createTrackbar("p2","out4",&p2,500,other_Callback); 
     createTrackbar("setMinDisparity","out4",&setMinDisparity,100,other_Callback);
-    createTrackbar("MD","out4",&MD,100,other_Callback);     
 
-        if(setblock%2==0)
-            {setblock=setblock+1;}
-            sgbm->setBlockSize(setblock);
-            sgbm->setNumDisparities(setNumDisparities);
-            sgbm->setP1(p1 * 1*setblock*setblock);
-            sgbm->setP2(p2 * 1*setblock*setblock);  
-            sgbm->setUniquenessRatio(setUniquenessRatio);
-            sgbm->setSpeckleWindowSize(setSpeckleWindowSize);
-            sgbm->setSpeckleRange(setSpeckleRange);
-            sgbm->setDisp12MaxDiff(setDisp12MaxDiff);
-            sgbm->setMinDisparity(setMinDisparity);
-      
-       thread_prepare(thead_num);          
+       thread_prepare(thead_num);    
+
 while(1)
     {           
+
+
          t = (double)cv::getTickCount();
         // wait for a new frame from camera and store it into 'frame'
         cap.read(frame);
@@ -132,12 +108,13 @@ while(1)
         }
         // 图片分离
         picture_ex( &frame,& LIFT,&RIGHT);
-        
-
+    
         //注意顺序   畸变矫正
         Mat out1;
         Mat out2;
+              
          jibian_correct(&RIGHT,&LIFT,&out1,&out2,& mat11,&mat12,& mat21,&mat22, validPixROI1 , validPixROI2);
+
          //
          int p=0;
          for(int p=0;p<20;p++)
@@ -154,11 +131,11 @@ while(1)
 
          Mat sgm_guiyi,row; 
          //立体匹配  注意顺序
-             double start = getTickCount();
-         sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities,sgbm) ;
-          double time = ((double)getTickCount() - start) / getTickFrequency();
-      cout << "所用时间为：" << time << "秒" << endl;
-       
+        double start = getTickCount();
+         sgm(out1,out2,&sgm_guiyi,setNumDisparities);
+        double time = ((double)getTickCount() - start) / getTickFrequency();
+        cout << "所用时间为：" << time << "秒" << endl;
+         imshow("test",sgm_guiyi);
             if (waitKey(5) >= 0)
            break;
 

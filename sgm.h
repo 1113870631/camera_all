@@ -5,7 +5,9 @@
 using namespace cv;
 using namespace std;
 #define thead_num 4
+#define thead_num2 2
 
-void sgm(Mat lift,Mat rigit,Mat *out,Mat *row_pic,int setNumDisparities,cv::Ptr<cv::StereoSGBM> sgbm) ;
+void sgm(Mat lift,Mat rigit,Mat *out,int setNumDisparities) ;
  void thread_prepare(int thread_num);
+ void Set_Sgbm(void);
 #endif // !__SGM_H__

@@ -227,6 +227,8 @@ opencv2/opencv.hpp
 -
 thread
 -
+opencv2/highgui.hpp
+-
 
 /home/ww/smart/camera_all/sgm.h
 iostream
