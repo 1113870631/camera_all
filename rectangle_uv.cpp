@@ -78,6 +78,7 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 		int height = stats.at<int>(i, CC_STAT_HEIGHT);
 		int area = stats.at<int>(i, CC_STAT_AREA);
 		//printf("area : %d, center point(%.2f, %.2f)\n", area, pt[0], pt[1]);
+		if(width<20&&height<20)continue;
         if(win_name=="v_lian"){
              if(height>10){
                 circle(dst, Point(pt[0], pt[1]), 2, Scalar(0, 0, 255), -1, 8, 0);
@@ -86,7 +87,7 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 					rectangle(test, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
 				}
 				if((double)height/width>5){
-					rectangle(test, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
+					rectangle(test, Rect(x, y, width, height), Scalar(255, 255, 255), 1, 8, 0);
 				}
 				imshow("test",test);
               }
