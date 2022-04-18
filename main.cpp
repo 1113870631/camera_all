@@ -21,14 +21,14 @@ using namespace std;
 
   //立体匹配参数
     int setblock=1;
-    int setNumDisparities=143;
+    int setNumDisparities=95;
     int setUniquenessRatio=0;
     int setSpeckleWindowSize=0;
     int setSpeckleRange=1;
     int setDisp12MaxDiff=500;
     int setMinDisparity=0;
-    int p1=60;
-    int p2=300;
+    int p1=9;
+    int p2=500;
 
 
     //立体匹配参数回调函数
@@ -136,6 +136,9 @@ while(1)
         double time = ((double)getTickCount() - start) / getTickFrequency();
         cout << "所用时间为：" << time << "秒" << endl;
          imshow("test",sgm_guiyi);
+         Mat im_color;
+          applyColorMap(sgm_guiyi, im_color, COLORMAP_JET);
+          imshow("伪彩",im_color);
             if (waitKey(5) >= 0)
            break;
 
