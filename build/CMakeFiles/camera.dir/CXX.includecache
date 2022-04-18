@@ -225,9 +225,7 @@ iostream
 -
 opencv2/opencv.hpp
 -
-omp.h
-/home/ww/smart/camera_all/omp.h
-CL/cl.h
+thread
 -
 
 /home/ww/smart/camera_all/sgm.h

@@ -1019,3 +1019,31 @@ Parsed CXX OpenMP implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/ww/smart/camera_all/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_46804/fast"
+/usr/bin/make -f CMakeFiles/cmTC_46804.dir/build.make CMakeFiles/cmTC_46804.dir/build
+make[1]: 进入目录“/home/ww/smart/camera_all/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_46804.dir/CheckIncludeFile.c.o
+/usr/bin/x86_64-linux-gnu-gcc-7    -o CMakeFiles/cmTC_46804.dir/CheckIncludeFile.c.o   -c /home/ww/smart/camera_all/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_46804
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46804.dir/link.txt --verbose=1
+/usr/bin/x86_64-linux-gnu-gcc-7      -rdynamic CMakeFiles/cmTC_46804.dir/CheckIncludeFile.c.o  -o cmTC_46804 
+make[1]: 离开目录“/home/ww/smart/camera_all/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ww/smart/camera_all/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ada6a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ada6a.dir/build.make CMakeFiles/cmTC_ada6a.dir/build
+make[1]: 进入目录“/home/ww/smart/camera_all/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ada6a.dir/CheckFunctionExists.c.o
+/usr/bin/x86_64-linux-gnu-gcc-7   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ada6a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ada6a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ada6a.dir/link.txt --verbose=1
+/usr/bin/x86_64-linux-gnu-gcc-7  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_ada6a.dir/CheckFunctionExists.c.o  -o cmTC_ada6a -lpthread 
+make[1]: 离开目录“/home/ww/smart/camera_all/build/CMakeFiles/CMakeTmp”
+
+

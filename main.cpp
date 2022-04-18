@@ -118,11 +118,10 @@ int main()
             sgbm->setSpeckleRange(setSpeckleRange);
             sgbm->setDisp12MaxDiff(setDisp12MaxDiff);
             sgbm->setMinDisparity(setMinDisparity);
-
-
+      
+       thread_prepare(thead_num);          
 while(1)
-    { 
-
+    {           
          t = (double)cv::getTickCount();
         // wait for a new frame from camera and store it into 'frame'
         cap.read(frame);
@@ -153,45 +152,13 @@ while(1)
          namedWindow("out2",WINDOW_FREERATIO);
          imshow("out2",out2);
 
-#define      SGBM   
-#ifdef SGBM    //视差图 为彩图 深度图
-
          Mat sgm_guiyi,row; 
          //立体匹配  注意顺序
+             double start = getTickCount();
          sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities,sgbm) ;
-         Mat disp=sgm_guiyi.colRange(setNumDisparities,sgm_guiyi.cols); 
-         imshow("sgm_guiyi_disp",disp);
-         //生成深度图 
-    #define DEPTH
-    #ifdef DEPTH
-        Mat depth;
-         reprojectImageTo3D(row,depth,Q_my);
-         //分离深度信息
-        Mat channels[3];
-        split(depth,channels);
-        channels[2]=channels[2].colRange(setNumDisparities,channels[2].cols);
-        //交互深度图生成
-       mouce_distance(channels[2]); 
-     #endif // DEPTH
-         //填补空洞
-         full_hole(&disp);
-         imshow("disp_full_hole",disp);
-         //地面分离
-          ground_all(disp);
-         //生成伪彩图
-          Mat im_color;
-          applyColorMap(disp, im_color, COLORMAP_JET);
-          line(im_color, Point(im_color.cols/2, 0), Point(im_color.cols/2, im_color.rows), Scalar(89, 90, 90), 3);
-          line(im_color, Point(0, im_color.rows/2), Point(im_color.cols, im_color.rows/2), Scalar(89, 90, 90), 3);
-          namedWindow("out5",WINDOW_FREERATIO);
-          imshow("out5",im_color); 
-#endif//SGM
-
-          t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
-            fps = 1.0 / t;
-
-          // cout<<fps<<endl;
-           //cout<<"\n"<<endl;
+          double time = ((double)getTickCount() - start) / getTickFrequency();
+      cout << "所用时间为：" << time << "秒" << endl;
+       
             if (waitKey(5) >= 0)
            break;
 

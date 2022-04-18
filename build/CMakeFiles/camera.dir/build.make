@@ -364,8 +364,6 @@ camera: /usr/local/lib/libopencv_features2d.so.4.5.0
 camera: /usr/local/lib/libopencv_flann.so.4.5.0
 camera: /usr/local/lib/libopencv_imgproc.so.4.5.0
 camera: /usr/local/lib/libopencv_core.so.4.5.0
-camera: /usr/lib/gcc/x86_64-linux-gnu/7/libgomp.so
-camera: /usr/lib/x86_64-linux-gnu/libpthread.so
 camera: CMakeFiles/camera.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ww/smart/camera_all/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable camera"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/camera.dir/link.txt --verbose=$(VERBOSE)
