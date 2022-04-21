@@ -22,12 +22,12 @@ using namespace std;
   //立体匹配参数
     int setblock=1;
     int setNumDisparities=143;
-    int setUniquenessRatio=0;
-    int setSpeckleWindowSize=0;
+    int setUniquenessRatio=5;
+    int setSpeckleWindowSize=3;
     int setSpeckleRange=1;
     int setDisp12MaxDiff=500;
     int setMinDisparity=0;
-    int p1=9;
+    int p1=6;
     int p2=500;
 
 
@@ -139,7 +139,7 @@ while(1)
          Mat im_color;
           applyColorMap(sgm_guiyi, im_color, COLORMAP_JET);
           imshow("伪彩",im_color);
-          ground_all(sgm_guiyi);
+          ground_all(sgm_guiyi); 
             if (waitKey(5) >= 0)
            break;
 

@@ -33,16 +33,29 @@ using namespace std;
 Mat Pic_per_L[thead_num];
 Mat Pic_per_R[thead_num];
 
-Mat Pic_per_L2[thead_num2];
-Mat Pic_per_R2[thead_num2];
 
-Mat PIc_end2[thead_num2];
 Mat PIc_end[thead_num];
 int sem[thead_num];
 cv::Ptr<cv::StereoSGBM> Sgbm_Arr[thead_num];
 vector<thread> mythreads;
-
-
+// 再次分份  
+void Thread_Per_Sgbm(Mat  *end,Mat Pic_per_L,Mat Pic_per_R,int num,cv::Ptr<cv::StereoSGBM> Sgbm){
+            Mat Right[num];
+            Mat Left[num];
+            Mat end_thread[num];
+            int del=(Pic_per_L.rows)%num;
+            int per=(Pic_per_L.rows-del)/num;
+            Mat pic_del_l=Pic_per_L.rowRange(del,Pic_per_L.rows);
+            Mat pic_del_r=Pic_per_R.rowRange(del,Pic_per_L.rows);
+            for(int tmp=0;tmp<num;tmp++){
+                Right[tmp]=pic_del_r.rowRange(tmp*per,per*(1+tmp));
+                Left[tmp]=pic_del_l.rowRange(tmp*per,per*(1+tmp));                     
+            } 
+            for(int tmp2=0;tmp2<num;tmp2++){
+                Sgbm->compute(Left[tmp2], Right[tmp2], end_thread[tmp2]); 
+            }         
+            vconcat(end_thread,num,*end);
+};
 //线程函数
 void my_thread2(int num){
 
@@ -63,10 +76,8 @@ void my_thread2(int num){
                         Sgbm_Arr[num]->setDisp12MaxDiff(setDisp12MaxDiff);
                         Sgbm_Arr[num]->setMinDisparity(0); 
                         Mat tmp;
-                        Sgbm_Arr[num]->compute(Pic_per_L[num], Pic_per_R[num], tmp);                       
+                        Thread_Per_Sgbm(&tmp,Pic_per_L[num],Pic_per_R[num],thead_num2, Sgbm_Arr[num]);                  
                         PIc_end[num]=tmp.clone();
-                        
-                        //vconcat(PIc_end2,thead_num2,PIc_end[num]);
                           //取消信号
                           sem[num]=0;
 
@@ -91,16 +102,6 @@ void Set_Sgbm(void){
 void thread_prepare(int thread_num){                      
     for(int tmp=0;tmp<thead_num;tmp++){
              Sgbm_Arr[tmp]= cv::StereoSGBM::create(0,64, 3);
-             /*  Sgbm_Arr[tmp]->setBlockSize(0);
-             Sgbm_Arr[tmp]->setNumDisparities(1);
-             Sgbm_Arr[tmp]->setP1(60 * 1*setblock*setblock );
-             Sgbm_Arr[tmp]->setP2(300 * 1*setblock*setblock);  
-             Sgbm_Arr[tmp]->setUniquenessRatio(0);
-             Sgbm_Arr[tmp]->setSpeckleWindowSize(0);
-             Sgbm_Arr[tmp]->setSpeckleRange(0);
-             Sgbm_Arr[tmp]->setDisp12MaxDiff(500);
-             Sgbm_Arr[tmp]->setMinDisparity(0);  */    
-
             mythreads.push_back(thread(my_thread2, tmp));
     }
 };
@@ -141,6 +142,7 @@ void sgm(Mat lift,Mat rigit,Mat *out,int setNumDisparities)  {
          for(int tmp=0;tmp<thead_num;tmp++)
          {
               PIc_end[tmp].convertTo(PIc_end[tmp],CV_8UC1,255 / (setNumDisparities*16.0));
+             //cout<< PIc_end[tmp].size<<endl;
          }     
          //合并
         vconcat(PIc_end,thead_num,*out);
