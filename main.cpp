@@ -79,11 +79,12 @@ int main()
     int deviceID = 4;             // 0 = open default camera
     int apiID = cv::CAP_ANY;      // 0 = autodetect default API
     // open selected camera using selected API
-    cap.open(deviceID, apiID);
+/*     cap.open(deviceID, apiID);
     cap.set(CAP_PROP_FRAME_WIDTH,1280);
     cap.set(CAP_PROP_FRAME_HEIGHT,480);
-    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式
- 
+    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式 */
+     //cap.open("v4l2src device=/dev/video4    !   video/x-raw,width=1280,height=480  !  videoconvert   !  appsink", cv::CAP_GSTREAMER);
+ cap.open("udpsrc port=5602 ! application/x-rtp ! rtph264depay   ! decodebin ! videoconvert ! video/x-raw,format=(string)BGR ! videoconvert ! appsink sync=false max-buffers=1 drop=true ", cv::CAP_GSTREAMER);
 
     // check if we succeeded
     if (!cap.isOpened()) {
