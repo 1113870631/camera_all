@@ -33,21 +33,26 @@ static void onMouse( int event, int x, int y, int,void * disp)
         switch( event )
     {
         case EVENT_LBUTTONDOWN:
-            //cout<<"left\n";
-           // cout<<"x:"<<x<<"y:"<<y<<"\n";
-
-            cout<<"depth:"<<(*tmp).at<float>(x,y)<<"\n";
-            cout<<row.type()<<endl;
-            cout<<"dis:"<<row.at<short>(x,y)/16<<"\n";
-            
-    
+            int x= (*tmp).at<short>(x,y)/16;
+            double depth=(5e-10)*x*x*x*x*x*x- 3e-07*x*x*x*x*x + 7e-05*x*x*x*x - 0.0087*x*x*x + 0.63*x*x - 26.27*x + 582.63;
+            cout<<"distance:"<<depth<<"\n";
             break;
     }
 
 }
 
 
+
+
+/**
+ * @brief 
+ * 
+ * 
+ * /double depth=(5e-10)*x*x*x*x*x*x- 3e-07*x*x*x*x*x + 7e-05*x*x*x*x - 0.0087*x*x*x + 0.63*x*x - 26.27*x + 582.63;
+ * @param disp 
+ */
       void   mouce_distance(Mat  &disp){
+          
           Mat tmp;//显示的8U_C1 图像
            disp.convertTo( tmp,CV_8UC1);
            Mat im_color;

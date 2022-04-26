@@ -135,17 +135,7 @@ while(1)
          //立体匹配  注意顺序
         //double start = getTickCount();
          sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities);
- 
-          Mat depth;
-         reprojectImageTo3D(row,depth,Q_my);
-         //分离深度信息
-        Mat channels[3];
-        split(depth,channels);
-        //channels[2]=channels[2].colRange(setNumDisparities,channels[2].cols);
-        //交互深度图生成
-         mouce_distance(channels[2]); 
-        //cout<<"depth:"<<channels[2].at<float>(channels[2].cols/2,channels[2].rows/2)<<"   "<<(int)row.at<short>(row.cols/2,row.rows/2)/16<<endl;
-         
+         mouce_distance(row);
         //double time = ((double)getTickCount() - start) / getTickFrequency();
         //cout << "所用时间为：" << time << "秒" << endl;
          imshow("test",sgm_guiyi);
