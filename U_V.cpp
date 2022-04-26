@@ -1,6 +1,7 @@
 #include  "U_V.h"
 #include <iostream>
 #include <opencv2/opencv.hpp>
+extern int  setNumDisparities;
 
 void computeUDisparity(cv::Mat UdispMap,cv::Mat disp)
 {
@@ -14,7 +15,7 @@ void computeUDisparity(cv::Mat UdispMap,cv::Mat disp)
         for(int col=0;col<width;col++)
         {
             uint8_t currDisp=pRowInDisp[col];
-            if(currDisp>0&&currDisp<128)
+            if(currDisp>0&&currDisp<setNumDisparities)
             {
                 UdispMap.at<ushort>(currDisp,col)++;
             }
@@ -35,7 +36,7 @@ void computeVDisparity(cv::Mat &VdispMap,cv::Mat disp)
         for(int col=0;col<width;col++)
         {
             uint8_t currDisp=pRowInDisp[col];
-            if(currDisp>0&&currDisp<128)
+            if(currDisp>0&&currDisp<setNumDisparities)
             {
                 VdispMap.at<ushort>(row,currDisp)++;
             }

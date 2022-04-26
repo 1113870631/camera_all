@@ -24,18 +24,23 @@ using namespace std;
  *           
  * @return double 
  */
+
+
+extern Mat row;
 static void onMouse( int event, int x, int y, int,void * disp)
 {
     Mat* tmp=(Mat*)disp;
-    
         switch( event )
     {
         case EVENT_LBUTTONDOWN:
             //cout<<"left\n";
-            cout<<"x:"<<x<<"y:"<<y<<"\n";
+           // cout<<"x:"<<x<<"y:"<<y<<"\n";
 
-            cout<<"dis:"<<(int)(*tmp).at<float>(x,y)<<"\n";
+            cout<<"depth:"<<(*tmp).at<float>(x,y)<<"\n";
+            cout<<row.type()<<endl;
+            cout<<"dis:"<<row.at<short>(x,y)/16<<"\n";
             
+    
             break;
     }
 
@@ -43,12 +48,11 @@ static void onMouse( int event, int x, int y, int,void * disp)
 
 
       void   mouce_distance(Mat  &disp){
-
           Mat tmp;//显示的8U_C1 图像
            disp.convertTo( tmp,CV_8UC1);
            Mat im_color;
           applyColorMap(tmp, im_color, COLORMAP_JET);
           namedWindow("dis_depth",WINDOW_FREERATIO);
            setMouseCallback 	( "dis_depth",onMouse,&disp); //设置回调计算距离	
-           imshow("dis_depth",tmp);//显示带有距离数据的图像
+           imshow("dis_depth",im_color);//显示带有距离数据的图像
  };

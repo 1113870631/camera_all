@@ -7,7 +7,7 @@ using namespace std;
 #define thead_num 4
 #define thead_num2 1
 
-void sgm(Mat lift,Mat rigit,Mat *out,int setNumDisparities) ;
+void sgm(Mat lift,Mat rigit,Mat *out,Mat *out_row,int setNumDisparities);
  void thread_prepare(int thread_num);
  void Set_Sgbm(void);
 #endif // !__SGM_H__

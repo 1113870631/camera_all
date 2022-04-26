@@ -7,7 +7,7 @@
 #include <rectangle_uv.h>
 using namespace std;
 using namespace cv;
-
+extern int  setNumDisparities;
 void disp_per_deal(Mat & disp);//视差图预处理  加横格
 
 
@@ -29,8 +29,8 @@ void ground_all(Mat disp){
 	disp_per_deal(disp);
 	imshow("tmp",disp);
     minMaxIdx (disp,&min,&max,&x,&y,noArray() ) ;
-    Mat UdispMap=Mat(200,disp.cols,CV_16UC1);
-    Mat VdispMap=Mat(disp.rows,200,CV_16UC1);
+    Mat UdispMap=Mat(setNumDisparities,disp.cols,CV_16UC1);
+    Mat VdispMap=Mat(disp.rows,setNumDisparities,CV_16UC1);
     computeUDisparity( UdispMap, disp);
     computeVDisparity(VdispMap,disp);    
     UdispMap.convertTo(UdispMap,CV_8UC1);

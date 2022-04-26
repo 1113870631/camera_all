@@ -35,6 +35,8 @@ Mat Pic_per_R[thead_num];
 
 
 Mat PIc_end[thead_num];
+Mat ROW[thead_num];
+
 int sem[thead_num];
 cv::Ptr<cv::StereoSGBM> Sgbm_Arr[thead_num];
 vector<thread> mythreads;
@@ -106,7 +108,7 @@ void thread_prepare(int thread_num){
     }
 };
 
-void sgm(Mat lift,Mat rigit,Mat *out,int setNumDisparities)  {
+void sgm(Mat lift,Mat rigit,Mat *out,Mat *out_row,int setNumDisparities)  {
      
            Mat grayLeft,grayRight;
             //分成分 分别进行立体匹配
@@ -141,11 +143,14 @@ void sgm(Mat lift,Mat rigit,Mat *out,int setNumDisparities)  {
           //归一化
          for(int tmp=0;tmp<thead_num;tmp++)
          {
-              PIc_end[tmp].convertTo(PIc_end[tmp],CV_8UC1,255 / (setNumDisparities*16.0));
+                ROW[tmp]=PIc_end[tmp];
+                PIc_end[tmp].convertTo(PIc_end[tmp],CV_8UC1,255 / (setNumDisparities*16.0));
              //cout<< PIc_end[tmp].size<<endl;
          }     
          //合并
         vconcat(PIc_end,thead_num,*out);
+         vconcat(ROW,thead_num,*out_row);
+
 };
 
 

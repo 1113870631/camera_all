@@ -18,11 +18,11 @@
 using namespace cv;
 using namespace std;
 
-
+Mat row,sgm_guiyi;    
   //立体匹配参数
     int setblock=1;
     int setNumDisparities=143;
-    int setUniquenessRatio=5;
+    int setUniquenessRatio=0;
     int setSpeckleWindowSize=3;
     int setSpeckleRange=1;
     int setDisp12MaxDiff=500;
@@ -64,12 +64,12 @@ int main()
     int deviceID = 4;             // 0 = open default camera
     int apiID = cv::CAP_ANY;      // 0 = autodetect default API
     // open selected camera using selected API
-/*     cap.open(deviceID, apiID);
+   cap.open(deviceID, apiID);
     cap.set(CAP_PROP_FRAME_WIDTH,1280);
     cap.set(CAP_PROP_FRAME_HEIGHT,480);
-    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式 */
-        //cap.open("v4l2src device=/dev/video4    !   video/x-raw,width=1280,height=480  !  videoconvert   !  appsink", cv::CAP_GSTREAMER);
- cap.open("udpsrc port=5602 ! application/x-rtp ! rtph264depay   ! decodebin ! videoconvert ! video/x-raw,format=(string)BGR ! videoconvert ! appsink sync=false max-buffers=1 drop=true ", cv::CAP_GSTREAMER);
+    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式 
+//cap.open("v4l2src device=/dev/video4    !   video/x-raw,width=1280,height=480  !  videoconvert   !  appsink", cv::CAP_GSTREAMER);
+//cap.open("udpsrc port=5600 ! application/x-rtp ! rtph264depay   ! decodebin ! videoconvert ! video/x-raw,format=(string)BGR ! videoconvert ! appsink sync=false max-buffers=1 drop=true ", cv::CAP_GSTREAMER);//
  
 
     // check if we succeeded
@@ -131,12 +131,23 @@ while(1)
          namedWindow("out2",WINDOW_FREERATIO);
          imshow("out2",out2);
 
-         Mat sgm_guiyi,row; 
+         Mat sgm_guiy; 
          //立体匹配  注意顺序
-        double start = getTickCount();
-         sgm(out1,out2,&sgm_guiyi,setNumDisparities);
-        double time = ((double)getTickCount() - start) / getTickFrequency();
-        cout << "所用时间为：" << time << "秒" << endl;
+        //double start = getTickCount();
+         sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities);
+ 
+          Mat depth;
+         reprojectImageTo3D(row,depth,Q_my);
+         //分离深度信息
+        Mat channels[3];
+        split(depth,channels);
+        //channels[2]=channels[2].colRange(setNumDisparities,channels[2].cols);
+        //交互深度图生成
+         mouce_distance(channels[2]); 
+        //cout<<"depth:"<<channels[2].at<float>(channels[2].cols/2,channels[2].rows/2)<<"   "<<(int)row.at<short>(row.cols/2,row.rows/2)/16<<endl;
+         
+        //double time = ((double)getTickCount() - start) / getTickFrequency();
+        //cout << "所用时间为：" << time << "秒" << endl;
          imshow("test",sgm_guiyi);
          Mat im_color;
           applyColorMap(sgm_guiyi, im_color, COLORMAP_JET);
