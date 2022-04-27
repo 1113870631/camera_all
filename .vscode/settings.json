@@ -3,6 +3,7 @@
         "vector": "cpp",
         "thread": "cpp",
         "iostream": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "ostream": "cpp"
     }
 }

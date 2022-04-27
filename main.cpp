@@ -38,8 +38,7 @@ Mat row,sgm_guiyi;
                         {setblock=setblock+1;}
                         Set_Sgbm();                                   
            };
-
-
+         
 int main()
 {
     Rect validPixROI1;
@@ -94,13 +93,14 @@ int main()
     createTrackbar("p2","out4",&p2,500,other_Callback); 
     createTrackbar("setMinDisparity","out4",&setMinDisparity,100,other_Callback);
 
-       thread_prepare(thead_num);    
+    //多线程准备
+    thread_prepare(thead_num);    
 
 while(1)
     {           
 
 
-         t = (double)cv::getTickCount();
+        // t = (double)cv::getTickCount();
         // wait for a new frame from camera and store it into 'frame'
         cap.read(frame);
         // check if we succeeded
@@ -113,11 +113,10 @@ while(1)
     
         //注意顺序   畸变矫正
         Mat out1;
-        Mat out2;
-              
+        Mat out2;      
          jibian_correct(&RIGHT,&LIFT,&out1,&out2,& mat11,&mat12,& mat21,&mat22, validPixROI1 , validPixROI2);
 
-         //
+         //画线
          int p=0;
          for(int p=0;p<20;p++)
          {
@@ -130,25 +129,24 @@ while(1)
          imshow("out1",out1);
          namedWindow("out2",WINDOW_FREERATIO);
          imshow("out2",out2);
-
+        
+        //立体匹配  注意顺序
          Mat sgm_guiy; 
-         //立体匹配  注意顺序
         //double start = getTickCount();
          sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities);
-         mouce_distance(row);
-        //double time = ((double)getTickCount() - start) / getTickFrequency();
-        //cout << "所用时间为：" << time << "秒" << endl;
-         imshow("test",sgm_guiyi);
+         //伪彩图
          Mat im_color;
           applyColorMap(sgm_guiyi, im_color, COLORMAP_JET);
-          imshow("伪彩",im_color);
+         // imshow("伪彩",im_color);   
+          //距离
+          mouce_distance(row,im_color);
+          //分离地面
           ground_all(sgm_guiyi); 
             if (waitKey(5) >= 0)
            break;
 
 
     }
-    // the camera will be deinitialized automatically in VideoCapture destructor
     return 0;
 }
 

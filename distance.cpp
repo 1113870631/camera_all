@@ -25,15 +25,16 @@ using namespace std;
  * @return double 
  */
 
-
+extern int setNumDisparities;
 extern Mat row;
-static void onMouse( int event, int x, int y, int,void * disp)
+static void onMouse( int event, int x_num, int y_num, int flag,void * disp)
 {
-    Mat* tmp=(Mat*)disp;
         switch( event )
     {
         case EVENT_LBUTTONDOWN:
-            int x= (*tmp).at<short>(x,y)/16;
+        cout<<"x:"<<x_num<<"  y" <<y_num<<endl;
+            int x= row.at<short>(x_num,y_num)/16;//x 代表视差值
+            //cout << x<<endl;
             double depth=(5e-10)*x*x*x*x*x*x- 3e-07*x*x*x*x*x + 7e-05*x*x*x*x - 0.0087*x*x*x + 0.63*x*x - 26.27*x + 582.63;
             cout<<"distance:"<<depth<<"\n";
             break;
@@ -51,13 +52,9 @@ static void onMouse( int event, int x, int y, int,void * disp)
  * /double depth=(5e-10)*x*x*x*x*x*x- 3e-07*x*x*x*x*x + 7e-05*x*x*x*x - 0.0087*x*x*x + 0.63*x*x - 26.27*x + 582.63;
  * @param disp 
  */
-      void   mouce_distance(Mat  &disp){
-          
-          Mat tmp;//显示的8U_C1 图像
-           disp.convertTo( tmp,CV_8UC1);
-           Mat im_color;
-          applyColorMap(tmp, im_color, COLORMAP_JET);
+      void   mouce_distance(Mat  disp,Mat color){
+
           namedWindow("dis_depth",WINDOW_FREERATIO);
-           setMouseCallback 	( "dis_depth",onMouse,&disp); //设置回调计算距离	
-           imshow("dis_depth",im_color);//显示带有距离数据的图像
+          setMouseCallback 	( "dis_depth",onMouse); //设置回调计算距离	
+          imshow("dis_depth",color);//显示带有距离数据的图
  };
