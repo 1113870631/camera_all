@@ -142,58 +142,58 @@ void jibian_zhuanhuan(Mat * mat11,Mat *mat12,Mat * mat21,Mat *mat22,Mat* Q_my,Si
     }
     else{
       //相机一 内参    640  x  480
-    cameraMatrix1.at<double>(0, 0) = 901.7090;
+    cameraMatrix1.at<double>(0, 0) = 933.0224;
     cameraMatrix1.at<double>(0, 1) = 0;
-    cameraMatrix1.at<double>(0, 2) = 348.6040;
+    cameraMatrix1.at<double>(0, 2) = 366.7433;
 
     cameraMatrix1.at<double>(1, 0) = 0;
-    cameraMatrix1.at<double>(1, 1) = 902.2103;
-    cameraMatrix1.at<double>(1, 2) = 277.7997;
+    cameraMatrix1.at<double>(1, 1) = 934.2225;
+    cameraMatrix1.at<double>(1, 2) = 274.5676;
 
     cameraMatrix1.at<double>(2, 0) = 0;
     cameraMatrix1.at<double>(2, 1) = 0;
     cameraMatrix1.at<double>(2, 2) = 1;
     //相机二 内参
-    cameraMatrix2.at<double>(0, 0) = 897.6529;
+    cameraMatrix2.at<double>(0, 0) = 929.5367;
     cameraMatrix2.at<double>(0, 1) = 0;
-    cameraMatrix2.at<double>(0, 2) = 318.2167;
+    cameraMatrix2.at<double>(0, 2) = 327.5128;
 
     cameraMatrix2.at<double>(1, 0) = 0;
-    cameraMatrix2.at<double>(1, 1) = 898.5059;
-    cameraMatrix2.at<double>(1, 2) = 266.7790;
+    cameraMatrix2.at<double>(1, 1) = 930.8706;
+    cameraMatrix2.at<double>(1, 2) = 268.2889;
 
     cameraMatrix2.at<double>(2, 0) = 0;
     cameraMatrix2.at<double>(2, 1) = 0;
     cameraMatrix2.at<double>(2, 2) = 1;
     //相机一   畸变参数
-     distCoeffs1.at<double>(0, 0) = -0.4569; // k1
-    distCoeffs1.at<double>(1, 0) = 0.5528;  // k2
+     distCoeffs1.at<double>(0, 0) = -0.4176; // k1
+    distCoeffs1.at<double>(1, 0) = 0.0269;  // k2
     distCoeffs1.at<double>(2, 0) = 0; //p1
     distCoeffs1.at<double>(3, 0) = 0; //p2
     distCoeffs1.at<double>(4, 0) = 0; //k3
     //相机二  畸变参数 
-     distCoeffs2.at<double>(0, 0) = -0.4031; // k1
-    distCoeffs2.at<double>(1, 0) = 0.1021;  // k2
+     distCoeffs2.at<double>(0, 0) = -0.4529; // k1
+    distCoeffs2.at<double>(1, 0) = 0.2549;  // k2
     distCoeffs2.at<double>(2, 0) = 0; //p1
     distCoeffs2.at<double>(3, 0) = 0; //p2
     distCoeffs2.at<double>(4, 0) = 0; //k3
 
     //旋转转换矩阵
     R.at<double>(0, 0) = 1;
-    R.at<double>(0, 1) = -3.2468e-04;
-    R.at<double>(0, 2) = -8.5012e-04;
+    R.at<double>(0, 1) = -8.9242e-04;
+    R.at<double>(0, 2) = 0.0053;
 
-    R.at<double>(1, 0) = 3.1852e-04;
-    R.at<double>(1, 1) = 1;
-    R.at<double>(1, 2) = -0.0072;
+    R.at<double>(1, 0) = 9.7027e-04;
+    R.at<double>(1, 1) = 0.9999;
+    R.at<double>(1, 2) = -0.0147;
 
-    R.at<double>(2, 0) = 8.5245e-04;
-    R.at<double>(2, 1) = 0.0072;
-    R.at<double>(2, 2) = 1;
+    R.at<double>(2, 0) = -0.0053;
+    R.at<double>(2, 1) = 0.0147;
+    R.at<double>(2, 2) = 0.9999;
     //平移
-    T.at<double>(0, 0) = -60.6915;
-    T.at<double>(1, 0) = -0.1334;
-    T.at<double>(2, 0) = -0.1939;
+    T.at<double>(0, 0) = -60.0172;
+    T.at<double>(1, 0) = 2.2038;
+    T.at<double>(2, 0) = -1.7706;
 
     }
     
