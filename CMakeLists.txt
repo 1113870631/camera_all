@@ -5,9 +5,15 @@ include(CTest)
 enable_testing()
 find_package(OpenCV REQUIRED)
 find_package(Threads)
-include_directories("./")
-add_executable(camera main.cpp   picture_ex.h picture_ex.cpp jibian.cpp jibian.h sgm.cpp sgm.h hole.h hole.cpp ground_ex.h line_zoom.h U_V.h ground_ex.cpp line_zoom.cpp U_V.cpp ground_all.cpp ground_all.h distance.cpp distance.h rectangle_uv.h  rectangle_uv.cpp )
+
+include_directories("./src")
+add_subdirectory(src)   
+
+add_executable(camera main.cpp)
+
 target_link_libraries(camera ${OpenCV_LIBS}  ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(camera mylib)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
