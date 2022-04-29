@@ -20,7 +20,7 @@ using namespace std;
 
 Mat row,sgm_guiyi;    
   //立体匹配参数
-    int setblock=1;
+    int setblock=7;
     int setNumDisparities=143;
     int setUniquenessRatio=5;
     int setSpeckleWindowSize=30;
