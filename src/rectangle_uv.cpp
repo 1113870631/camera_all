@@ -78,7 +78,10 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 		int height = stats.at<int>(i, CC_STAT_HEIGHT);
 		int area = stats.at<int>(i, CC_STAT_AREA);
 		//printf("area : %d, center point(%.2f, %.2f)\n", area, pt[0], pt[1]);
-		if(width<20&&height<20)continue;
+		if(width<30&&height<30){//过滤极小点
+			 rectangle(dst, Rect(x, y, width, height), Scalar(0, 0, 0), -1, 8, 0);
+			continue;
+		}
         if(win_name=="v_lian"){
              if(height>10){
                 circle(dst, Point(pt[0], pt[1]), 2, Scalar(0, 0, 255), -1, 8, 0);
@@ -89,17 +92,17 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 				if((double)height/width>5){
 					rectangle(test, Rect(x, y, width, height), Scalar(255, 255, 255), 1, 8, 0);
 				}
-				imshow("test",test);
+				imshow("test_v",test);
               }
 	  
         }
          if(win_name=="u_lian"){
-             if(width>10){
+             if(height>10){
                 circle(dst, Point(pt[0], pt[1]), 2, Scalar(0, 0, 255), -1, 8, 0);
                 rectangle(dst, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
               }
         }		
 	}
-    namedWindow(win_name,WINDOW_FREERATIO);
+    //namedWindow(win_name,WINDOW_FREERATIO);
 	imshow(win_name, dst);
 };

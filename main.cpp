@@ -20,15 +20,15 @@ using namespace std;
 
 Mat row,sgm_guiyi;    
   //立体匹配参数
-    int setblock=7;
-    int setNumDisparities=143;
-    int setUniquenessRatio=5;
-    int setSpeckleWindowSize=30;
+    int setblock=5;
+    int setNumDisparities=165;
+    int setUniquenessRatio=6;
+    int setSpeckleWindowSize=90;
     int setSpeckleRange=1;
     int setDisp12MaxDiff=500;
     int setMinDisparity=0;
-    int p1=6;
-    int p2=500;
+    int p1=112;
+    int p2=45;
 
 
     //立体匹配参数回调函数
@@ -63,12 +63,12 @@ int main()
     int deviceID = 4;             // 0 = open default camera
     int apiID = cv::CAP_ANY;      // 0 = autodetect default API
     // open selected camera using selected API
-   cap.open(deviceID, apiID);
+    cap.open(deviceID, apiID);
     cap.set(CAP_PROP_FRAME_WIDTH,1280);
     cap.set(CAP_PROP_FRAME_HEIGHT,480);
-    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式 
+    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式  
 //cap.open("v4l2src device=/dev/video4    !   video/x-raw,width=1280,height=480  !  videoconvert   !  appsink", cv::CAP_GSTREAMER);
-//cap.open("udpsrc port=5600 ! application/x-rtp ! rtph264depay   ! decodebin ! videoconvert ! video/x-raw,format=(string)BGR ! videoconvert ! appsink sync=false max-buffers=1 drop=true ", cv::CAP_GSTREAMER);//
+//cap.open("udpsrc port=5600 ! application/x-rtp ! rtph264depay   ! decodebin ! videoconvert ! video/x-raw,format=(string)BGR ! videoconvert ! appsink sync=false max-buffers=1 drop=true ", cv::CAP_GSTREAMER);
  
 
     // check if we succeeded

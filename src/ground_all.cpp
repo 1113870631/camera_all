@@ -36,12 +36,16 @@ void ground_all(Mat disp){
     UdispMap.convertTo(UdispMap,CV_8UC1);
      VdispMap.convertTo(VdispMap,CV_8UC1); 
       //阈值化
-     threshold(VdispMap,VdispMap,25,255,THRESH_BINARY);
-     threshold(UdispMap,UdispMap,25,255,THRESH_BINARY);
-     namedWindow("V",WINDOW_FREERATIO);
-     namedWindow("U",WINDOW_FREERATIO);
-     imshow("V",VdispMap);
-     imshow("U",UdispMap);
+     threshold(VdispMap,VdispMap,10,255,THRESH_BINARY);
+     threshold(UdispMap,UdispMap,10,255,THRESH_BINARY);
+    medianBlur(UdispMap,UdispMap,3);
+    transpose(UdispMap, UdispMap);
+    flip(UdispMap, UdispMap, 0);
+
+    Mat U_V;
+    vconcat(VdispMap,UdispMap,U_V);
+     namedWindow("U_V",WINDOW_FREERATIO);
+     imshow("U_V",U_V);
         //连通区域 矩形框选
 	    int lables_num_u,lables_num_v;	
        
@@ -52,7 +56,7 @@ void ground_all(Mat disp){
         Mat status_v = Mat::zeros(VdispMap.size(), CV_32S);
 
      connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u);
-     //connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v);
+     connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v);
 
 
 
