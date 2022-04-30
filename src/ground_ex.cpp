@@ -106,6 +106,10 @@ void ground_ex(lines_zoom * zoom,Mat v   ,Mat  disp)
 
 //
 void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
+    //为空返回
+    if(ground_line_v.empty()){
+        return;
+    }
 //处理障碍物和地面直线
      vector<Vec4f>::iterator it;
      //disp=k*v+b
@@ -127,15 +131,12 @@ void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
     // y=kx+b   b=y-kx
     double tmp_b=y2-tmp_k*x2;
 
-    //
-
+    //地面检测
         //1 寻找视差图中心坐标
     int mid_rows=disp.rows/2;
     int min_cols=disp.cols/2;
     for(int tmp_v=0;tmp_v<disp.rows;tmp_v++)
-    {
-
-              
+    {         
         // if(tmp_v<(*it_4f)[3]&&tmp_v>(*it_4f)[1])
          {
                     //计算目标视差
@@ -146,12 +147,9 @@ void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
                     uchar *data = disp.ptr<uchar>(tmp_v, tmp_U);
                     if((int)(*data)-tmp_disp<10&&(int)(*data)-tmp_disp>-10)
                     *data=0;
-                    //cout<<(int)*data<<endl;
-                
+                    //cout<<(int)*data<<endl;               
                 }
-        }
-       
-          
+        }          
     }
        Mat disp_color;
         applyColorMap(disp, disp_color, COLORMAP_JET);
