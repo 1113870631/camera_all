@@ -1,11 +1,13 @@
 #include "ground_all.h"
 #include "U_V.h"
 #include "line_zoom.h"
+#include "Obstacle_detection.h"
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 #include <string.h>
 #include <rectangle_uv.h>
 #include <ground_ex.h>
+
 using namespace std;
 using namespace cv;
 extern int  setNumDisparities;
@@ -63,6 +65,7 @@ void ground_all(Mat disp){
      connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v,abstract_line_v,ground_line_v,u_line);
      
      Ground_Ex_line(ground_line_v, disp);
+     Obstacle_detection(abstract_line_v,u_line,disp);
 
 
 

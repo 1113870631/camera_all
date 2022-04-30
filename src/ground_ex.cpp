@@ -145,7 +145,7 @@ void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
                 for(int tmp_U=0;tmp_U<disp.cols;tmp_U++)
                 {
                     uchar *data = disp.ptr<uchar>(tmp_v, tmp_U);
-                    if((int)(*data)-tmp_disp<10&&(int)(*data)-tmp_disp>-10)
+                    if((int)(*data)-tmp_disp<5&&(int)(*data)-tmp_disp>-5)
                     *data=0;
                     //cout<<(int)*data<<endl;               
                 }
