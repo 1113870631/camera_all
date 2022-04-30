@@ -37,7 +37,7 @@ void connected_components(Mat& image,string win_name) {
 
  
  
-void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats  ,int &num_labels) {
+void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats  ,int &num_labels,vector<Vec4f>&abstract_line,vector<Vec4f>&ground_line,vector<Vec4f>&u_line) {
  
 	//计算连通域
 	//Mat labels = Mat::zeros(image.size(), CV_32S);
@@ -86,11 +86,15 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
              if(height>10){
                 circle(dst, Point(pt[0], pt[1]), 2, Scalar(0, 0, 255), -1, 8, 0);
                 rectangle(dst, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
-				if((double)height/width<5&&(double)height/width>0.5){
-					rectangle(test, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
+				if((double)height/width<5&&(double)height/width>0.5){//ground
+					//rectangle(test, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
+					line(test,Point(x,y),Point(x+width,y+height),Scalar(255,0,255),2);
+					ground_line.push_back(Vec4f(x,y,x+width,y+height));
 				}
-				if((double)height/width>5){
-					rectangle(test, Rect(x, y, width, height), Scalar(255, 255, 255), 1, 8, 0);
+				if((double)height/width>5){//abstract
+					//rectangle(test, Rect(x, y, width, height), Scalar(255, 255, 255), 1, 8, 0);
+					line(test,Point(x+width/2,y),Point(x+width/2,y+height),Scalar(255,255,255),2);
+					abstract_line.push_back(Vec4f(x+width/2,y,x+width/2,y+height));
 				}
 				imshow("test_v",test);
               }
@@ -99,7 +103,8 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
          if(win_name=="u_lian"){
              if(height>10){
                 circle(dst, Point(pt[0], pt[1]), 2, Scalar(0, 0, 255), -1, 8, 0);
-                rectangle(dst, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
+                rectangle(dst, Rect(x, y, width, height), Scalar(255, 255, 255), 1, 8, 0);
+				u_line.push_back(Vec4f(x+width/2,y,x+width/2,y+height));
               }
         }		
 	}

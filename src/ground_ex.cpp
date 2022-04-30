@@ -101,15 +101,62 @@ void ground_ex(lines_zoom * zoom,Mat v   ,Mat  disp)
 
     }
     imshow("disp",disp);
-
-
-    
-
-
-
-
-
 };
+
+
+//
+void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
+//处理障碍物和地面直线
+     vector<Vec4f>::iterator it;
+     //disp=k*v+b
+     double x1,y1,x2,y2;
+     int tmp=0;
+     for(it=ground_line_v.begin();it!=ground_line_v.end();it++){
+         tmp++;
+         x1+=(*it)[0];
+         y1+=(*it)[1];
+         x2+=(*it)[2];
+         y2+=(*it)[3];
+     }
+     x1/=tmp;
+     x2/=tmp;
+     y1/=tmp;
+     y2/=tmp;
+    //得到y=kx+b
+    double tmp_k=(y2-y1)/(x2-x1);
+    // y=kx+b   b=y-kx
+    double tmp_b=y2-tmp_k*x2;
+
+    //
+
+        //1 寻找视差图中心坐标
+    int mid_rows=disp.rows/2;
+    int min_cols=disp.cols/2;
+    for(int tmp_v=0;tmp_v<disp.rows;tmp_v++)
+    {
+
+              
+        // if(tmp_v<(*it_4f)[3]&&tmp_v>(*it_4f)[1])
+         {
+                    //计算目标视差
+                double tmp_disp=(tmp_v-tmp_b)/tmp_k;
+                //遍历这一行 寻找符合该视差的点
+                for(int tmp_U=0;tmp_U<disp.cols;tmp_U++)
+                {
+                    uchar *data = disp.ptr<uchar>(tmp_v, tmp_U);
+                    if((int)(*data)-tmp_disp<10&&(int)(*data)-tmp_disp>-10)
+                    *data=0;
+                    //cout<<(int)*data<<endl;
+                
+                }
+        }
+       
+          
+    }
+       Mat disp_color;
+        applyColorMap(disp, disp_color, COLORMAP_JET);
+        imshow("disp",disp_color);
+}
 
 
 

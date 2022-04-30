@@ -5,6 +5,7 @@
 #include <opencv2/imgproc.hpp>
 #include <string.h>
 #include <rectangle_uv.h>
+#include <ground_ex.h>
 using namespace std;
 using namespace cv;
 extern int  setNumDisparities;
@@ -36,8 +37,8 @@ void ground_all(Mat disp){
     UdispMap.convertTo(UdispMap,CV_8UC1);
      VdispMap.convertTo(VdispMap,CV_8UC1); 
       //阈值化
-     threshold(VdispMap,VdispMap,10,255,THRESH_BINARY);
-     threshold(UdispMap,UdispMap,10,255,THRESH_BINARY);
+     threshold(VdispMap,VdispMap,20,255,THRESH_BINARY);
+     threshold(UdispMap,UdispMap,20,255,THRESH_BINARY);
     medianBlur(UdispMap,UdispMap,3);
     transpose(UdispMap, UdispMap);
     flip(UdispMap, UdispMap, 0);
@@ -54,15 +55,16 @@ void ground_all(Mat disp){
 	
 		Mat status_u = Mat::zeros(UdispMap.size(), CV_32S);
         Mat status_v = Mat::zeros(VdispMap.size(), CV_32S);
+        vector<Vec4f>abstract_line_v;
+        vector<Vec4f>ground_line_v;
+        vector<Vec4f>u_line;
 
-     connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u);
-     connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v);
+     connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u,abstract_line_v,ground_line_v,u_line);
+     connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v,abstract_line_v,ground_line_v,u_line);
+     
+     Ground_Ex_line(ground_line_v, disp);
 
 
-
-          //直线检测
-       //   lines_zoom*  zoom1;
-      //zoom1=   MethodOne(VdispMap);
 
 };
 

@@ -5,7 +5,7 @@
 using namespace cv;
 using namespace std;
 #define thead_num 6
-#define thead_num2 10
+#define thead_num2 1
 
 void sgm(Mat lift,Mat rigit,Mat *out,Mat *out_row,int setNumDisparities);
  void thread_prepare(int thread_num);
