@@ -63,12 +63,12 @@ int main()
     int deviceID = 4;             // 0 = open default camera
     int apiID = cv::CAP_ANY;      // 0 = autodetect default API
     // open selected camera using selected API
-   /*  cap.open(deviceID, apiID);
+ cap.open(deviceID, apiID);
     cap.set(CAP_PROP_FRAME_WIDTH,1280);
     cap.set(CAP_PROP_FRAME_HEIGHT,480);
-    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式   */
+    cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));//视频流格式   
 //cap.open("v4l2src device=/dev/video4    !   video/x-raw,width=1280,height=480  !  videoconvert   !  appsink", cv::CAP_GSTREAMER);
-cap.open("udpsrc port=5600 ! application/x-rtp ! rtph264depay   ! decodebin ! videoconvert ! video/x-raw,format=(string)BGR ! videoconvert ! appsink sync=false max-buffers=1 drop=true ", cv::CAP_GSTREAMER);
+//cap.open("udpsrc port=5600 ! application/x-rtp ! rtph264depay   ! decodebin ! videoconvert ! video/x-raw,format=(string)BGR ! videoconvert ! appsink sync=false max-buffers=1 drop=true ", cv::CAP_GSTREAMER);
  
 
     // check if we succeeded
@@ -125,30 +125,26 @@ while(1)
              line(out1,Point(0,40+p*40),Point(out1.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
              line(out2,Point(0,40+p*40),Point(out2.cols,40+p*40),Scalar(0, 0, 255),1,8,0);
          }
-         namedWindow("out1",WINDOW_FREERATIO);
-         imshow("out1",out1);
-         namedWindow("out2",WINDOW_FREERATIO);
-         imshow("out2",out2);
+         //显示矫正图像
+        Mat hconcat_pic;
+         hconcat(out1,out2,hconcat_pic); 
+         imshow("矫正图像",hconcat_pic);
         
         //立体匹配  注意顺序
          Mat sgm_guiy; 
-        //double start = getTickCount();
          sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities);
-         //
 
          //伪彩图
          Mat im_color;
          applyColorMap(sgm_guiyi, im_color, COLORMAP_JET);
-         // imshow("伪彩",im_color);   
-          //距离
+          //距离图
           mouce_distance(row,im_color);
           im_color.convertTo(im_color,CV_8UC3);
-          //分离地面
+          //分离地面   障碍物检测
           ground_all(sgm_guiyi); 
-            if (waitKey(5) >= 0)
-           break;
 
-
+          if (waitKey(5) >= 0)
+          break;
     }
     return 0;
 }

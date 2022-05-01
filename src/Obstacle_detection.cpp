@@ -2,7 +2,7 @@
 using namespace std;
 using namespace cv;
 
-#define FIne_Err 3 
+#define FIne_Err 5 
 
      void Obstacle_detection( vector<cv::Vec4f>abstract_line_v,vector<cv::Vec4f>u_line,Mat & disp){
         vector<Vec4f>::iterator it0;        

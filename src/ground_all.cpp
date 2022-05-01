@@ -40,14 +40,14 @@ void ground_all(Mat disp){
      VdispMap.convertTo(VdispMap,CV_8UC1); 
       //阈值化
      threshold(VdispMap,VdispMap,20,255,THRESH_BINARY);
-     threshold(UdispMap,UdispMap,20,255,THRESH_BINARY);
+     threshold(UdispMap,UdispMap,10,255,THRESH_BINARY);
     medianBlur(UdispMap,UdispMap,3);
     transpose(UdispMap, UdispMap);
     flip(UdispMap, UdispMap, 0);
 
     Mat U_V;
     vconcat(VdispMap,UdispMap,U_V);
-     namedWindow("U_V",WINDOW_FREERATIO);
+     //namedWindow("U_V",WINDOW_FREERATIO);
      imshow("U_V",U_V);
         //连通区域 矩形框选
 	    int lables_num_u,lables_num_v;	
@@ -60,15 +60,20 @@ void ground_all(Mat disp){
         vector<Vec4f>abstract_line_v;
         vector<Vec4f>ground_line_v;
         vector<Vec4f>u_line;
-
+    //连通区域检测
+         //第一次v视图处理 连通区域检测
+     connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u,abstract_line_v,ground_line_v,u_line);
+        //第二次V 视图处理    将地面与障碍物直线分割开来
+      Ground_Obstacle__Line_deal(abstract_line_v,ground_line_v, VdispMap);
+    //地面直线与障碍物直线分离开后再次连通区域检测
      connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u,abstract_line_v,ground_line_v,u_line);
      connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v,abstract_line_v,ground_line_v,u_line);
-     
+      //地面直线处理  地面分离
+     Ground_line_Deal(ground_line_v);
      Ground_Ex_line(ground_line_v, disp);
-     Obstacle_detection(abstract_line_v,u_line,disp);
-
-
-
+     //障碍物直线处理 障碍物提取
+     Obstacle_line_Deal(ground_line_v);
+     Obstacle_detection(abstract_line_v,u_line,disp); 
 };
 
 void disp_per_deal(Mat & disp){

@@ -39,11 +39,14 @@ void connected_components(Mat& image,string win_name) {
  
 void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats  ,int &num_labels,vector<Vec4f>&abstract_line,vector<Vec4f>&ground_line,vector<Vec4f>&u_line) {
  
+  //开运算  闭运算
+	Mat k = getStructuringElement(MORPH_RECT, Size(3, 3), Point(-1, -1));
+	//morphologyEx(image, image, MORPH_OPEN, k);
+	morphologyEx(image, image, MORPH_CLOSE, k); 
 	//计算连通域
-	//Mat labels = Mat::zeros(image.size(), CV_32S);
 	Mat  centroids;
 	 num_labels = connectedComponentsWithStats(image, labels, stats, centroids, 8, 4);
- 
+	
 	//使用不同的颜色标记连通域
 	vector<Vec3b> colors(num_labels);
 	// background color
@@ -110,4 +113,43 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 	}
     //namedWindow(win_name,WINDOW_FREERATIO);
 	imshow(win_name, dst);
+};
+
+
+
+void Ground_line_Deal(vector<Vec4f>&ground_line_v){
+
+
+
+
+};
+
+void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v){
+
+
+};
+
+
+void Ground_Obstacle__Line_deal(vector<Vec4f>&abstract_line_v,vector<Vec4f>&ground_line_v, Mat &VdispMap){
+
+	vector<Vec4f>::iterator it0;
+	double k;
+	double x1,y1,x2,y2;
+
+	for(it0=ground_line_v.begin();it0!=ground_line_v.end();it0++){
+		x1+=(*it0)[0];
+		x2+=(*it0)[2];
+		y1+=(*it0)[1];
+		y2+=(*it0)[3];
+	}
+	    x1/=ground_line_v.size();
+		x2/=ground_line_v.size();
+		y1/=ground_line_v.size();
+		y2/=ground_line_v.size();
+		k=(y2-y1)/(x2-x1);
+		//y=kx+b     k    (x1,y1)   
+		//b=y-kx
+		double b=y1-k*x1;
+		//划线 将地面直线与障碍物直线分割开来
+		line(VdispMap,Point(0,b-20),Point(VdispMap.cols,k*VdispMap.cols+b-20),Scalar(0,0,0),2,8,0);
 };
