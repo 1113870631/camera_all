@@ -61,18 +61,20 @@ void ground_all(Mat disp){
         vector<Vec4f>ground_line_v;
         vector<Vec4f>u_line;
     //连通区域检测
-         //第一次v视图处理 连通区域检测
+         //第一次V 视图处理 连通区域检测
      connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u,abstract_line_v,ground_line_v,u_line);
+        //地面直线过滤
+    Ground_line_Deal(ground_line_v,VdispMap);
         //第二次V 视图处理    将地面与障碍物直线分割开来
       Ground_Obstacle__Line_deal(abstract_line_v,ground_line_v, VdispMap);
     //地面直线与障碍物直线分离开后再次连通区域检测
      connected_components_stat(VdispMap,"v_lian",labels_v,status_v,lables_num_u,abstract_line_v,ground_line_v,u_line);
      connected_components_stat(UdispMap,"u_lian",labels_u,status_u,lables_num_v,abstract_line_v,ground_line_v,u_line);
-      //地面直线处理  地面分离
-     Ground_line_Deal(ground_line_v);
+    
+      // 地面分离
      Ground_Ex_line(ground_line_v, disp);
      //障碍物直线处理 障碍物提取
-     Obstacle_line_Deal(ground_line_v);
+     Obstacle_line_Deal(ground_line_v,VdispMap);
      Obstacle_detection(abstract_line_v,u_line,disp); 
 };
 

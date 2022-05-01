@@ -89,12 +89,12 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
              if(height>10){
                 circle(dst, Point(pt[0], pt[1]), 2, Scalar(0, 0, 255), -1, 8, 0);
                 rectangle(dst, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
-				if((double)height/width<5&&(double)height/width>0.5){//ground
+				if((double)height/width<4&&(double)height/width>0.5){//ground
 					//rectangle(test, Rect(x, y, width, height), Scalar(255, 0, 255), 1, 8, 0);
 					line(test,Point(x,y),Point(x+width,y+height),Scalar(255,0,255),2);
 					ground_line.push_back(Vec4f(x,y,x+width,y+height));
 				}
-				if((double)height/width>5){//abstract
+				if((double)height/width>4){//abstract
 					//rectangle(test, Rect(x, y, width, height), Scalar(255, 255, 255), 1, 8, 0);
 					line(test,Point(x+width/2,y),Point(x+width/2,y+height),Scalar(255,255,255),2);
 					abstract_line.push_back(Vec4f(x+width/2,y,x+width/2,y+height));
@@ -117,14 +117,20 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 
 
 
-void Ground_line_Deal(vector<Vec4f>&ground_line_v){
-
-
-
-
+void Ground_line_Deal(vector<Vec4f>&ground_line_v,Mat VdispMap){
+	//位置处理 下半部分的地面直线去除出去
+	vector<Vec4f>::iterator it0;
+	int half_y=VdispMap.rows/2;
+	again:for(it0=ground_line_v.begin();it0!=ground_line_v.end();it0++){
+		if((*it0)[1]<half_y&&(*it0)[3]<half_y){
+			ground_line_v.erase(it0);
+		      goto again;
+		}
+	}
+	//斜率过滤
 };
 
-void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v){
+void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap){
 
 
 };

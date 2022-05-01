@@ -16,8 +16,8 @@ void connected_components_stat(Mat& image,\
                                                                         vector<Vec4f>&u_line);          //带统计信息
 
 //直线处理
-void Ground_line_Deal(vector<Vec4f>&ground_line_v);
-void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v);
+void Ground_line_Deal(vector<Vec4f>&ground_line_v,Mat VdispMap);
+void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap);
 
 
 void Ground_Obstacle__Line_deal(vector<Vec4f>&abstract_line_v,vector<Vec4f>&ground_line_v, Mat &VdispMap);

@@ -114,18 +114,16 @@ void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
      vector<Vec4f>::iterator it;
      //disp=k*v+b
      double x1,y1,x2,y2;
-     int tmp=0;
      for(it=ground_line_v.begin();it!=ground_line_v.end();it++){
-         tmp++;
          x1+=(*it)[0];
          y1+=(*it)[1];
          x2+=(*it)[2];
          y2+=(*it)[3];
      }
-     x1/=tmp;
-     x2/=tmp;
-     y1/=tmp;
-     y2/=tmp;
+     x1/=ground_line_v.size();
+     x2/=ground_line_v.size();
+     y1/=ground_line_v.size();
+     y2/=ground_line_v.size();
     //得到y=kx+b
     double tmp_k=(y2-y1)/(x2-x1);
     // y=kx+b   b=y-kx
