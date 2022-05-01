@@ -3,6 +3,7 @@
 #include <opencv2/imgproc.hpp>
 #include <string.h>
 #include <opencv2/core/matx.hpp>
+#include<algorithm>  
 
 RNG rng(123);
 
@@ -119,16 +120,46 @@ void connected_components_stat(Mat& image,string win_name,Mat &labels,Mat &stats
 
 void Ground_line_Deal(vector<Vec4f>&ground_line_v,Mat VdispMap){
 	//位置处理 下半部分的地面直线去除出去
-	vector<Vec4f>::iterator it0;
+	if(ground_line_v.empty()){//检测是否为空
+		return;
+	}
+ 	vector<Vec4f>::iterator it0;
 	int half_y=VdispMap.rows/2;
 	again:for(it0=ground_line_v.begin();it0!=ground_line_v.end();it0++){
 		if((*it0)[1]<half_y&&(*it0)[3]<half_y){
 			ground_line_v.erase(it0);
 		      goto again;
 		}
+	};
+	//斜率过滤   
+	double tmp_k;
+	vector<double>k_list;
+	for(it0=ground_line_v.begin();it0!=ground_line_v.end();it0++){
+		tmp_k=((*it0)[3]-(*it0)[1])/((*it0)[2]-(*it0)[0]);
+		k_list.push_back(tmp_k);
 	}
-	//斜率过滤
+	//检测是否为空
+	if(k_list.empty()){
+		return;
+	}
+    //正向排序：按照从小到大的顺序排序
+    sort(k_list.begin(), k_list.end());
+	//取出中位斜率 tmp_K
+	tmp_k=k_list.at((int)k_list.size()/2);
+	//去除不符合斜率的直线
+	again2:for(it0=ground_line_v.begin();it0!=ground_line_v.end();it0++){
+		double k_present=((*it0)[3]-(*it0)[1])/((*it0)[2]-(*it0)[0]);
+		if(k_present-tmp_k<-1&&k_present-tmp_k>1){
+			ground_line_v.erase(it0);
+		      goto again2;
+		}
+	} 
+	//距离过滤
+	
+
 };
+
+
 
 void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap){
 

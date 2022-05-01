@@ -100,7 +100,7 @@ void ground_ex(lines_zoom * zoom,Mat v   ,Mat  disp)
        
 
     }
-    imshow("disp",disp);
+    //imshow("disp",disp);
 };
 
 #define Ground_err 10
@@ -151,7 +151,7 @@ void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
     }
        Mat disp_color;
         applyColorMap(disp, disp_color, COLORMAP_JET);
-        imshow("disp",disp_color);
+        imshow("disp_without_ground",disp_color);
 }
 
 
