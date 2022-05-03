@@ -11,6 +11,7 @@
 using namespace std;
 using namespace cv;
 extern int  setNumDisparities;
+extern Mat row;
 void disp_per_deal(Mat & disp);//视差图预处理  加横格
 
 
@@ -25,7 +26,7 @@ void disp_per_deal(Mat & disp);//视差图预处理  加横格
  *                   直线提取                          根据区域 提取直线
  *                  公式计算                           公式计算
  */
-void ground_all(Mat disp){
+void ground_all(Mat disp,Mat color_picture){
     //生成U V 视图
     double min,max;
     int x ,y;
@@ -76,10 +77,13 @@ void ground_all(Mat disp){
       // 地面分离
     //地面直线过滤   分离地面跟准确
     Ground_line_Deal(ground_line_v,VdispMap);
-     Ground_Ex_line(ground_line_v, disp);
+     Ground_Ex_line(ground_line_v, disp,color_picture);
      //障碍物直线处理 障碍物提取
      Obstacle_line_Deal(ground_line_v,VdispMap);
-     Obstacle_detection(abstract_line_v,u_line,disp); 
+     vector<cv::Vec4f>Obstacles;
+     Obstacle_detection(abstract_line_v,u_line,disp,Obstacles); 
+     Obstacle_dis_rectangle(Obstacles,color_picture,row);
+
 };
 
 void disp_per_deal(Mat & disp){

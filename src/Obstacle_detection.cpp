@@ -4,7 +4,7 @@ using namespace cv;
 
 #define FIne_Err 5 
 
-     void Obstacle_detection( vector<cv::Vec4f>abstract_line_v,vector<cv::Vec4f>u_line,Mat & disp){
+     void Obstacle_detection( vector<cv::Vec4f>abstract_line_v,vector<cv::Vec4f>u_line,Mat & disp,vector<cv::Vec4f>&Obstacles){
         vector<Vec4f>::iterator it0;        
         Mat im_color;
          applyColorMap(disp, im_color, COLORMAP_JET);
@@ -42,12 +42,66 @@ using namespace cv;
                                                 x_pos2=(*it2)[3];
                                                 y_pos1=(*it0)[1];
                                                 y_pos2=(*it0)[3]; 
-                                                //坐标转换
-                                                rectangle(im_color,Point(disp.cols-x_pos1,y_pos2),Point(disp.cols-x_pos2,y_pos1),Scalar(0,255,0),3,8,0); 
+                                                //坐标转换 
+                                                //rectangle(im_color,Point(disp.cols-x_pos1,y_pos2),Point(disp.cols-x_pos2,y_pos1),Scalar(0,255,0),3,8,0); 
+                                                Obstacles.push_back(Vec4f(disp.cols-x_pos1,y_pos2,disp.cols-x_pos2,y_pos1));
                         }
                         i=0;
                 } 
         }  
-show:
-        imshow("obs",im_color);
+     show:
+         // imshow("obs",im_color);
+        ; //防止goto show 报错
     };   
+
+/**
+ * @brief 
+ *标出障碍物并计算距离
+ * 
+ * @param Obstacles   障碍物
+ * @param color_picture   显示的图片
+ */
+    void Obstacle_dis_rectangle(vector<cv::Vec4f> Obstacles,Mat color_picture,Mat disp){
+        vector<Vec4f>::iterator it0;
+        for(it0=Obstacles.begin();it0!=Obstacles.end();it0++){
+            rectangle(color_picture,Point((*it0)[0],(*it0)[1]),Point((*it0)[2],(*it0)[3]),Scalar(0,255,0),3,8,0);
+            //得到障碍物区域 
+            Mat rol_obs=disp.rowRange((*it0)[3],(*it0)[1]);
+           rol_obs=disp.colRange((*it0)[2],(*it0)[0]);
+            //进行视差值处理       求x交叉线所有元素的均值  小于均值的元素设为0  剩下的元素求均值
+            float tmp1=0,num=0;
+                //y=kx y=kx+rows             
+            for(int x=0;x<rol_obs.cols;x++)
+                for(int y=0;y<rol_obs.rows;y++){
+                    if(y==rol_obs.rows/rol_obs.cols*x||y==-rol_obs.rows/rol_obs.cols*x+rol_obs.rows){
+                        tmp1+=rol_obs.at<short>(x,y);
+                        num++;
+                    }
+                }
+                tmp1/=num;
+         double tmp2=0;
+                num=0;
+                threshold(rol_obs,rol_obs,tmp1,tmp1,THRESH_TOZERO_INV);
+                for(int x=0;x<rol_obs.cols;x++)
+                    for(int y=0;y<rol_obs.rows;y++){
+                        if(rol_obs.at<short>(x,y)!=0)
+                        tmp2+=rol_obs.at<short>(x,y);
+                        num++;
+                    }
+                    tmp2/=num*16;
+                    //cout<<tmp2<<endl;
+                    double x=tmp2;
+                    double depth=(5e-10)*x*x*x*x*x*x- 3e-07*x*x*x*x*x + 7e-05*x*x*x*x - 0.0087*x*x*x + 0.63*x*x - 26.27*x + 582.63; 
+                string distance = to_string((int)tmp2);
+                putText(color_picture, distance, Point((*it0)[0]+20,(*it0)[1] ),  FONT_HERSHEY_SIMPLEX, 1.0f, Scalar (255,255,0), 3, 8,false);
+
+           
+ 
+
+
+        }
+        imshow("obs",color_picture);
+
+
+
+    };

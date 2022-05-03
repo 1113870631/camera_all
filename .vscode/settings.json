@@ -4,6 +4,7 @@
         "thread": "cpp",
         "iostream": "cpp",
         "ratio": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "string_view": "cpp"
     }
 }

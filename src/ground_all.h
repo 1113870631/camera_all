@@ -2,7 +2,7 @@
 #define  __GROUND_ALL_H__
 #include <opencv2/opencv.hpp>
 
-void  ground_all(cv::Mat disp);
+void  ground_all(cv::Mat disp,cv::Mat color_picture);
 
 
 

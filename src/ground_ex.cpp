@@ -105,7 +105,7 @@ void ground_ex(lines_zoom * zoom,Mat v   ,Mat  disp)
 
 #define Ground_err 10
 //分离地面
-void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
+void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp,Mat & color_picture){
     //为空返回
     if(ground_line_v.empty()){
         return;
@@ -144,7 +144,9 @@ void Ground_Ex_line(vector<Vec4f>ground_line_v, Mat  &disp){
                 {
                     uchar *data = disp.ptr<uchar>(tmp_v, tmp_U);
                     if((int)(*data)-tmp_disp<Ground_err&&(int)(*data)-tmp_disp>-Ground_err)
-                    *data=0;
+                   { *data=0;
+                    color_picture.at<Vec3b>(tmp_v,tmp_U)=0;
+                    }
                     //cout<<(int)*data<<endl;               
                 }
         }          
