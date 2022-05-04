@@ -79,10 +79,16 @@ extern Mat row;
                         num++;
                    }        
                  }
-                 if(num!=0){
-                    cout<<tmp_dis/num<<endl;
-                 }
-                
+                 if(num!=0){      
+                     tmp_dis/=num;
+                    //cout<<tmp_dis/num<<endl;
+                 }else continue;//没有找到符合的时差值
+                 //计算距离
+                 double x=tmp_dis;
+                 //y = 4E-06x4 - 0.0015x3 + 0.2075x2 - 13.826x + 437.06
+                 double depth =  (4E-06)*x*x*x*x-0.0015* x*x*x+ 0.2075*x*x - 13.826*x + 437.06;
+                 string distance = to_string((int)depth);
+                 putText(color_picture, distance, Point((*it0)[0]+20,(*it0)[1] ),  FONT_HERSHEY_SIMPLEX, 1.0f, Scalar (255,255,0), 3, 8,false);                 
         }
         imshow("obs",color_picture);
         //imshow("row",row);
