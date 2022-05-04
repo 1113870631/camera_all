@@ -74,8 +74,8 @@ extern Mat row;
             int num=0;
             for(int i=(*it0)[2]+10;i<(*it0)[0]-10;i++)
                 for(int j=(*it0)[3];j<(*it0)[1];j++){
-                    if( (row.at<short>(i,j)/16)>0){
-                        tmp_dis+= (row.at<short>(i,j)/16);
+                    if( (row.at<short>(Point(i,j))/16)>0){
+                        tmp_dis+= (row.at<short>(Point(i,j))/16);
                         num++;
                    }        
                  }

@@ -137,6 +137,7 @@ while(1)
          medianBlur(row,row,5);
          blur(sgm_guiyi,sgm_guiyi,Size(3,3),Point(-1,-1),4);
          blur(row,row,Size(3,3),Point(-1,-1),4);
+         imshow("row",row);
 
          //伪彩图
          Mat im_color;
