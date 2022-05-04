@@ -82,7 +82,7 @@ void ground_all(Mat disp,Mat color_picture){
      Obstacle_line_Deal(ground_line_v,VdispMap);
      vector<cv::Vec4f>Obstacles;
      Obstacle_detection(abstract_line_v,u_line,disp,Obstacles); 
-     Obstacle_dis_rectangle(Obstacles,color_picture,row);
+     Obstacle_dis_rectangle(Obstacles,color_picture);
 
 };
 

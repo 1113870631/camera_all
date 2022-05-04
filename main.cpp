@@ -27,8 +27,8 @@ Mat row,sgm_guiyi;
     int setSpeckleRange=1;
     int setDisp12MaxDiff=500;
     int setMinDisparity=0;
-    int p1=112;
-    int p2=45;
+    int p1=21;
+    int p2=61;
 
 
     //立体匹配参数回调函数
@@ -133,6 +133,10 @@ while(1)
         //立体匹配  注意顺序
          Mat sgm_guiy; 
          sgm(out1,out2,&sgm_guiyi,&row,setNumDisparities);
+         medianBlur(sgm_guiyi,sgm_guiyi,5);
+         medianBlur(row,row,5);
+         blur(sgm_guiyi,sgm_guiyi,Size(3,3),Point(-1,-1),4);
+         blur(row,row,Size(3,3),Point(-1,-1),4);
 
          //伪彩图
          Mat im_color;

@@ -13,7 +13,7 @@ using namespace cv;
  * u_line                        U视图 障碍物直线
  */
  void Obstacle_detection( vector<cv::Vec4f>abstract_line_v,vector<cv::Vec4f>u_line,Mat & disp,vector<cv::Vec4f>&Obstacles);
-void Obstacle_dis_rectangle(vector<cv::Vec4f> Obstacles,Mat color_picture,Mat disp);
+void Obstacle_dis_rectangle(vector<cv::Vec4f> Obstacles,Mat color_picture);
 
 
 
