@@ -224,7 +224,7 @@ void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap,vector<Vec4f>
 	 // Vec4f(abstract_line_v.at(pos)[0],y.at(0),abstract_line_v.at(pos)[0],y.at(y.size()-1));
 	  abstract_line_v_end.push_back(Vec4f(abstract_line_v.at(pos)[0],y.at(0),abstract_line_v.at(pos)[0],y.at(y.size()-1)));
 	}	 
-   imshow("vv",VdispMap);	
+   //imshow("vv",VdispMap);	
 }
 	
 
