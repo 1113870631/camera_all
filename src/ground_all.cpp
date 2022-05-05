@@ -79,7 +79,8 @@ void ground_all(Mat disp,Mat color_picture){
     Ground_line_Deal(ground_line_v,VdispMap);
      Ground_Ex_line(ground_line_v, disp,color_picture);
      //障碍物直线处理 障碍物提取
-     Obstacle_line_Deal(ground_line_v,VdispMap);
+     vector<Vec4f>abstract_line_v_end;
+     Obstacle_line_Deal(abstract_line_v,VdispMap,abstract_line_v_end);
      vector<cv::Vec4f>Obstacles;
      Obstacle_detection(abstract_line_v,u_line,disp,Obstacles); 
      Obstacle_dis_rectangle(Obstacles,color_picture);

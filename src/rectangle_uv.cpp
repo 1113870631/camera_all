@@ -155,16 +155,65 @@ void Ground_line_Deal(vector<Vec4f>&ground_line_v,Mat VdispMap){
 		}
 	} 
 	//距离过滤
+
+
 	
 
 };
 
 
+bool  comp( Vec4f &a,  Vec4f &b) {
+	return a[0] < b[0];
+}
+void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap,vector<Vec4f>&abstract_line_v_end){
+	if(abstract_line_v.size()<=1)
+	return;
+	vector<Vec4f>::iterator it0;
+	//V 图直线合并
+		//排序
+	sort(abstract_line_v.begin(),abstract_line_v.end(),comp);
+	  //寻找大间隔
+	  vector<Vec4f>list;
+	  int num=0;
+	  // ag 4           size=4     size-1=3 
+	for(int i=0;i<abstract_line_v.size()-1;i++){
+		num++;
+		if(   abstract_line_v.at(i+1)[0]-abstract_line_v.at(i)[0]>5   ){
+					//找到大间隔	
+					/*
+					有以下情况
+					1   |||||||||||||    ||||||||||||||||
+					2  ||||||||||||||||||||||||         |
+					*/
+					if(i==abstract_line_v.size()-2){//倒数第一个和第二个有大间隔   
+						//pushback    
+						list.push_back(Vec4f(i,num,abstract_line_v.at(i)[0],0));
+						list.push_back(Vec4f(i+1,1,abstract_line_v.at(i+1)[0],0));
+					}
+					else{//中间有大间隔
+						list.push_back(Vec4f(i,num,abstract_line_v.at(i)[0],0));
+						num=0;
+					}
+					//line(VdispMap,Point(abstract_line_v.at(i+1)[0],VdispMap.rows),Point(abstract_line_v.at(i+1)[0],0),Scalar(255,255,255),4,8,0);
+					//line(VdispMap,Point(abstract_line_v.at(i)[0],VdispMap.rows),Point(abstract_line_v.at(i)[0],0),Scalar(255,255,255),4,8,0);
+		}  
+		else if (i==abstract_line_v.size()-2){//没有遇到
+		 	if(i==abstract_line_v.size()-2){
+				 	list.push_back(Vec4f(i+1,num+1,abstract_line_v.at(i+1)[0],0));
+			 }
+		}
+		
+    }
 
-void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap){
-
-
-};
+	for(it0=list.begin();it0!=list.end();it0++){
+		//debug划线
+		//line(VdispMap,Point((*it0)[2],VdispMap.rows),Point((*it0)[2],0),Scalar(255,255,255),4,8,0);
+		//聚合
+		
+	}	 
+   imshow("vv",VdispMap);	
+}
+	
 
 
 void Ground_Obstacle__Line_deal(vector<Vec4f>&abstract_line_v,vector<Vec4f>&ground_line_v, Mat &VdispMap){

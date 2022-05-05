@@ -17,7 +17,7 @@ void connected_components_stat(Mat& image,\
 
 //直线处理
 void Ground_line_Deal(vector<Vec4f>&ground_line_v,Mat VdispMap);
-void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap);
+void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap,vector<Vec4f>&abstract_line_v_end);
 
 
 void Ground_Obstacle__Line_deal(vector<Vec4f>&abstract_line_v,vector<Vec4f>&ground_line_v, Mat &VdispMap);
