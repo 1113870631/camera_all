@@ -204,12 +204,25 @@ void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap,vector<Vec4f>
 		}
 		
     }
-
+   //聚合
 	for(it0=list.begin();it0!=list.end();it0++){
 		//debug划线
 		//line(VdispMap,Point((*it0)[2],VdispMap.rows),Point((*it0)[2],0),Scalar(255,255,255),4,8,0);
-		//聚合
-		
+		vector<int>y;
+		int num=(*it0)[1];
+		int pos=(*it0)[0];
+		int x=(*it0)[2];
+		for(int j=pos-num+1;j<=pos;j++){
+			//cout<<j<<endl;
+			y.push_back(abstract_line_v.at(j)[1]);
+			y.push_back(abstract_line_v.at(j)[3]);
+		}
+		sort(y.begin(),y.end());
+		//circle(VdispMap,Point(abstract_line_v.at(pos)[0],y.at(y.size()-1)),5,Scalar(255,255,255),1,8,0);
+		//circle(VdispMap,Point(abstract_line_v.at(pos)[0],y.at(0)),5,Scalar(255,255,255),1,8,0);
+	   //line(VdispMap,Point(abstract_line_v.at(pos)[0],y.at(0)),Point(abstract_line_v.at(pos)[0],y.at(y.size()-1)),Scalar(255,255,255),4,8,0);
+	 // Vec4f(abstract_line_v.at(pos)[0],y.at(0),abstract_line_v.at(pos)[0],y.at(y.size()-1));
+	  abstract_line_v_end.push_back(Vec4f(abstract_line_v.at(pos)[0],y.at(0),abstract_line_v.at(pos)[0],y.at(y.size()-1)));
 	}	 
    imshow("vv",VdispMap);	
 }
