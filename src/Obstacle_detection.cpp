@@ -57,16 +57,20 @@ extern Mat row;
 /**
  * @brief 
  *标出障碍物并计算距离
+ * 计算障碍物世界坐标reprojectImageTo3D 
  * 
  * @param Obstacles   障碍物
  * @param color_picture   显示的图片
  */
 
  extern Mat row;
-    void Obstacle_dis_rectangle(vector<cv::Vec4f> Obstacles,Mat color_picture){
+ extern Mat  Q_my;
+    void Obstacle_dis_rectangle(vector<cv::Vec4f> Obstacles,Mat color_picture,Mat disp,Mat World_coordinate_pos){
         
         vector<Vec4f>::iterator it0;
         for(it0=Obstacles.begin();it0!=Obstacles.end();it0++){
+            //计算世界坐标
+            reprojectImageTo3D (disp,World_coordinate_pos,Q_my,false,-1);
             //画矩形
             rectangle(color_picture,Point((*it0)[0],(*it0)[1]),Point((*it0)[2],(*it0)[3]),Scalar(0,255,0),3,8,0);
             //算视差
@@ -88,6 +92,7 @@ extern Mat row;
                  //y = 4E-06x4 - 0.0015x3 + 0.2075x2 - 13.826x + 437.06
                  double depth =  (4E-06)*x*x*x*x-0.0015* x*x*x+ 0.2075*x*x - 13.826*x + 437.06;
                  string distance = to_string((int)depth);
+                 string word_pos=to_string(World_coordinate_pos.at<int>(Point((*it0)[2],(*it0)[3])));
                  putText(color_picture, distance, Point((*it0)[0]+20,(*it0)[1] ),  FONT_HERSHEY_SIMPLEX, 1.0f, Scalar (255,255,0), 3, 8,false);                 
         }
         imshow("obs",color_picture);

@@ -19,6 +19,7 @@ using namespace cv;
 using namespace std;
 
 Mat row,sgm_guiyi;    
+Mat Q_my;
   //立体匹配参数
     int setblock=5;
     int setNumDisparities=165;
@@ -50,7 +51,7 @@ int main()
     Mat  mat12;
     Mat  mat21;
     Mat  mat22;
-    Mat Q_my;
+    
    //得到重映射矩阵  和有效区域
     jibian_zhuanhuan(& mat11,&mat12,&mat21,&mat22,&Q_my,Size(640,480),&validPixROI1,&validPixROI2);
     //--- INITIALIZE VIDEOCAPTURE
