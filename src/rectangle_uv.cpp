@@ -178,7 +178,7 @@ void Obstacle_line_Deal(vector<Vec4f>&abstract_line_v,Mat VdispMap,vector<Vec4f>
 	  // ag 4           size=4     size-1=3 
 	for(int i=0;i<abstract_line_v.size()-1;i++){
 		num++;
-		if(   abstract_line_v.at(i+1)[0]-abstract_line_v.at(i)[0]>5   ){
+		if(   abstract_line_v.at(i+1)[0]-abstract_line_v.at(i)[0]>10   ){
 					//找到大间隔	
 					/*
 					有以下情况

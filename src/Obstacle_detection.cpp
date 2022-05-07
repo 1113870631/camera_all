@@ -92,8 +92,13 @@ extern Mat row;
                  //y = 4E-06x4 - 0.0015x3 + 0.2075x2 - 13.826x + 437.06
                  double depth =  (4E-06)*x*x*x*x-0.0015* x*x*x+ 0.2075*x*x - 13.826*x + 437.06;
                  string distance = to_string((int)depth);
-                 string word_pos=to_string(World_coordinate_pos.at<int>(Point((*it0)[2],(*it0)[3])));
-                 putText(color_picture, distance, Point((*it0)[0]+20,(*it0)[1] ),  FONT_HERSHEY_SIMPLEX, 1.0f, Scalar (255,255,0), 3, 8,false);                 
+                 int center_x=((*it0)[2]+(*it0)[0])/2;
+                 int center_y=((*it0)[3]+(*it0)[1])/2;
+                 string word_pos="("+to_string((int)World_coordinate_pos.at<Vec3f>(Point(center_x,center_y))[0]/10);
+                 word_pos+=","+to_string((int)World_coordinate_pos.at<Vec3f>(Point(center_x,center_y))[1]/10)+")";
+                 //cout<<word_pos<<endl;
+                 putText(color_picture, distance, Point((*it0)[0]+20,(*it0)[1]-100 ),  FONT_HERSHEY_SIMPLEX, 1.0f, Scalar (255,255,0), 3, 8,false);   
+                 putText(color_picture, word_pos, Point((*it0)[0]+20,(*it0)[1]+40-100 ),  FONT_HERSHEY_SIMPLEX, 1.0f, Scalar (255,255,0), 3, 8,false);               
         }
         imshow("obs",color_picture);
         //imshow("row",row);

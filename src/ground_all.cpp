@@ -77,7 +77,7 @@ void ground_all(Mat disp,Mat color_picture){
       // 地面分离
     //地面直线过滤   分离地面跟准确
     Ground_line_Deal(ground_line_v,VdispMap);
-     Ground_Ex_line(ground_line_v, disp,color_picture);
+    // Ground_Ex_line(ground_line_v, disp,color_picture);
      //障碍物直线处理 障碍物提取
      vector<Vec4f>abstract_line_v_end;
       vector<Vec4f>abstract_line_u_end;

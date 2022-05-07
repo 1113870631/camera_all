@@ -27,15 +27,22 @@ using namespace std;
 
 extern int setNumDisparities;
 extern Mat row;
+extern Mat sgm_guiyi;
+extern Mat Q_my;
 static void onMouse( int event, int x_num, int y_num, int flag,void * disp)
 {
         switch( event )
     {
         case EVENT_LBUTTONDOWN:
+        Mat out;
+        reprojectImageTo3D (sgm_guiyi,out,Q_my,false,-1);
         cout<<"x:"<<x_num<<"  y" <<y_num<<endl;
-        for(int i=-5;i<5;i++){
+        for(int i=0;i<5;i++){
              int x= row.at<short>(Point(x_num+i,y_num))/16;//x 代表视差值
-             cout<<x<<"  ";
+            // cout<<x<<"  ";
+            // out.at<Vec3f>(Point(x_num+i,y_num))[0];
+            cout<<"("<<(int)out.at<Vec3f>(Point(x_num+i,y_num))[0]-30<<","<<(int)out.at<Vec3f>(Point(x_num+i,y_num))[1]<<")"<<" ";
+
         }          
             cout <<endl;
 /*             double depth=(5e-10)*x*x*x*x*x*x- 3e-07*x*x*x*x*x + 7e-05*x*x*x*x - 0.0087*x*x*x + 0.63*x*x - 26.27*x + 582.63;
